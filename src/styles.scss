@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/colors.styles.scss' as colors;
+
+body {
+  background-color: colors.$ds-body-background;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  color: colors.$ds-white-1;
+  margin: 0;
+  padding: 0;
+}

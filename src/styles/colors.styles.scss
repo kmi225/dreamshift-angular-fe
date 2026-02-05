@@ -1,0 +1,24 @@
+// Color tokens 
+$ds-purple-1: #411c30; // rgb(65, 28, 48)
+$ds-purple-2: #24101a; // rgb(36, 16, 26)
+$ds-yellow-1: #f6b900; // rgb(246, 185, 0)
+$ds-white-1: #ffffff; // rgb(255, 255, 255)
+$ds-black-1: #090a0c; // rgb(9, 10, 12)
+
+// Derived tokens
+$ds-purple-transparent: rgba(36,16,26,0.73);
+$ds-purple-gradient: linear-gradient(180deg, #000000 0%, #410A27 100%);
+
+$ds-header-bg: $ds-purple-1;
+$ds-body-background: $ds-purple-1;
+$ds-content-background: $ds-purple-2;
+$ds-chat-button-background: $ds-purple-2;
+$ds-primary: $ds-purple-1;
+$ds-primary-dark: $ds-purple-2;
+$ds-chat-bg: $ds-white-1;
+
+$ds-border: #eaeaea;
+$ds-radius: 14px;
+$ds-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+
+////////////////////////////////////////////////////////////
