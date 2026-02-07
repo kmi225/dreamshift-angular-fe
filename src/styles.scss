@@ -1,6 +1,11 @@
 @use './styles/colors.styles.scss' as colors;
 @use './styles/fonts.styles.scss';
 
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: colors.$ds-body-background;
   font-family: "Raleway", sans-serif;

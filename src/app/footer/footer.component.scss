@@ -1,0 +1,57 @@
+@use '../../styles/colors.styles.scss' as colors;
+@use '../../styles/content-width.styles.scss' as contentWidth;
+
+.footer-main-content {
+    margin: 0 contentWidth.$padding-width;
+    text-align: left;
+    
+    @media (max-width: contentWidth.$media-boundary) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (min-width: contentWidth.$media-boundary) and (max-width: contentWidth.$content-wide-width){
+        margin: 0 contentWidth.$padding-width;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media (min-width: contentWidth.$content-wide-width){
+        width: contentWidth.$content-width;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    } 
+}
+
+.address-info {
+    font-size: 14px;
+    line-height: 25.2px;
+}
+
+.copyright-banner {
+    height: 50px;
+    font-size: 13px;
+    background-color: colors.$ds-purple-1;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    @media (max-width: contentWidth.$media-boundary) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (min-width: contentWidth.$media-boundary) and (max-width: contentWidth.$content-wide-width){
+        width: 100%;
+        padding: 0 contentWidth.$padding-width
+    }
+
+    @media (min-width: contentWidth.$content-wide-width){
+        .copyright-banner-text-container {
+            width: contentWidth.$content-width;
+            margin: 0 auto;
+        }
+    }
+}
