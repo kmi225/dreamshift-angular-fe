@@ -4,6 +4,7 @@
 .footer-main-content {
     margin: 0 contentWidth.$padding-width;
     text-align: left;
+    border: 2px solid white;
     
     @media (max-width: contentWidth.$media-boundary) {
         text-align: center;

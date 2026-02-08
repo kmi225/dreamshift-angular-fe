@@ -8,19 +8,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 300px;
+  border: 2px solid red;
 
   .inner-content {
     margin: 0 contentWidth.$padding-width;
     border: 2px solid colors.$ds-yellow-1;
+    min-height: 700px;
+
+    @media (min-width: contentWidth.$content-width){
+      padding: 0 contentWidth.$padding-width;
+      width: contentWidth.$content-width;
+      margin: 0 auto;
+    }
   }
 }
 
-.sm-icon {
-  font-size: 1em;
-  color: colors.$ds-white-1;
-
-  &:hover {
-    color: colors.$ds-yellow-1;
-    cursor: pointer;
-  }
+.full-width-test {
+  height: 200px;
+  background: red;
+  width: 100%;
+  position: absolute;
 }
