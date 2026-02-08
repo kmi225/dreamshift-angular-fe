@@ -24,9 +24,11 @@
   }
 }
 
-.full-width-test {
+.full-width-yellow-banner {
   height: 200px;
-  background: red;
-  width: 100%;
+  background: colors.$ds-yellow-1;
   position: absolute;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
 }
