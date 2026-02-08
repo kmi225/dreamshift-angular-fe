@@ -43,6 +43,7 @@
     
             &:hover {
                 color: colors.$ds-yellow-1;
+                cursor: pointer;
             }
         }
     
@@ -51,6 +52,9 @@
             display: flex;
             flex-wrap: wrap;
             min-height: 30px;
+
+            //TODO: Check with M if he prefers with/without this
+            justify-content: end;
         }
 
         @media (max-width: contentWidth.$media-boundary) {
@@ -67,6 +71,15 @@
         display: flex;
         gap: 10px;
 
+        .sm-icon {
+            color: colors.$ds-white-1;
+
+            &:hover {
+                color: colors.$ds-yellow-1;
+                cursor: pointer;
+            }
+        }
+
         @media (max-width: contentWidth.$media-boundary) {
             width: 100%;
             justify-content: center;
@@ -74,6 +87,9 @@
 
         @media (min-width: contentWidth.$media-boundary) {
             padding-left: 0.6em;
+
+            //TODO: Check with M if he prefers with/without this
+            justify-content: end;
         }
     }    
 }
