@@ -1,1 +1,14 @@
-header works!
+<div class="navbar-container">
+    <div class="navbar-side-container">
+        <img src="navbar-logo.png" alt="Dream Shift" />
+    </div>
+
+    <div class="navbar-side-container">
+        <i class="fa-solid fa-bars fa-lg ds-clickable-icon"></i>
+        <div class="navbar-links">
+            <a class="navlink" *ngFor="let link of links" [routerLink]="link.route">
+                {{ link.text }}
+            </a>
+        </div>
+    </div>
+</div>

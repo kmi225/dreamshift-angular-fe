@@ -1,0 +1,31 @@
+@use '../../styles/colors.styles' as colors;
+
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar-side-container {
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+
+    > img {
+        height: 42.1016px;
+        width: 56px;
+    }
+
+    .navlink {
+        color: colors.$ds-white-1;
+        text-decoration: none;
+        padding: 0  10.2px;
+        font-size: 17px;
+
+        &:hover {
+            color: colors.$ds-yellow-1;
+            cursor: pointer;
+        }
+    }
+}

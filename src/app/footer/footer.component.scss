@@ -72,15 +72,6 @@
         display: flex;
         gap: 10px;
 
-        .sm-icon {
-            color: colors.$ds-white-1;
-
-            &:hover {
-                color: colors.$ds-yellow-1;
-                cursor: pointer;
-            }
-        }
-
         @media (max-width: contentWidth.$media-boundary) {
             width: 100%;
             justify-content: center;
