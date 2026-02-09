@@ -1,10 +1,33 @@
 @use '../../styles/colors.styles' as colors;
+@use '../../styles/content-width.styles.scss' as contentWidth;
 
+.header-container {
+    background-color: colors.$ds-purple-transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+
+    &.header-hidden {
+      transform: translateY(-100%);
+    }
+}
 
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
+  @media (min-width: contentWidth.$content-width){
+    padding: 0 contentWidth.$padding-width;
+    width: contentWidth.$content-width;
+    margin: 0 auto;
+  }
+
+  @media (max-width: contentWidth.$content-width){
+    padding: 0 contentWidth.$padding-width;
+  }
 }
 
 .navbar-side-container {
@@ -17,15 +40,62 @@
         width: 56px;
     }
 
-    .navlink {
-        color: colors.$ds-white-1;
-        text-decoration: none;
-        padding: 0  10.2px;
-        font-size: 17px;
+    .navbar-icon {
+        display: none;
+      }
+      
+    .navbar-links {
+        display: flex;
+    }
 
-        &:hover {
-            color: colors.$ds-yellow-1;
-            cursor: pointer;
+    @media (max-width: contentWidth.$media-boundary) {
+        .navbar-icon {
+          display: inline-block;
+        }
+      
+        .navbar-links {
+          display: none;
         }
     }
+}
+
+.navlink {
+    color: colors.$ds-white-1;
+    text-decoration: none;
+    padding: 0  10.2px;
+    font-size: 17px;
+
+    &:hover {
+        color: colors.$ds-yellow-1;
+        cursor: pointer;
+    }
+}
+
+::ng-deep .ds-offcanvas {
+    width: 80% !important;
+}
+
+.offcanvas-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .navlink {
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+}
+
+.offcanvas-header, .offcanvas-body {
+    background-color: colors.$ds-purple-2;
+}
+
+.offcanvas-header {
+    justify-content: end;
+}
+
+.close-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
 }

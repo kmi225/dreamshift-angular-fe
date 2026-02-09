@@ -1,14 +1,47 @@
-<div class="navbar-container">
-    <div class="navbar-side-container">
-        <img src="navbar-logo.png" alt="Dream Shift" />
-    </div>
-
-    <div class="navbar-side-container">
-        <i class="fa-solid fa-bars fa-lg ds-clickable-icon"></i>
-        <div class="navbar-links">
-            <a class="navlink" *ngFor="let link of links" [routerLink]="link.route">
-                {{ link.text }}
-            </a>
+<div class="header-container" [class.header-hidden]="!isHeaderVisible">
+    <div class="navbar-container" >
+        <div class="navbar-side-container">
+          <img src="navbar-logo.png" alt="Dream Shift" />
         </div>
-    </div>
+      
+        <div class="navbar-side-container">
+          <i
+            class="fa-solid fa-bars fa-lg navbar-icon ds-clickable-icon"
+            (click)="openMenu(offcanvasMenu)"
+            aria-label="Open navigation menu"
+            role="button"
+          ></i>
+      
+          <div class="navbar-links">
+            <a class="navlink" *ngFor="let link of links" [routerLink]="link.route">
+              {{ link.text }}
+            </a>
+          </div>
+        </div>
+    </div>      
 </div>
+
+<ng-template #offcanvasMenu let-offcanvas>
+  <div class="offcanvas-header">
+    <button
+      type="button"
+      class="close-button"
+      aria-label="Close"
+      (click)="offcanvas.close()"
+    >
+    <i class="fa-solid fa-xmark fa-lg ds-clickable-icon"></i>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="offcanvas-nav">
+      <a
+        class="navlink"
+        *ngFor="let link of links"
+        [routerLink]="link.route"
+        (click)="offcanvas.close()"
+      >
+        {{ link.text }}
+      </a>
+    </nav>
+  </div>
+</ng-template>

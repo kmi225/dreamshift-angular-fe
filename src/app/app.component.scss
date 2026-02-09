@@ -10,11 +10,12 @@
   justify-content: space-between;
   min-width: 300px;
   border: 2px solid red;
+  padding-top: 96px; //fixed-header-height-adjustments
 
   .inner-content {
     margin: 0 contentWidth.$padding-width;
     border: 2px solid colors.$ds-yellow-1;
-    min-height: 700px;
+    min-height: 1700px;
 
     @media (min-width: contentWidth.$content-width){
       padding: 0 contentWidth.$padding-width;

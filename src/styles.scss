@@ -1,6 +1,8 @@
 @use './styles/colors.styles.scss' as colors;
 @use './styles/fonts.styles.scss';
 
+/* Importing Bootstrap SCSS file. */
+@use 'bootstrap/scss/bootstrap';
 
 * {
   box-sizing: border-box;
