@@ -65,6 +65,9 @@ export class HeaderComponent {
   }
 
   public openMenu(content: TemplateRef<any>) {
-    this.offcanvasService.open(content, { position: 'end' });
+    this.offcanvasService.open(content, { 
+      position: 'end',
+      panelClass: 'ds-header-offcanvas'
+    });
   }
 }
