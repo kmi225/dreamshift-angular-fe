@@ -4,7 +4,7 @@
 .footer-main-content {
     margin: 0 contentWidth.$padding-width;
     text-align: left;
-    border: 2px solid white;
+    // border: 2px solid white;
     
     @media (max-width: contentWidth.$media-boundary) {
         text-align: center;
@@ -41,6 +41,7 @@
             color: colors.$ds-white-1;
             padding: 0.6em;
             white-space: nowrap;
+            text-decoration: none;
     
             &:hover {
                 color: colors.$ds-yellow-1;

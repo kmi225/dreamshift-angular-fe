@@ -9,27 +9,20 @@
   flex-direction: column;
   justify-content: space-between;
   min-width: 300px;
-  border: 2px solid red;
-  padding-top: 96px; //fixed-header-height-adjustments
-
+  
   .inner-content {
     margin: 0 contentWidth.$padding-width;
     border: 2px solid colors.$ds-yellow-1;
-    min-height: 1700px;
+    // min-height: 1700px;
 
     @media (min-width: contentWidth.$content-width){
       padding: 0 contentWidth.$padding-width;
       width: contentWidth.$content-width;
       margin: 0 auto;
     }
-  }
-}
 
-.full-width-yellow-banner {
-  height: 200px;
-  background: colors.$ds-yellow-1;
-  position: absolute;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
+    @media (min-width: contentWidth.$media-boundary){
+      margin-top: 96px; //fixed-header-height-adjustments
+    }
+  }
 }

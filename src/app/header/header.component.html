@@ -16,6 +16,9 @@
             <a class="navlink" *ngFor="let link of links" [routerLink]="link.route">
               {{ link.text }}
             </a>
+            <button type="button" class="btn ds-primary-btn">
+              Free Consultation
+            </button>
           </div>
         </div>
     </div>      
@@ -42,6 +45,9 @@
       >
         {{ link.text }}
       </a>
+      <button type="button" class="btn ds-primary-btn side-menu-btn">
+        Get Started
+      </button>
     </nav>
   </div>
 </ng-template>

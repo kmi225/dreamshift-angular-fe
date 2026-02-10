@@ -17,10 +17,30 @@ body {
 }
 
 .ds-clickable-icon {
-  color: colors.$ds-white-1;;
+  color: colors.$ds-white-1;
 
   &:hover {
-    color: colors.$ds-yellow-1;
-    cursor: pointer;
+      color: colors.$ds-yellow-1;
+      cursor: pointer;
   }
+}
+
+.ds-primary-btn {
+  background-color: colors.$ds-yellow-1;
+  font-weight: 600;
+
+  &:hover {
+      cursor: pointer;
+      background-color: colors.$ds-yellow-2;
+      box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
+  }
+}
+
+.full-width-yellow-banner {
+  height: 200px;
+  background: colors.$ds-yellow-1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
 }
