@@ -1,0 +1,18 @@
+<ngb-carousel
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="true"
+	(slide)="onSlide($event)"
+	class="testimonials-track"
+    [showNavigationIndicators]="false"
+>
+	@for (slide of testimonialSlides; track $index) {
+		<ng-template ngbSlide>
+			<div class="testimonials-slide">
+				@for (testimonial of slide; track testimonial.id) {
+                    <app-client-testimonial [testimonial]="testimonial"></app-client-testimonial>
+				}
+			</div>
+		</ng-template>
+	}
+</ngb-carousel>

@@ -1,0 +1,57 @@
+@use '../../../styles/colors.styles.scss' as colors;
+
+.testimonial-container {
+    background-image: colors.$ds-purple-gradient;
+    border: 2px solid colors.$ds-yellow-1;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: -webkit-fill-available;
+}
+
+.testimonial-text {
+    color: colors.$ds-white-1;
+    font-family: "Inter", Sans-serif;
+    padding: 0 0 0 0;
+    margin-bottom: 28px;
+    font-size: 20.5px;
+    font-weight: 400;
+    letter-spacing: 0;
+    border-radius: 0 0 0 0;
+    text-align: center;
+
+    .emoji {
+        height: 1em;
+        width: 1em;
+    }
+}
+
+.testimonial-image {
+    flex: 0 0 65px;
+    max-width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+.testimonial-name {
+    color: colors.$ds-white-1;
+    font-family: "Inter", Sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 0;
+    padding-top: 15px;
+    max-width: 100%;
+}
+
+.testimonial-position {
+    color: colors.$ds-white-1;
+    font-family: "Inter", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 0px;
+}
+

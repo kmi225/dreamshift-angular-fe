@@ -1,0 +1,29 @@
+@use '../../../styles/colors.styles.scss' as colors;
+
+.company-list-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.company-list-track {
+  display: flex;
+  will-change: transform;
+  gap: 2rem;
+  width: max-content;
+  animation: company-list-scroll 40s linear infinite;
+}
+
+.client-logo {
+  flex: 0 0 auto;
+  height: auto;
+  display: block;
+  width: 228px;
+}
+@keyframes company-list-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

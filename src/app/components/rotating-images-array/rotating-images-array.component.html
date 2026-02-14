@@ -1,0 +1,7 @@
+<div class="company-list-container">
+    <div #track class="company-list-track">
+      @for (company of companiesList; track company.label) {
+        <img [src]="company.imageURL" class="client-logo" [alt]="company.label" />
+      }
+    </div>
+</div>
