@@ -1,0 +1,28 @@
+<div class="services-main-text" id="main-services">Our Main Services</div>
+<div class="services-sub-text">(60-Day Interview Guarantee)</div>
+
+<div class="services-container">
+    @for (service of services; track service.id) {
+        <div class="service-card">
+            <div class="service-card-header">
+                <i [class]="service.icon" class="service-card-icon"></i>
+                <div class="service-card-header-title">
+                    <h3>{{ service.title }}</h3>
+                </div>
+            </div>
+            <div class="service-card-content">
+                <p>{{ service.subtitle }}</p>
+            </div>
+            <div class="service-card-content">
+                @for (bullet of service.bullets; track bullet) {
+                    <i class="fa-solid fa-circle-check fa-sm service-card-bullet-icon"></i>
+                    {{ bullet }}
+                    <br/>
+                }
+            </div>
+            <div class="service-price">
+                <p>{{ service.price }}</p>
+            </div>
+        </div>
+    }
+</div>

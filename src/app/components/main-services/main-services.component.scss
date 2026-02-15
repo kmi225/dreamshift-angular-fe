@@ -1,0 +1,84 @@
+@use '../../../styles/colors.styles.scss' as colors;
+@use '../../../styles/content-width.styles.scss' as contentWidth;   
+
+.services-main-text {
+    font-size: 36px;
+    line-height: 1.2;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 600;
+    color: colors.$ds-white-1;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.services-sub-text {
+    font-size: 30px;
+    line-height: 1.2;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 600;
+    color: colors.$ds-white-1;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    
+    @media (min-width: contentWidth.$media-boundary) {
+        justify-content: space-between;
+    }
+
+    @media (max-width: contentWidth.$media-boundary) {
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.service-card {
+    border: 1px solid colors.$ds-white-1;
+    border-radius: 17px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: -webkit-fill-available;
+
+    @media (min-width: contentWidth.$media-boundary) {
+        width: 32%;
+    }
+    
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary){    
+        width: 40%;
+    }
+    
+    @media (max-width: contentWidth.$content-narrow-width) {
+        width: 80%;
+    }
+
+    .service-card-header {
+        text-align: center;
+    }
+
+    .service-card-icon {
+        color: colors.$ds-yellow-1;
+        height: 60px;
+        margin-top: 30px;
+        margin-bottom: -20px;
+    }
+
+    .service-card-bullet-icon {
+        color: colors.$ds-yellow-1;
+        margin-right: 5px;
+    }
+
+    .service-price {
+        color: colors.$ds-yellow-1;
+        margin-top: 20px;
+        line-height: normal;
+        font-family: "Inter", Sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+    }
+}
