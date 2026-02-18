@@ -14,6 +14,7 @@ body {
   color: colors.$ds-white-1;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .ds-clickable-icon {
@@ -32,6 +33,7 @@ body {
   &:hover {
       cursor: pointer;
       background-color: colors.$ds-yellow-2;
+      color: colors.$ds-black-1;
       box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
   }
 }

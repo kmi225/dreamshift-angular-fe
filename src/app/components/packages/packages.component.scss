@@ -1,7 +1,7 @@
 @use '../../../styles/colors.styles.scss' as colors;
 @use '../../../styles/content-width.styles.scss' as contentWidth;   
 
-.services-main-text {
+.packages-main-text {
     font-size: 36px;
     line-height: 1.2;
     font-family: "Inter", Sans-serif;
@@ -11,16 +11,8 @@
     margin-top: 50px;
 }
 
-.services-sub-text {
-    font-size: 30px;
-    line-height: 1.2;
-    font-family: "Inter", Sans-serif;
-    font-weight: 600;
-    color: colors.$ds-white-1;
-    text-align: center;
-}
 
-.services-container {
+.packages-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -37,14 +29,23 @@
     }
 }
 
-.service-card {
-    border: 1px solid colors.$ds-white-1;
+.package-card {
+    background-color: colors.$ds-white-1;
+    color: colors.$ds-black-1;
     border-radius: 17px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: -webkit-fill-available;
+    border: 2px solid colors.$ds-white-1;
+        
+
+    &:hover {
+        border: 2px solid colors.$ds-yellow-1;
+        box-shadow: 0 12px 28px rgb(0 0 0 / .08);
+        transform: translateY(-2px);
+    }
 
     @media (min-width: contentWidth.$media-boundary) {
         width: 32%;
@@ -57,29 +58,19 @@
     @media (max-width: contentWidth.$content-narrow-width) {
         width: 80%;
     }
+}
 
-    .service-card-header {
-        text-align: center;
-    }
+.package-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: colors.$ds-black-1;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
 
-    .service-card-icon {
-        color: colors.$ds-yellow-1;
-        height: 60px;
-        margin-top: 30px;
-        margin-bottom: -20px;
-    }
-
-    .service-card-bullet-icon {
-        color: colors.$ds-yellow-1;
-        margin-right: 5px;
-    }
-
-    .service-price {
-        color: colors.$ds-yellow-1;
-        margin-top: 20px;
-        line-height: normal;
-        font-family: "Inter", Sans-serif;
-        font-weight: 500;
-        font-size: 15px;
-    }
+.package-price {
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: .3px;
 }

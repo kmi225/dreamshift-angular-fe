@@ -1,0 +1,68 @@
+@use '../../../styles/colors.styles.scss' as colors;
+@use '../../../styles/content-width.styles.scss' as contentWidth;
+
+.testimonials-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonials-slide {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+::ng-deep .carousel-control-prev {
+    right: 0;
+    left: unset;
+    justify-content: end;
+}
+
+::ng-deep .carousel-control-next {
+    left: 0;
+    right: unset;
+    justify-content: start;
+}
+
+::ng-deep .carousel-control-prev-icon, ::ng-deep .carousel-control-next-icon {
+    transform: rotate(180deg);
+}
+
+@media (min-width: contentWidth.$media-boundary) {
+    .video-testimonial-item {
+        width: 29%;
+    }
+}
+
+@media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary){    
+    .video-testimonial-item {
+        width: 40%;
+    }
+}
+
+@media (max-width: contentWidth.$content-narrow-width) {
+    .video-testimonial-item {
+        width: 80%;
+    }
+}
+
+.video-testimonial-item  {
+    height: 500px;
+    position: relative;
+    display: block;
+
+    iframe {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+

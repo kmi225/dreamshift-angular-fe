@@ -1,0 +1,15 @@
+<div class="packages-main-text" id="packages">Our Packages</div>
+
+<div class="packages-container">
+    @for (package of packages; track package.id) {
+        <div class="package-card">
+            <h3 class="package-header">{{ package.title }}</h3>
+            <div class="package-card-content">
+                <p>{{ package.ideal }}</p>
+            </div>
+            <div class="package-card-content">
+                <p>{{ package.price }}</p>
+            </div>
+        </div>
+    }
+</div>

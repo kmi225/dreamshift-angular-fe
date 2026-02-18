@@ -1,0 +1,26 @@
+<ngb-carousel
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="true"
+	(slide)="onSlide($event)"
+	class="testimonials-track"
+    [showNavigationIndicators]="false"
+>
+	@for (slide of testimonialSlides; track $index) {
+		<ng-template ngbSlide>
+			<div class="testimonials-slide">
+				@for (testimonial of slide; track testimonial.id) {
+					<div class="video-testimonial-item">
+						<iframe 
+							[src]="getSanitizedVideoURL(testimonial)"
+							frameborder="0" 
+							allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+							referrerpolicy="strict-origin-when-cross-origin" 
+							[title]="testimonial.title"
+						></iframe>
+					</div>
+				}
+			</div>
+		</ng-template>
+	}
+</ngb-carousel>
