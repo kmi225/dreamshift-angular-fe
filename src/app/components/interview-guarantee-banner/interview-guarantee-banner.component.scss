@@ -1,0 +1,59 @@
+@use '../../../styles/colors.styles.scss' as colors;
+
+.interview-guarantee-container {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 17px;
+    border: 2px solid colors.$ds-yellow-1;
+    background: colors.$ds-purple-gradient;
+    background-image: radial-gradient(at top center, colors.$ds-purple-1 23%, colors.$ds-purple-2 92%);
+    max-width: 800px;
+    margin: 50px auto 0px auto;
+
+
+    img {
+        margin: 20px;
+        height: 140px;
+    }
+
+    .interview-guarantee-text-container {
+        padding: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        width: -webkit-fill-available;
+
+        h3 {
+            font-size: 30px;
+            font-weight: 600;
+            color: colors.$ds-yellow-1;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 600;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            color: colors.$ds-white-1;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: "Inter", Sans-serif;
+        }
+
+        .small-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: colors.$ds-white-1;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: "Inter", Sans-serif;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}

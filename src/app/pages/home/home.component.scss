@@ -42,19 +42,6 @@
         margin: 7vh 0;
     }
 
-    .ds-secondary-btn {
-        border: 2px solid colors.$ds-yellow-1;
-        border-radius: 40px;
-        padding: 10px 50px;
-        color: colors.$ds-white-1;
-        font-size: 21px;
-        font-weight: 600;
-
-        &:hover {
-            color: colors.$ds-purple-2;
-            background-color: colors.$ds-yellow-1;
-        }
-    }
 }
 
 .down-arrow {

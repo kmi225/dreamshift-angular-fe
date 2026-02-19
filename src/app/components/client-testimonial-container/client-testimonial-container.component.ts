@@ -3,17 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { ClientTestimonialComponent } from '../client-testimonial/client-testimonial.component';
+import { ClientTestimonial } from '../../models/client-testimonial.model';
 
 const TABLET_BREAKPOINT = 1024;
 const MOBILE_BREAKPOINT = 842;
-
-interface Testimonial {
-  id: number;
-  name: string;
-  position: string;
-  testimonial: string;
-  imageURL: string;
-}
 
 @Component({
   selector: 'app-client-testimonial-container',
@@ -26,7 +19,7 @@ export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private resizeListener: (() => void) | null = null;
 
-  readonly testimonials: Testimonial[] = [
+  readonly testimonials: ClientTestimonial[] = [
     {
       id: 1,
       name: 'John Doe',
@@ -97,8 +90,8 @@ export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
     }
   }
 
-  get testimonialSlides(): Testimonial[][] {
-    const slides: Testimonial[][] = [];
+  get testimonialSlides(): ClientTestimonial[][] {
+    const slides: ClientTestimonial[][] = [];
     for (let i = 0; i < this.testimonials.length; i += this.testimonialsPerSlide) {
       slides.push(this.testimonials.slice(i, i + this.testimonialsPerSlide));
     }

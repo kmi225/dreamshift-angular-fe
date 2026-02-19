@@ -1,13 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Testimonial {
-  id: number;
-  name: string;
-  position: string;
-  testimonial: string;
-  imageURL: string;
-}
+import { ClientTestimonial } from '../../models/client-testimonial.model';
 
 @Component({
   selector: 'app-client-testimonial',
@@ -16,5 +9,5 @@ interface Testimonial {
   styleUrl: './client-testimonial.component.scss'
 })
 export class ClientTestimonialComponent {
-  @Input() testimonial!: Testimonial;
+  @Input() testimonial!: ClientTestimonial;
 }

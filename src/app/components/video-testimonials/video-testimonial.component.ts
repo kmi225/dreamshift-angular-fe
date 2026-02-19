@@ -3,15 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { VideoTestimonial } from '../../models/video-testimonial.model';
 
 const TABLET_BREAKPOINT = 1024;
 const MOBILE_BREAKPOINT = 842;
-
-interface Testimonial {
-  id: number;
-  title: string;
-  videoURL: string;
-}
 
 @Component({
   selector: 'app-video-testimonial',
@@ -25,7 +20,7 @@ export class VideoTestimonialComponent implements OnInit, OnDestroy {
   private resizeListener: (() => void) | null = null;
   private readonly sanitizer = inject(DomSanitizer);
 
-  readonly testimonials: Testimonial[] = [
+  readonly testimonials: VideoTestimonial[] = [
     {
       id: 1,
       title: 'Yasiru&#039;s Success Story',
@@ -69,8 +64,8 @@ export class VideoTestimonialComponent implements OnInit, OnDestroy {
     }
   }
 
-  get testimonialSlides(): Testimonial[][] {
-    const slides: Testimonial[][] = [];
+  get testimonialSlides(): VideoTestimonial[][] {
+    const slides: VideoTestimonial[][] = [];
     for (let i = 0; i < this.testimonials.length; i += this.testimonialsPerSlide) {
       slides.push(this.testimonials.slice(i, i + this.testimonialsPerSlide));
     }
@@ -110,7 +105,7 @@ export class VideoTestimonialComponent implements OnInit, OnDestroy {
   /** Cached sanitized URLs so we return the same reference every time and avoid iframe reload flicker. */
   private sanitizedVideoUrls: Map<number, SafeResourceUrl> | null = null;
 
-  getSanitizedVideoURL(testimonial: Testimonial): SafeResourceUrl {
+  getSanitizedVideoURL(testimonial: VideoTestimonial): SafeResourceUrl {
     if (!this.sanitizedVideoUrls) {
       this.sanitizedVideoUrls = new Map();
       this.testimonials.forEach((t) =>

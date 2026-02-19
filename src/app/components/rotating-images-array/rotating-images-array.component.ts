@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface CompaniesListItem {
-  label: string;
-  imageURL: string;
-}
+import { CompaniesListItem } from '../../models/companies-list-item.model';
 
 @Component({
   selector: 'app-rotating-images-array',

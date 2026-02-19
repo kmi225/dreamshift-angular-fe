@@ -1,20 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Package {
-  id: number;
-  title: string;
-  ideal: string;
-  price: string;
-  currency: string;
-  bestSeller: boolean;
-  packageInclusions: string[];
-  packageExclusions: string[];
-}
-
-interface PackageInclusion {
-  id: number;
-  description: string;
-}
+import { Package } from '../../models/package.model';
 
 @Component({
   selector: 'app-packages',

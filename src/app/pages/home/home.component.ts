@@ -4,6 +4,7 @@ import { ClientTestimonialContainerComponent } from '../../components/client-tes
 import { MainServicesComponent } from '../../components/main-services/main-services.component';
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { VideoTestimonialComponent } from '../../components/video-testimonials/video-testimonial.component';
+import { InterviewGuaranteeBannerComponent } from '../../components/interview-guarantee-banner/interview-guarantee-banner.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import { VideoTestimonialComponent } from '../../components/video-testimonials/v
     ClientTestimonialContainerComponent,
     MainServicesComponent,
     PackagesComponent,
-    VideoTestimonialComponent
+    VideoTestimonialComponent,
+    InterviewGuaranteeBannerComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

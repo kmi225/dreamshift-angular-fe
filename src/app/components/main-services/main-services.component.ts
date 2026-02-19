@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
-interface MainService {
-  id: number;
-  icon: string;
-  title: string;
-  subtitle: string;
-  bullets: string[];
-  price: string;
-}
+import { MainService } from '../../models/main-service.model';
 
 @Component({
   selector: 'app-main-services',
