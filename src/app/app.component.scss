@@ -1,5 +1,5 @@
-@use '../styles/colors.styles' as colors;
-@use '../styles/content-width.styles.scss' as contentWidth;
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
 
 .content {
   background-color: colors.$ds-content-background;
