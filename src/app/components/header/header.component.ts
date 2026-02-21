@@ -66,7 +66,7 @@ export class HeaderComponent {
     this.lastScrollY = currentScrollY;
   }
 
-  public openMenu(content: TemplateRef<any>) {
+  public openMenu(content: TemplateRef<unknown>) {
     this.offcanvasService.open(content, { 
       position: 'end',
       panelClass: 'ds-header-offcanvas'

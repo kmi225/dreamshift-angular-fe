@@ -5,17 +5,21 @@
         </div>
       
         <div class="navbar-side-container">
-          <i
-            class="fa-solid fa-bars fa-lg navbar-icon ds-clickable-icon"
+          <button
+            type="button"
+            class="navbar-icon-button ds-clickable-icon"
             (click)="openMenu(offcanvasMenu)"
             aria-label="Open navigation menu"
-            role="button"
-          ></i>
+          >
+            <i class="fa-solid fa-bars fa-lg navbar-icon"></i>
+          </button>
       
           <div class="navbar-links">
-            <a class="navlink" *ngFor="let link of links" [routerLink]="link.route">
-              {{ link.text }}
-            </a>
+            @for (link of links; track link.route) {
+              <a class="navlink" [routerLink]="link.route">
+                {{ link.text }}
+              </a>
+            }
             <button type="button" class="btn ds-primary-btn">
               Free Consultation
             </button>
@@ -37,14 +41,15 @@
   </div>
   <div class="offcanvas-body">
     <nav class="offcanvas-nav">
-      <a
-        class="navlink"
-        *ngFor="let link of links"
-        [routerLink]="link.route"
-        (click)="offcanvas.close()"
-      >
-        {{ link.text }}
-      </a>
+      @for (link of links; track link.route) {
+        <a
+          class="navlink"
+          [routerLink]="link.route"
+          (click)="offcanvas.close()"
+        >
+          {{ link.text }}
+        </a>
+      }
       <button type="button" class="btn ds-primary-btn side-menu-btn">
         Get Started
       </button>

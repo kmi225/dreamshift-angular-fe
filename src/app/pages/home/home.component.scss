@@ -40,9 +40,15 @@
 
     >img {
         width: 40%;
-        margin: 7vh 0;
+        margin: 9vh 0;
     }
 
+}
+
+@media (max-width: contentWidth.$content-width) {
+    .down-arrow-container {
+        display: none;
+    }
 }
 
 .down-arrow {

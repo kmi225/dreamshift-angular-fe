@@ -25,7 +25,7 @@ export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
       id: 1,
       name: 'John Doe',
       position: 'Software Engineer',
-      testimonial: `\"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.\"`,
+      testimonial: `"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service."`,
       imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {

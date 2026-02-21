@@ -6,7 +6,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { VideoTestimonial } from '../../models/video-testimonial.model';
 
 const TABLET_BREAKPOINT = 1024;
-const MOBILE_BREAKPOINT = 842;
 
 @Component({
   selector: 'app-video-testimonial',
