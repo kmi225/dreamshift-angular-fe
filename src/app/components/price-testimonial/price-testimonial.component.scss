@@ -1,0 +1,109 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.interview-guarantee-container {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 17px;
+    border: 2px solid colors.$ds-yellow-2;
+    margin: 50px;
+
+    @media only screen and (max-width: contentWidth.$content-narrow-width   ) {
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        .small-btn {
+            font-size: 14px;
+        }
+    }
+
+    @media only screen and (min-width: contentWidth.$media-boundary) {
+        h3 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .small-btn {
+            font-size: 16px;
+        }
+    }
+
+    .client-profile {
+        margin: 10px;
+
+        img {
+            width: 30%;
+            min-width: 125px;
+            margin: 10px auto 0px auto;
+            border-radius: 50%;
+            border: 2px solid colors.$ds-yellow-2;
+            display: block;
+        }
+
+        h6 {
+            font-size: 20px;
+            font-weight: 700;
+            color: colors.$ds-white-1;
+            text-align: center;
+            margin: 20px 0px 10px 0px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 400;
+            color: colors.$ds-white-1;
+            text-align: center;
+            margin: 0px 0px 20px 0px;
+        }
+
+        @media only screen and (min-width: contentWidth.$content-narrow-width   ) {
+            border-right: 2px solid colors.$ds-yellow-2;
+            width: 45%;
+
+            h6, p {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .interview-guarantee-text-container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        width: -webkit-fill-available;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+            font-size: 33px;
+            font-weight: 600;
+            color: colors.$ds-white-1;
+            margin-bottom: 20px;
+            line-height: 2;
+            font-weight: 600;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        @media only screen and (max-width: contentWidth.$content-width   ) {
+            h3 {
+                width: 100%;
+            }
+        }
+    }
+}

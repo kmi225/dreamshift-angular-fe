@@ -9,10 +9,13 @@
     background: colors.$ds-purple-gradient;
     background-image: radial-gradient(at top center, colors.$ds-purple-1 23%, colors.$ds-purple-2 92%);
     margin: 50px;
+    padding-top: 20px;
+
 
     @media only screen and (max-width: contentWidth.$content-narrow-width   ) {
         flex-direction: column;
         align-items: center;
+        gap: 25px;
 
         h3 {
             font-size: 20px;
@@ -43,12 +46,14 @@
 
 
     img {
-        margin: 20px;
         width: 22%;
+        min-width: 175px;
+        height: fit-content;
+        margin: auto 20px;
     }
 
     .interview-guarantee-text-container {
-        padding: 20px;
+        padding: 0px 20px 20px 20px;
         display: flex;
         flex-direction: column;
         width: -webkit-fill-available;
