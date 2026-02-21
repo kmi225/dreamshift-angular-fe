@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CDN_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-interview-guarantee-banner',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './interview-guarantee-banner.component.scss'
 })
 export class InterviewGuaranteeBannerComponent {
-
+  readonly cdnUrl = CDN_URL;
 }

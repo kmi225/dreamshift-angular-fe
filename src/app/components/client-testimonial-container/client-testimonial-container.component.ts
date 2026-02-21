@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { ClientTestimonialComponent } from '../client-testimonial/client-testimonial.component';
+import { CDN_URL } from '../../constants/cdn.constants';
 import { ClientTestimonial } from '../../models/client-testimonial.model';
 
 const TABLET_BREAKPOINT = 1024;
@@ -25,42 +26,42 @@ export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
       name: 'John Doe',
       position: 'Software Engineer',
       testimonial: `\"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.\"`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {
       id: 2,
       name: 'Jane Doe',
       position: 'Software Engineer',
       testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {
       id: 3,
       name: 'John Doe',
       position: `Business Analyst <br>Peoplecare Health Insurance`,
       testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {
       id: 4,
       name: 'John Doe',
       position: 'Software Engineer',
       testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {
       id: 5,
       name: 'Jane Doe',
       position: 'Software Engineer',
       testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     },
     {
       id: 6,
       name: 'John Doe',
       position: `Business Analyst <br>Peoplecare Health Insurance`,
       testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: 'https://dreamshift.net/wp-content/uploads/2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
+      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
     }
   ];
 

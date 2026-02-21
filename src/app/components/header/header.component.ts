@@ -2,6 +2,7 @@ import { Component, TemplateRef, inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
+import { CDN_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  readonly cdnUrl = CDN_URL;
   private offcanvasService = inject(NgbOffcanvas);
   private lastScrollY = 0;
   public isHeaderVisible = true;

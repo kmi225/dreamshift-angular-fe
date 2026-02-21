@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CDN_URL } from '../../constants/cdn.constants';
 import { RotatingImagesArrayComponent } from '../../components/rotating-images-array/rotating-images-array.component';
 import { ClientTestimonialContainerComponent } from '../../components/client-testimonial-container/client-testimonial-container.component';
 import { MainServicesComponent } from '../../components/main-services/main-services.component';
@@ -19,4 +20,6 @@ import { InterviewGuaranteeBannerComponent } from '../../components/interview-gu
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {}
+export class HomeComponent {
+  readonly cdnUrl = CDN_URL;
+}
