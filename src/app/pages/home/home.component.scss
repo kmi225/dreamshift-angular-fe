@@ -1,5 +1,6 @@
 @use 'styles/colors.styles.scss' as colors;
 @use 'styles/content-width.styles.scss' as contentWidth;
+@use 'styles/fonts.styles.scss' as fonts;
 
 .banner-container {
     @media (min-width: contentWidth.$media-boundary) {

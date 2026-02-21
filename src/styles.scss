@@ -10,11 +10,17 @@
 
 body {
   background-color: colors.$ds-body-background;
-  font-family: "Raleway", sans-serif;
+  font-family: fonts.$body-font;
+  font-weight: 400;
   color: colors.$ds-white-1;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: fonts.$headings-font;
+    font-weight: 600;
+  }
 }
 
 .ds-clickable-icon {

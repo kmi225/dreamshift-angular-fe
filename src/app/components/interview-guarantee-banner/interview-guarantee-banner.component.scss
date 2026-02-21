@@ -1,4 +1,5 @@
 @use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
 
 .interview-guarantee-container {
     display: flex;
@@ -9,6 +10,37 @@
     background-image: radial-gradient(at top center, colors.$ds-purple-1 23%, colors.$ds-purple-2 92%);
     max-width: 800px;
     margin: 50px auto 0px auto;
+
+    @media only screen and (max-width: contentWidth.$media-boundary) {
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        .small-btn {
+            font-size: 14px;
+        }
+    }
+
+    @media only screen and (min-width: contentWidth.$media-boundary) {
+        h3 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .small-btn {
+            font-size: 16px;
+        }
+    }
 
 
     img {
@@ -23,7 +55,6 @@
         width: -webkit-fill-available;
 
         h3 {
-            font-size: 30px;
             font-weight: 600;
             color: colors.$ds-yellow-1;
             text-align: center;
@@ -34,7 +65,6 @@
         }
 
         p {
-            font-size: 18px;
             font-weight: 400;
             color: colors.$ds-white-1;
             text-align: center;
@@ -45,7 +75,6 @@
 
         .small-btn {
             padding: 10px 20px;
-            font-size: 16px;
             font-weight: 600;
             color: colors.$ds-white-1;
             text-align: center;
