@@ -59,6 +59,13 @@ body {
   }
 }
 
+.rounded-btn {
+  border-radius: 40px;
+  padding: 10px 50px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
 .full-width-yellow-banner {
   height: 200px;
   background: colors.$ds-yellow-1;

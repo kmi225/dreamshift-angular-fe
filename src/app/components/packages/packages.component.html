@@ -3,13 +3,44 @@
 <div class="packages-container">
     @for (package of packages; track package.id) {
         <div class="package-card">
+            <div class="best-seller-badge" *ngIf="package.bestSeller">
+                <h6>BEST SELLER</h6>
+            </div>
             <h3 class="package-header">{{ package.title }}</h3>
-            <div class="package-card-content">
-                <p>{{ package.price }}  <span class="package-currency">{{ package.currency }}</span></p>
+            <h4 class="package-price">{{ package.price }}  <span class="package-currency">{{ package.currency }}</span></h4>
+            
+            <div class="installment-text">
+                (You don't have to pay at once)
             </div>
-            <div class="package-card-content">
-                <p>{{ package.ideal }}</p>
+
+            <button class="btn ds-primary-btn rounded-btn get-started-btn">
+                Get Started
+            </button>
+
+            <div class="package-ideal-container">
+                <h5 class="package-ideal">
+                    <b>Ideal: </b>{{ package.ideal }}
+                </h5>    
             </div>
+
+            <div class="package-inclusions-container">
+                @for (inclusion of package.packageInclusions; track inclusion.id) {
+                    <div class="package-inclusion">
+                        <i class="fa-solid fa-check package-inclusion-icon"></i>
+                        <span [innerHTML]="inclusion.description" class="inclusion-text"></span>
+                    </div>
+                }
+            </div>
+
+            <div class="package-inclusions-container package-exclusions-container">
+                @for (inclusion of package.packageExclusions; track inclusion.id) {
+                    <div class="package-inclusion">
+                        <i class="fa-solid fa-x package-inclusion-icon"></i>
+                        <span [innerHTML]="inclusion.description" class="inclusion-text"></span>
+                    </div>
+                }
+            </div>
+
         </div>
     }
 </div>

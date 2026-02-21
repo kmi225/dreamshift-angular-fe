@@ -5,6 +5,11 @@ export interface Package {
   price: string;
   currency: string;
   bestSeller: boolean;
-  packageInclusions: string[];
-  packageExclusions: string[];
+  packageInclusions: PackageInclusion[];
+  packageExclusions: PackageInclusion[];
+}
+
+export interface PackageInclusion {
+  id: number;
+  description: string;
 }
