@@ -35,7 +35,7 @@
             <div class="package-inclusions-container package-exclusions-container">
                 @for (inclusion of package.packageExclusions; track inclusion.id) {
                     <div class="package-inclusion">
-                        <i class="fa-solid fa-x package-inclusion-icon"></i>
+                        <i class="fa-solid fa-xmark package-inclusion-icon"></i>
                         <span [innerHTML]="inclusion.description" class="inclusion-text"></span>
                     </div>
                 }

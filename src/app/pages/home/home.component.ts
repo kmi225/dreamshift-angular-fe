@@ -6,6 +6,7 @@ import { MainServicesComponent } from '../../components/main-services/main-servi
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { VideoTestimonialComponent } from '../../components/video-testimonials/video-testimonial.component';
 import { InterviewGuaranteeBannerComponent } from '../../components/interview-guarantee-banner/interview-guarantee-banner.component';
+import { InterviewGuaranteeBannerLargeComponent } from '../../components/interview-guarantee-banner-large/interview-guarantee-banner-large.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { InterviewGuaranteeBannerComponent } from '../../components/interview-gu
     MainServicesComponent,
     PackagesComponent,
     VideoTestimonialComponent,
-    InterviewGuaranteeBannerComponent
+    InterviewGuaranteeBannerComponent,
+    InterviewGuaranteeBannerLargeComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
