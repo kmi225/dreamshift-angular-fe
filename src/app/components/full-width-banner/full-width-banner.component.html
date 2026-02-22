@@ -2,13 +2,16 @@
     <div class="full-width-yellow-banner">
         <div class="get-started-banner">
             <div class="get-started-banner-text-container">
-                <h2>
-                    Ready To Secure Your Next Job?
+                <h1 *ngIf="isMobileDevice()">
+                    {{ getMobileText() }}
+                </h1>
+                <h2 *ngIf="!isMobileDevice()">
+                    {{ getDesktopHeading() }}
                 </h2>
-                <p>Work with us and land job interviews in 60 days.</p>    
+                <p *ngIf="!isMobileDevice()">{{ getDesktopText() }}</p>    
             </div>
             <button class="btn black-btn">
-                Get Started
+                {{ getButtonText() }}
             </button>
         </div>
     </div>

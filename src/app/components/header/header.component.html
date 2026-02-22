@@ -15,7 +15,7 @@
           </button>
       
           <div class="navbar-links">
-            @for (link of links; track link.route) {
+            @for (link of links; track link.id) {
               <a class="navlink" [routerLink]="link.route">
                 {{ link.text }}
               </a>
@@ -41,7 +41,7 @@
   </div>
   <div class="offcanvas-body">
     <nav class="offcanvas-nav">
-      @for (link of links; track link.route) {
+      @for (link of links; track link.text) {
         <a
           class="navlink"
           [routerLink]="link.route"

@@ -21,26 +21,32 @@ export class HeaderComponent {
   public isHeaderVisible = true;
 
   public readonly links = [{
+    id: 1,
     text: 'Home',
     route: 'home'
   },
   {
+    id: 2,  
     text: 'Our Services',
     route: 'services'
   },
   {
+    id: 3,
     text: 'Our Process',
     route: 'services'
   },
   {
+    id: 4,
     text: 'Aussie Job Toolkit',
     route: 'services'
   },
   {
+    id: 5,
     text: 'About Us',
     route: 'services'
   },
   {
+    id: 6,
     text: 'Blog',
     route: 'services'
   }];
