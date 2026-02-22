@@ -31,6 +31,43 @@
     }
 }
 
+.consultation-card {
+    background-color: colors.$ds-white-1;
+    color: colors.$ds-black-1;
+    border-radius: 17px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: -webkit-fill-available;
+    border: 2px solid colors.$ds-white-1;
+    position: relative;
+    margin: 30px auto;
+
+    @media (min-width: contentWidth.$media-boundary) {
+        width: 50%;
+    }
+    
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary){    
+        width: 65%;
+    }
+    
+    @media (max-width: contentWidth.$content-narrow-width) {
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .consultation-card-text {
+        text-align: center;
+    }
+
+    button {
+        margin-top: 10px;
+        font-size: 15px;
+        padding: 5px 40px;
+    }
+}
+
 .package-card {
     background-color: colors.$ds-white-1;
     color: colors.$ds-black-1;
@@ -55,7 +92,7 @@
     }
     
     @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary){    
-        width: 90%;
+        width: 65%;
     }
     
     @media (max-width: contentWidth.$content-narrow-width) {

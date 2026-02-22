@@ -1,5 +1,18 @@
 <div class="packages-main-text" id="packages">Our Packages</div>
 
+<div class="consultation-card">
+    <img 
+    [src]="cdnUrl + 'elementor/thumbs/Methsara-Dp-Popup-rdt38a6w4i545ufkx4z6tjr2tyyrmepfry045dd0iw.png'" 
+    alt="Founder Profile Photo" />
+    <div class="consultation-card-text">
+        <h4>Not sure which package suits you?</h4>
+        <button class="btn ds-primary-btn rounded-btn small-btn">
+            Book a Free Consultation
+        </button>
+    </div>
+</div>
+
+
 <div class="packages-container">
     @for (package of packages; track package.id) {
         <div class="package-card">

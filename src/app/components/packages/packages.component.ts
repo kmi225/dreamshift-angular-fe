@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Package } from '../../models/package.model';
 import { CommonModule } from '@angular/common';
+import { CDN_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-packages',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './packages.component.scss'
 })
 export class PackagesComponent {
+
+  readonly cdnUrl = CDN_URL;
 
   public readonly packages: Package[] = [ {
     id: 1,
