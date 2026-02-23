@@ -24,7 +24,7 @@ export class MainServicesComponent {
       'We do an ATS Keyword Research',
       'Finally We Brand You with Words'
     ],
-    price: '30,000 LKR Onwards'
+    price: '200 AUD Onwards'
   }, {
     id: 2,
     icon: 'fa-regular fa-file-lines fa-2xl',
@@ -36,7 +36,7 @@ export class MainServicesComponent {
       'We Give You a Templated Cover Letter',
       'We Also Give You a Fixed Cover Letter'
     ],
-    price: '15,000 LKR Onwards'
+    price: '75 AUD Onwards'
   }, {
     id: 3,
     icon: 'fa-brands fa-linkedin-in fa-2xl',
@@ -48,6 +48,6 @@ export class MainServicesComponent {
       'We write Content that\'s Easy to Read',
       'We Design your Banner & Highlights'
     ],
-    price: '30,000 LKR Onwards'
+    price: '200 AUD Onwards'
   }]
 }

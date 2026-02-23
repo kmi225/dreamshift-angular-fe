@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './full-width-banner.component.scss'
 })
 export class FullWidthBannerComponent {
-  @Input() mode: 'home' | 'services' = 'home';
+  @Input() mode: 'home' | 'services' | 'process' = 'home';
   readonly MOBILE_BREAKPOINT = 842;
 
   public isMobileDevice(): boolean {
@@ -24,6 +24,8 @@ export class FullWidthBannerComponent {
         return 'Ready to Land Job Interviews in just 60 Days?';
       case 'services':
         return 'Ready to Land Job Interviews in just 60 Days?';
+      case 'process':
+        return 'Your Journey to Excellence Begins Here';
     }
   }
 
@@ -33,6 +35,8 @@ export class FullWidthBannerComponent {
         return 'Ready To Land Job Interviews in just 60 Days?';
       case 'services':
         return 'Need to Land Job Interviews within 60 Days?';
+      case 'process':
+        return `Let's Get Started Now!`;
     }
   }
 
@@ -42,6 +46,8 @@ export class FullWidthBannerComponent {
         return 'Work with us and land job interviews in 60 days.';
       case 'services':
         return 'Our Premium Service Guarantees you Interviews!';
+      case 'process':
+        return 'Your journey to excellence begins Here';
     }
   }
 
@@ -51,6 +57,8 @@ export class FullWidthBannerComponent {
         return 'I\'m ready to start';
       case 'services':
         return 'Learn more';
+      case 'process':
+        return `Get Started`;
     }
   }
 }

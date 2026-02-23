@@ -28,12 +28,12 @@ export class HeaderComponent {
   {
     id: 2,  
     text: 'Our Services',
-    route: 'services'
+    route: 'our-services'
   },
   {
     id: 3,
     text: 'Our Process',
-    route: 'services'
+    route: 'our-process'
   },
   {
     id: 4,
