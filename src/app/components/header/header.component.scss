@@ -28,10 +28,6 @@
     width: contentWidth.$content-width;
     margin: 0 auto;
   }
-
-  // @media (max-width: contentWidth.$content-width){
-  //   padding: 0 contentWidth.$padding-width;
-  // }
 }
 
 .navbar-side-container {
@@ -40,24 +36,24 @@
     align-items: center;
 
     > img {
-        height: 42.1016px;
-        width: 56px;
+      height: 42.1016px;
+      width: 56px;
     }
 
     .navbar-icon-button {
-        display: none;
-        background: none;
-        border: none;
-        padding: 0;
-        color: inherit;
-        cursor: pointer;
-        background: transparent;
-        border: none;
-      }
+      display: none;
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
 
     .navbar-icon {
-        display: none;
-      }
+      display: none;
+    }
       
     .navbar-links {
       display: flex;

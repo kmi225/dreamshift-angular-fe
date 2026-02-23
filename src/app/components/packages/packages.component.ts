@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Package } from '../../models/package.model';
 import { CommonModule } from '@angular/common';
 import { CDN_URL } from '../../constants/cdn.constants';
@@ -10,6 +10,7 @@ import { CDN_URL } from '../../constants/cdn.constants';
   styleUrl: './packages.component.scss'
 })
 export class PackagesComponent {
+  @Input() mode: 'home' | 'services' = 'home';
 
   readonly cdnUrl = CDN_URL;
 

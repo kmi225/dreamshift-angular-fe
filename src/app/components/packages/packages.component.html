@@ -1,6 +1,6 @@
-<div class="packages-main-text" id="packages">Our Packages</div>
+<h1 class="packages-main-text" id="packages">Our Packages</h1>
 
-<div class="consultation-card">
+<div class="consultation-card" *ngIf="mode === 'home'">
     <img 
     [src]="cdnUrl + 'elementor/thumbs/Methsara-Dp-Popup-rdt38a6w4i545ufkx4z6tjr2tyyrmepfry045dd0iw.png'" 
     alt="Founder Profile Photo" />
@@ -11,6 +11,11 @@
         </button>
     </div>
 </div>
+
+<h3 class="packages-sub-text" *ngIf="mode === 'services'">
+    (60-Day Interview Guarantee)
+</h3>
+
 
 
 <div class="packages-container">

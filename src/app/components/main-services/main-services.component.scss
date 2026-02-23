@@ -2,20 +2,11 @@
 @use 'styles/content-width.styles.scss' as contentWidth;   
 
 .services-main-text {
-    font-size: 36px;
-    line-height: 1.2;
-    font-family: "Inter", Sans-serif;
-    font-weight: 600;
     color: colors.$ds-white-1;
     text-align: center;
-    margin-top: 50px;
 }
 
 .services-sub-text {
-    font-size: 30px;
-    line-height: 1.2;
-    font-family: "Inter", Sans-serif;
-    font-weight: 600;
     color: colors.$ds-white-1;
     text-align: center;
 }

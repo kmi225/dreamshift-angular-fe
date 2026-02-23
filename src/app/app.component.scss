@@ -12,7 +12,7 @@
   
   .inner-content {
     margin: 0 contentWidth.$padding-width;
-    border: 2px solid colors.$ds-yellow-1;
+    // border: 2px solid colors.$ds-yellow-1;
 
     @media (min-width: contentWidth.$content-width){
       padding: 0 contentWidth.$padding-width;

@@ -17,19 +17,39 @@ export class FullWidthBannerComponent {
     return window.innerWidth < 768;
   }
 
-  getMobileText() {
-    return 'Ready to Land Job Interviews in just 60 Days?';
+  getMobileText(): string {
+    switch (this.mode) {
+      case 'home':
+        return 'Ready to Land Job Interviews in just 60 Days?';
+      case 'services':
+        return 'Ready to Land Job Interviews in just 60 Days?';
+    }
   }
 
-  getDesktopHeading() {
-    return 'Ready To Secure Your Next Job?';
+  getDesktopHeading(): string {
+    switch (this.mode) {
+      case 'home':
+        return 'Ready To Land Job Interviews in just 60 Days?';
+      case 'services':
+        return 'Need to Land Job Interviews within 60 Days?';
+    }
   }
 
-  getDesktopText() {
-    return 'Work with us and land job interviews in 60 days.';
+  getDesktopText(): string {
+    switch (this.mode) {
+      case 'home':
+        return 'Work with us and land job interviews in 60 days.';
+      case 'services':
+        return 'Our Premium Service Guarantees you Interviews!';
+    }
   }
 
-  getButtonText() {
-    return 'Get Started';
+  getButtonText(): string {
+    switch (this.mode) {
+      case 'home':
+        return 'I\'m ready to start';
+      case 'services':
+        return 'Learn more';
+    }
   }
 }

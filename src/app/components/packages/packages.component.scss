@@ -3,13 +3,13 @@
 @use 'styles/fonts.styles.scss' as fonts;
 
 .packages-main-text {
-    font-size: 36px;
-    line-height: 1.2;
-    font-family: "Inter", Sans-serif;
-    font-weight: 600;
     color: colors.$ds-white-1;
     text-align: center;
-    margin-top: 50px;
+}
+
+.packages-sub-text {
+    color: colors.$ds-white-1;
+    text-align: center;
 }
 
 
