@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MainService } from '../../models/main-service.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-services',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './main-services.component.html',
   styleUrl: './main-services.component.scss'
 })
 export class MainServicesComponent {
+  @Input() mode: 'home' | 'services' = 'home';
+
   public readonly services: MainService[] = [ {
     id: 1,
     icon: 'fa-solid fa-pen fa-2xl',

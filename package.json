@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "deploy": "ng deploy --repo=https://github.com/kmi225/dreamshift-angular-fe.git",
+    "deploy:new": "ng build && cp dist/dreamshift-angular-fe/browser/index.html dist/dreamshift-angular-fe/browser/404.html && npx ngh --dir=dist/dreamshift-angular-fe/browser --repo=https://github.com/kmi225/dreamshift-angular-fe.git",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:dreamshift-angular-fe": "node dist/dreamshift-angular-fe/server/server.mjs",

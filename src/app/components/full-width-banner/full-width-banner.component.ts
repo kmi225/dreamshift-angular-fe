@@ -13,7 +13,8 @@ export class FullWidthBannerComponent {
   @Input() mode: 'home' | 'services' = 'home';
   readonly MOBILE_BREAKPOINT = 842;
 
-  public isMobileDevice() {
+  public isMobileDevice(): boolean {
+    if (typeof window === 'undefined') return false;
     return window.innerWidth < 768;
   }
 

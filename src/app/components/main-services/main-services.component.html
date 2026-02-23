@@ -1,5 +1,5 @@
 <h1 class="services-main-text" id="main-services">Our Main Services</h1>
-<h2 class="services-sub-text">(60-Day Interview Guarantee)</h2>
+<h3 class="services-sub-text" *ngIf="mode === 'home'">(60-Day Interview Guarantee)</h3>
 
 <div class="services-container">
     @for (service of services; track service.id) {

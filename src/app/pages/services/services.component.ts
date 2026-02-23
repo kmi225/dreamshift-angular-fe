@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { MainServicesComponent } from '../../components/main-services/main-services.component';
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
+import { FaqComponent } from '../../components/faq/faq.component';
 
 @Component({
   selector: 'app-services',
   imports: [
     MainServicesComponent,
     PackagesComponent,
-    FullWidthBannerComponent
+    FullWidthBannerComponent,
+    FaqComponent
   ],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
