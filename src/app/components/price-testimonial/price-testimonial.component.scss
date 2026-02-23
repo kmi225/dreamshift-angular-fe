@@ -103,6 +103,7 @@
         @media only screen and (max-width: contentWidth.$content-width   ) {
             h3 {
                 width: 100%;
+                word-wrap: break-word;
             }
         }
     }

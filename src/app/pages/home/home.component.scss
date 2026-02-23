@@ -41,6 +41,11 @@
     >img {
         width: 40%;
         margin: 9vh 0;
+
+        @media (max-width: contentWidth.$content-width) {
+            width: 80%;
+            margin: 0 auto; 
+        }
     }
 
 }

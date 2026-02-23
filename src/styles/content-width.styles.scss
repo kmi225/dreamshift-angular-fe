@@ -2,6 +2,7 @@ $content-width: 1290px;
 $media-boundary: 1024px;
 $content-wide-width: calc($content-width + 230px);
 $content-narrow-width: 842px;
+$content-extra-narrow-width: 650px;
 $content-edge-padding: 1.5rem;
 $content-boxed-padding: 2rem;
 $content-size: calc($content-width - $content-edge-padding - $content-edge-padding);

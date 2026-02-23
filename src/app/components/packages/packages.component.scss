@@ -72,7 +72,7 @@
     background-color: colors.$ds-white-1;
     color: colors.$ds-black-1;
     border-radius: 17px;
-    padding: 20px;
+    padding: 20px 0px;
     display: list-item;
     flex-direction: column;
     align-items: center;
@@ -145,6 +145,7 @@
     font-style: italic;
     font-weight: 400;
     text-align: center;
+    padding: 0px 20px;
 }
 
 .get-started-btn {
@@ -152,10 +153,6 @@
     padding: 10px 20px;
     margin: 0 auto;
     display: block;
-}
-
-.package-ideal-container {
-    height: 90px;
 }
 
 .package-ideal {
@@ -166,9 +163,6 @@
     text-align: center;
     color: #24101a;
     font-weight: 500;
-    position: absolute;
-    left: 0px;
-    right: 0px;
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 17px;
@@ -193,6 +187,7 @@
     margin-top: 5px;
     font-weight: 500;
     font-family: fonts.$headings-font;
+    padding: 0px 20px;
 }
 
 .package-exclusions-container {
