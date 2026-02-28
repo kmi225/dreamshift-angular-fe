@@ -1,0 +1,38 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.no-interview-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: colors.$ds-purple-1;
+    padding: 20px;
+    border-radius: 10px;
+
+    .hired-btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @media (max-width: contentWidth.$content-narrow-width) {
+        flex-direction: column;
+        align-items: center;
+
+        h4, h6 {
+            text-align: center;
+        }
+    }
+}
+
+.additional-service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+
+    button {
+        font-size: 15px;
+    }
+}

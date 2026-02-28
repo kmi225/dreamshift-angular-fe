@@ -3,6 +3,7 @@ import { MainServicesComponent } from '../../components/main-services/main-servi
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 import { FaqComponent } from '../../components/faq/faq.component';
+import { AdditionalServiceComponent } from '../../components/additional-service/additional-service.component';
 
 @Component({
   selector: 'app-services',
@@ -10,7 +11,8 @@ import { FaqComponent } from '../../components/faq/faq.component';
     MainServicesComponent,
     PackagesComponent,
     FullWidthBannerComponent,
-    FaqComponent
+    FaqComponent,
+    AdditionalServiceComponent
   ],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
