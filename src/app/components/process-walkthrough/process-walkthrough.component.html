@@ -1,13 +1,13 @@
-<div class="process-walkthrough-container">
+<div #walkthroughContainer class="process-walkthrough-container">
     <h1>Let us walk you through</h1>
     <h1 class="yellow-title">The Process</h1>
 
-    <div class="process-walkthrough-step" *ngFor="let step of processSteps">
+    <div class="process-walkthrough-step" *ngFor="let step of processSteps; let i = index">
         <div>
-            <div class="process-walkthrough-icon-container">
+            <div class="process-walkthrough-icon-container" [style.--element-progress]="getElementProgress(2 * i)">
                 <i class="fa-solid process-icon-circle" [class]="step.icon"></i>
             </div>
-            <div class="process-walkthrough-line"></div>
+            <div class="process-walkthrough-line" [style.--element-progress]="getElementProgress(2 * i + 1)"></div>
         </div>
 
         <div class="process-walkthrough-text-container">

@@ -27,11 +27,12 @@
     }
 
     .process-walkthrough-icon-container {
-        background: colors.$ds-purple-1;
+        background: color-mix(in srgb, colors.$ds-purple-1 calc((1 - var(--element-progress, 0)) * 100%), colors.$ds-yellow-1);
         width: 40px;
         height: 40px;
         border-radius: 50%;
         display: block;
+        transition: background-color 0.15s ease-in-out;
     }
 
     .process-icon-circle {
@@ -44,11 +45,17 @@
     }
 
     .process-walkthrough-line {
-        background: colors.$ds-purple-1;
+        background: linear-gradient(
+            to bottom,
+            colors.$ds-yellow-1 0%,
+            colors.$ds-yellow-1 calc(var(--element-progress, 0) * 100%),
+            colors.$ds-purple-1 calc(var(--element-progress, 0) * 100%),
+            colors.$ds-purple-1 100%
+        );
         width: 4px;
         height: 130px;
         margin-left: 18px;
-        margin-top: -2px;
+        transition: background-color 0.15s ease-in-out;
     }
 
     .process-walkthrough-text-container {

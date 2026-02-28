@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface ProcessStep {
@@ -16,7 +16,38 @@ interface ProcessStep {
   templateUrl: './process-walkthrough.component.html',
   styleUrl: './process-walkthrough.component.scss'
 })
-export class ProcessWalkthroughComponent {
+export class ProcessWalkthroughComponent implements AfterViewInit {
+  @ViewChild('walkthroughContainer') walkthroughContainer?: ElementRef<HTMLElement>;
+
+  /** Overall scroll progress 0..1 through the section */
+  scrollProgress = 0;
+
+  /** Number of elements that transition in sequence: circle, line, circle, line, ... (6 circles + 5 lines) */
+  private get totalElements(): number {
+    return this.processSteps.length * 2 - 1;
+  }
+
+  ngAfterViewInit(): void {
+    this.onWindowScroll();
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    const el = this.walkthroughContainer?.nativeElement;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const sectionHeight = rect.height;
+    const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+    this.scrollProgress = Math.max(0, Math.min(1, progress));
+  }
+
+  /** Progress 0 (purple) -> 1 (yellow) for the element at the given index (0 = first circle, 1 = first line, 2 = second circle, ...). */
+  getElementProgress(elementIndex: number): number {
+    const raw = this.scrollProgress * this.totalElements - elementIndex;
+    return Math.max(0, Math.min(1, raw));
+  }
+
   public readonly processSteps: ProcessStep[] = [
     {
       id: 1,
