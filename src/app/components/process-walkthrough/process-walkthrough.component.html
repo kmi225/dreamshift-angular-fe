@@ -1,0 +1,18 @@
+<div class="process-walkthrough-container">
+    <h1>Let us walk you through</h1>
+    <h1 class="yellow-title">The Process</h1>
+
+    <div class="process-walkthrough-step" *ngFor="let step of processSteps">
+        <div>
+            <div class="process-walkthrough-icon-container">
+                <i class="fa-solid process-icon-circle" [class]="step.icon"></i>
+            </div>
+            <div class="process-walkthrough-line"></div>
+        </div>
+
+        <div class="process-walkthrough-text-container">
+            <h5>{{ step.title }}</h5>
+            <p>{{ step.description }}</p>
+        </div>
+    </div>
+</div>

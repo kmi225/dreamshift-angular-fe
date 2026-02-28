@@ -1,6 +1,6 @@
 @use 'styles/colors.styles.scss' as colors;
 @use 'styles/fonts.styles.scss';
-
+@use 'styles/content-width.styles.scss' as contentWidth;
 /* Importing Bootstrap SCSS file. */
 @use 'bootstrap/scss/bootstrap';
 
@@ -73,4 +73,31 @@ body {
   left: 0;
   right: 0;
   box-sizing: border-box;
+}
+
+.process-video-container {
+  position: relative;
+  display: block;
+  
+  @media (min-width: contentWidth.$content-narrow-width) {
+      height: 330px;
+      margin: 15px 0 15px 0;
+  
+      .process-video {
+          position:absolute;
+          width:100%;
+          height: 100%;
+      }
+  }
+
+  @media (max-width: contentWidth.$content-narrow-width) {
+      height: 60vw;
+      margin: 10px calc(-1 * contentWidth.$padding-width);
+
+      .process-video {
+          position:absolute;
+          width:100%;
+          height: 60vw;
+      }
+  }
 }

@@ -1,0 +1,76 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.process-walkthrough-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.yellow-title {
+    color: colors.$ds-yellow-1;
+    margin-bottom: 50px;
+}
+
+.process-walkthrough-step {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+
+    @media (min-width: contentWidth.$media-boundary) {
+        width: 80%;
+    }
+
+    @media (max-width: contentWidth.$media-boundary) {
+        width: 100%;
+    }
+
+    .process-walkthrough-icon-container {
+        background: colors.$ds-purple-1;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: block;
+    }
+
+    .process-icon-circle {
+        color: black;
+        font-size: 20px;
+        display: block;
+        width: 40px;
+        height: 40px;
+        padding-top: 10px;
+    }
+
+    .process-walkthrough-line {
+        background: colors.$ds-purple-1;
+        width: 4px;
+        height: 130px;
+        margin-left: 18px;
+        margin-top: -2px;
+    }
+
+    .process-walkthrough-text-container {
+        background-color: colors.$ds-white-1;
+        padding: 20px;
+        border-radius: 10px;
+        color: colors.$ds-black-1;
+        width: -webkit-fill-available;
+        height: min-content;
+
+        p {
+            margin-bottom: 0px;
+        }
+    }
+
+    &:not(:first-child) {
+        margin-top: -1px;
+    }
+
+    &:last-child {
+        .process-walkthrough-line {
+            display: none;
+        }
+    }
+}
