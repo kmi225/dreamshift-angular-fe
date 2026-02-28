@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface ProcessStep {
@@ -18,8 +18,9 @@ interface ProcessStep {
 })
 export class ProcessWalkthroughComponent implements AfterViewInit {
   @ViewChild('walkthroughContainer') walkthroughContainer?: ElementRef<HTMLElement>;
+  @ViewChildren('iconContainer') iconContainers!: QueryList<ElementRef<HTMLElement>>;
 
-  /** Overall scroll progress 0..1 through the section */
+  /** Overall scroll progress 0..1: 0 when first circle at viewport center, 1 when last circle at viewport center */
   scrollProgress = 0;
 
   /** Number of elements that transition in sequence: circle, line, circle, line, ... (6 circles + 5 lines) */
@@ -33,12 +34,19 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
-    const el = this.walkthroughContainer?.nativeElement;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const sectionHeight = rect.height;
-    const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+    const icons = this.iconContainers?.toArray();
+    if (!icons?.length) return;
+    const first = icons[0].nativeElement.getBoundingClientRect();
+    const last = icons[icons.length - 1].nativeElement.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const y1 = first.top + first.height / 2;
+    const y2 = last.top + last.height / 2;
+    const range = y2 - y1;
+    if (range <= 0) {
+      this.scrollProgress = y1 <= viewportCenter ? 1 : 0;
+      return;
+    }
+    const progress = (viewportCenter - y1) / range;
     this.scrollProgress = Math.max(0, Math.min(1, progress));
   }
 
@@ -64,13 +72,13 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
       id: 3,
       title: 'ATS & Job Market Research',
       description: 'In-depth analysis of your industry and ATS (Applicant Tracking Systems)',
-      icon: 'fa-file-pen',
+      icon: 'fa-search',
     },
     {
       id: 4,
       title: 'Data Collection via Questionnaire',
       description: 'Offering you taregeted questions to brand your unqiueness in Resume/CV.',
-      icon: 'fa-search',
+      icon: 'fa-file-circle-question',
     },
     {
       id: 5,
