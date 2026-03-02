@@ -1,0 +1,98 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.page-container {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    h1, h3, h5 {
+        // font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .yellow-title {
+        color: colors.$ds-yellow-1;
+        text-align: center;
+    }
+
+    .video-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.aussie-resource-item {
+    background: linear-gradient(45deg,colors.$ds-purple-2,colors.$ds-purple-1);
+    border: 2px solid colors.$ds-yellow-1;
+    color: colors.$ds-yellow-1;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+
+    p {
+        color: colors.$ds-white-1;
+    }
+
+    img {
+        width: 80px;
+        height: 100px;
+        margin-bottom: 5px;
+    }
+
+    .aussie-resource-icon {
+        border-radius: 10px;
+        font-size: 50px;
+        margin: 20px auto;
+    }
+}
+
+.aussie-resources-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.row-2-container, .row-3-container {
+    margin-top: 20px;
+}
+
+@media (min-width: contentWidth.$media-boundary) {
+    .row-1-container .aussie-resource-item {
+        width: 30%;
+    }
+    .row-2-container .aussie-resource-item {
+        width: 35%;
+    }
+    .row-3-container .aussie-resource-item {
+        width: 22%;
+    }
+}
+
+@media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary) {
+    .row-1-container .aussie-resource-item {
+        width: 30%;
+    }
+    .row-2-container .aussie-resource-item {
+        width: 45%;
+    }
+    .row-3-container .aussie-resource-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: contentWidth.$content-narrow-width) {
+    .row-1-container .aussie-resource-item {
+        width: 80%;
+    }
+    .row-2-container .aussie-resource-item {
+        width: 80%;
+    }
+    .row-3-container .aussie-resource-item {
+        width: 80%;
+    }
+}

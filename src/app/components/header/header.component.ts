@@ -38,12 +38,12 @@ export class HeaderComponent {
   {
     id: 4,
     text: 'Aussie Job Toolkit',
-    route: 'services'
+    route: 'aussie-toolkit'
   },
   {
     id: 5,
     text: 'About Us',
-    route: 'services'
+    route: ''
   },
   {
     id: 6,

@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './full-width-banner.component.scss'
 })
 export class FullWidthBannerComponent {
-  @Input() mode: 'home' | 'services' | 'process' = 'home';
+  @Input() mode: 'home' | 'services' | 'process' | 'aussie-toolkit' = 'home';
   readonly MOBILE_BREAKPOINT = 842;
 
   public isMobileDevice(): boolean {
@@ -26,6 +26,8 @@ export class FullWidthBannerComponent {
         return 'Ready to Land Job Interviews in just 60 Days?';
       case 'process':
         return 'Your Journey to Excellence Begins Here';
+      case 'aussie-toolkit':
+        return 'Ready to Land Job Interviews in just 60 Days?';
     }
   }
 
@@ -37,6 +39,8 @@ export class FullWidthBannerComponent {
         return 'Need to Land Job Interviews within 60 Days?';
       case 'process':
         return `Let's Get Started Now!`;
+      case 'aussie-toolkit':
+        return 'Ready to Land Job Interviews in just 60 Days?';
     }
   }
 
@@ -47,6 +51,8 @@ export class FullWidthBannerComponent {
       case 'services':
         return 'Our Premium Service Guarantees you Interviews!';
       case 'process':
+        return 'Your journey to excellence begins Here';
+      case 'aussie-toolkit':
         return 'Your journey to excellence begins Here';
     }
   }
@@ -59,6 +65,8 @@ export class FullWidthBannerComponent {
         return 'Learn more';
       case 'process':
         return `Get Started`;
+      case 'aussie-toolkit':
+        return 'Learn more';
     }
   }
 }

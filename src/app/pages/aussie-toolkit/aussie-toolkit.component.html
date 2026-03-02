@@ -1,0 +1,62 @@
+<div class="page-container">
+    <div>
+        <h1>
+            Australian Job Search Toolkit
+        </h1>
+        <h5 class="yellow-title">
+            We studied 100+ Successful Job Seekers – These Strategies worked for them!
+        </h5>        
+    </div>
+    
+    <div>
+        <h3 class="video-title">Just Applying for Online Jobs doesn’t work!</h3>
+        <div class="process-video-container">
+            <iframe src="https://player.vimeo.com/video/1121106392?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+                title="Our Process">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="aussie-resources-container row-1-container">
+        @for (resource of row1Resources; track resource.id) {
+            <div class="aussie-resource-item">
+                <img [src]="resource.image" [alt]="resource.title" />
+                <!-- <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i> -->
+                <h5 class="aussie-resource-title">{{ resource.title }}</h5>
+                <p class="aussie-resource-description">{{ resource.description }}</p>
+            </div>
+        }
+    </div>
+
+    <div>
+        <h3>Do these - Land Jobs Even Faster!</h3>
+        <div class="aussie-resources-container row-2-container">
+            @for (resource of row2Resources; track resource.id) {
+                <div class="aussie-resource-item">
+                    <img [src]="resource.image" [alt]="resource.title" />
+                    <!-- <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i> -->
+                    <h5 class="aussie-resource-title">{{ resource.title }}</h5>
+                    <p class="aussie-resource-description">{{ resource.description }}</p>
+                </div>
+            }
+        </div>
+    </div>
+    
+    <div>
+        <h3>Additional Resources</h3>
+        <div class="aussie-resources-container row-3-container">
+            @for (resource of row3Resources; track resource.id) {
+                <div class="aussie-resource-item">
+                    <!-- <img [src]="resource.image" [alt]="resource.title" /> -->
+                    <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i>
+                    <h5 class="aussie-resource-title">{{ resource.title }}</h5>
+                    <p class="aussie-resource-description">{{ resource.description }}</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    <app-full-width-banner mode="aussie-toolkit"></app-full-width-banner>
+</div>
