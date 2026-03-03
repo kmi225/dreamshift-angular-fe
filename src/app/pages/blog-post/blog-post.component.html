@@ -1,0 +1,23 @@
+<div class="blog-post-page-container" *ngIf="!loading">
+    <div class="blog-post-page-content">
+        <div class="left-banner">
+
+        </div>
+        <div class="blog-post-container">
+            <h1>{{ post[0].title.rendered }}</h1>
+            <div class="post-content">
+                <div [innerHTML]="post[0].content.rendered"></div>
+            </div>    
+        </div>
+        <div class="right-banner">
+        </div>
+    </div>
+
+    <app-footer [origin]="'blogPost'"></app-footer>
+</div>  
+
+<div class="loading-container" *ngIf="loading">
+    <i class="fa-solid fa-spinner fa-spin fa-3x"></i>
+    <h3>Loading...</h3>
+</div>
+

@@ -4,15 +4,15 @@ import { FullWidthBannerComponent } from '../../components/full-width-banner/ful
 import { ProcessWalkthroughComponent } from '../../components/process-walkthrough/process-walkthrough.component';
 
 @Component({
-  selector: 'app-process',
+  selector: 'app-our-process',
   imports: [
     FaqComponent,
     FullWidthBannerComponent,
     ProcessWalkthroughComponent
   ],
-  templateUrl: './process.component.html',
-  styleUrl: './process.component.scss'
+  templateUrl: './our-process.component.html',
+  styleUrl: './our-process.component.scss'
 })
-export class ProcessComponent {
+export class OurProcessComponent {
 
 }

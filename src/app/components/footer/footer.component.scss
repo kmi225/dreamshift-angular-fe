@@ -1,6 +1,10 @@
 @use 'styles/colors.styles.scss' as colors;
 @use 'styles/content-width.styles.scss' as contentWidth;
 
+.footer-container {
+    background-color: colors.$ds-purple-2;
+}
+
 .footer-main-content {
     margin: 0 contentWidth.$padding-width;
     text-align: left;

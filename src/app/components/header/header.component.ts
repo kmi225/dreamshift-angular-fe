@@ -48,7 +48,7 @@ export class HeaderComponent {
   {
     id: 6,
     text: 'Blog',
-    route: 'services'
+    route: 'blog'
   }];
 
   @HostListener('window:scroll', ['$event'])

@@ -6,7 +6,7 @@ import { FaqComponent } from '../../components/faq/faq.component';
 import { AdditionalServiceComponent } from '../../components/additional-service/additional-service.component';
 
 @Component({
-  selector: 'app-services',
+  selector: 'app-our-services',
   imports: [
     MainServicesComponent,
     PackagesComponent,
@@ -14,9 +14,9 @@ import { AdditionalServiceComponent } from '../../components/additional-service/
     FaqComponent,
     AdditionalServiceComponent
   ],
-  templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+  templateUrl: './our-services.component.html',
+  styleUrl: './our-services.component.scss'
 })
-export class ServicesComponent {
+export class OurServicesComponent {
 
 }

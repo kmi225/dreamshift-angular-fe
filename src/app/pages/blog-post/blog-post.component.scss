@@ -1,0 +1,71 @@
+@use 'styles/colors.styles.scss' as colors;
+
+.blog-post-page-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.blog-post-page-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: colors.$ds-purple-2;
+}
+
+.left-banner {
+    width: 20%;
+}
+
+.right-banner {
+    width: 20%;
+}
+
+.blog-post-container {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 60%;
+
+
+    h1 {
+        color: black !important;
+        margin-bottom: 30px; 
+        margin-top: 10px;
+    }
+}
+
+.post-content {
+    color: colors.$ds-grey-2;
+
+    ::ng-deep {
+        h1, h2, h3, h4, h5, h6, a {
+            color: black !important;
+        }
+
+
+        b, strong {
+            font-weight: 500 !important;
+        }
+
+        a {
+            text-decoration: none;
+            color: colors.$ds-yellow-1 !important;
+
+            &:hover {
+                color: colors.$ds-yellow-2 !important;
+                // text-decoration: underline;
+            }
+        }
+    }
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+    min-height: 300px;
+}
