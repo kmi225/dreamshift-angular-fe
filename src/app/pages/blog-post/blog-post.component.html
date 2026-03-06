@@ -1,8 +1,10 @@
 <div class="blog-post-page-container" *ngIf="!loading">
+    <img class="desktop-image-banner" [src]="desktopImageBanner" alt="Blog Post Banner" />
+    <img class="mobile-image-banner" [src]="mobileImageBanner" alt="Blog Post Banner" />
     <div class="blog-post-page-content">
         <div class="left-banner">
             <div class="toc-container">
-                <h2>Table of Contents</h2>
+                <h4>Table of Contents</h4>
                 <ul>
                     @for (item of toc; track item.id) {
                         <li><a href="#" (click)="goToSection(item.id, $event)">{{ item.text }}</a></li>
@@ -13,10 +15,11 @@
         <div class="blog-post-container">
             <h1>{{ blogTitle }}</h1>
             <div class="post-content">
-                <div [innerHTML]="blogTextSafe"></div>
+                <div [innerHTML]="getPostContent()"></div>
             </div>    
         </div>
         <div class="right-banner">
+            <app-blog-post-right-panel></app-blog-post-right-panel>
         </div>
     </div>
     

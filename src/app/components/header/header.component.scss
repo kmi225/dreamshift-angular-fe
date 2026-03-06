@@ -16,6 +16,11 @@
     @media (min-width: contentWidth.$media-boundary){
       position: fixed;
       padding: 0 contentWidth.$padding-width;
+
+      &.blog-post-page {
+        background-color: colors.$ds-purple-1 !important;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5) !important;
+      }
     }
 }
 

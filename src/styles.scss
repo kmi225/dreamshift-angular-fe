@@ -44,6 +44,20 @@ body {
   }
 }
 
+.ds-primary-inverted-btn {
+  background-color: colors.$ds-purple-1;
+  font-weight: 600;
+  color: colors.$ds-yellow-1;
+  border-radius: 5px;
+
+  &:hover {
+      cursor: pointer;
+      background-color: colors.$ds-purple-2;
+      color: colors.$ds-yellow-1;
+      box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
+  }
+}
+
 
 .ds-secondary-btn {
   border: 2px solid colors.$ds-yellow-1;

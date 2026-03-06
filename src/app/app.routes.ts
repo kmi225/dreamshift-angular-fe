@@ -19,7 +19,7 @@ export const routes: Routes = [{
     path: 'aussie-toolkit', 
     component: AussieToolkitComponent
 },  {
-    path: 'blog/:slug', 
+    path: 'blog-post/:slug', 
     component: BlogPostComponent
 }, {
     path: 'blog',

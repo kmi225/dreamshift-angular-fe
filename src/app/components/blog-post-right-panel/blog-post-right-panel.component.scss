@@ -1,0 +1,47 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.blog-post-right-panel-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.yellow-card {
+    @extend .card-content;
+    background-color: colors.$ds-yellow-1;
+    color: colors.$ds-black-1;
+}
+
+.purple-card {
+    @extend .card-content;
+    background-color: colors.$ds-purple-1;
+    color: colors.$ds-white-1;
+
+    h4 {
+        color: colors.$ds-yellow-1;
+    }
+}
+
+.card-content {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    img {
+        width: 80%;
+        margin-bottom: 20px;
+        max-height: 200px;
+        object-fit: scale-down;
+    }
+
+    @media (max-width: contentWidth.$content-narrow-width) {
+        display: flex;
+        align-items: center;
+
+        img {
+            padding: 20px 0;
+        }
+    }
+}

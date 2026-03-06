@@ -1,4 +1,4 @@
-import { Component, inject, OnChanges } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,13 +16,8 @@ import { HeaderComponent } from './components/header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnChanges {
+export class AppComponent {
   title = 'dreamshift-angular-fe';
   public isBlogPostPage: boolean = false;
   private readonly route = inject(ActivatedRoute);
-
-  ngOnChanges() {
-    console.log("PARAMS", this.route.snapshot);
-    this.isBlogPostPage = this.route.snapshot.params['slug'] !== undefined;
-  } 
 }

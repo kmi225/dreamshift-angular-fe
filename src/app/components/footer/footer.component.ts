@@ -1,30 +1,27 @@
 import { Component, inject, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   public readonly currentYear = new Date().getFullYear();
-  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   public showFooter: boolean = true;
-  
+  @Input() pageRoute: string = '';
   @Input() origin: 'app' | 'blogPost' = 'app';
 
   ngOnInit() {
-    const url = this.route.snapshot.url;
-    console.log("URL", url);
-    if (url.some(segment => segment.path === 'blog') && this.origin === 'blogPost') {
-      this.showFooter = true;
-    } else if (url.some(segment => segment.path === 'blog') && this.origin === 'app') {
+    if (this.router.url.startsWith('/blog-post') && this.origin === 'app') {
       this.showFooter = false;
     } else {
       this.showFooter = true;
     }
-
-    console.log("SHOW FOOTER", this.origin, this.showFooter);
   }
 }

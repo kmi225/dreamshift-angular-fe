@@ -120,7 +120,6 @@ export class BlogComponent {
   }
 
   navigateToPost(slug: string) {
-    console.log('navigateToPost', slug);
-    this.router.navigate(['/blog', slug]);
+    this.router.navigate(['/blog-post', slug]);
   }
 }

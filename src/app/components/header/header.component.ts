@@ -1,6 +1,6 @@
 import { Component, TemplateRef, inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
 import { CDN_URL } from '../../constants/cdn.constants';
 
@@ -16,19 +16,15 @@ import { CDN_URL } from '../../constants/cdn.constants';
 })
 export class HeaderComponent {
   readonly cdnUrl = CDN_URL;
+  private readonly router = inject(Router);
   private offcanvasService = inject(NgbOffcanvas);
   private lastScrollY = 0;
   public isHeaderVisible = true;
-
+  public isBlogPostPage = false;
   public readonly links = [{
     id: 1,
     text: 'Home',
     route: 'home'
-  },
-  {
-    id: 2,  
-    text: 'Our Services',
-    route: 'our-services'
   },
   {
     id: 3,
@@ -53,6 +49,14 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
+    // If on blog post page, don't hide header (header is outside router-outlet so use Router.url)
+    if (this.router.url.startsWith('/blog-post')) {
+      this.isHeaderVisible = true;
+      this.isBlogPostPage = true;
+      return;
+    }
+    this.isBlogPostPage = false;
+
     const currentScrollY = window.scrollY;
     
     // Show header when scrolling up, hide when scrolling down
