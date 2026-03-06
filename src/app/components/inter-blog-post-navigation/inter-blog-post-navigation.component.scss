@@ -1,0 +1,73 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+
+$gap-size: 20px;
+$three-column-width: calc(33.333% - $gap-size);
+$two-column-width: calc(50% - $gap-size);
+$one-column-width: calc(100% - $gap-size);
+
+
+.inter-blog-navigation-container-wrapper {
+    background-color: colors.$ds-purple-2;
+}   
+
+.inter-blog-navigation-container {
+    @media (min-width: contentWidth.$content-width) {
+        width: contentWidth.$content-width;
+        margin: 0 auto;
+    }
+}
+
+.np-navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: colors.$ds-purple-2;
+    color: colors.$ds-white-1;
+
+    a {
+        text-decoration: none;
+        color: colors.$ds-white-1;
+        &:hover {
+            color: colors.$ds-yellow-1;
+            cursor: pointer;
+        }
+    }
+}
+
+.inter-blog-navigation-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $gap-size;
+    padding: 50px 0;
+    
+    @media (min-width: contentWidth.$content-width) {
+        flex: 0 0 $three-column-width;
+    }
+
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$content-width) {
+        flex: 0 0 $two-column-width;
+    }
+    
+    @media (max-width: contentWidth.$content-narrow-width) {
+        flex: 0 0 $one-column-width;
+    }
+}
+
+app-blog-post-card {
+    @media (min-width: contentWidth.$media-boundary) {
+        width: $three-column-width;
+    }
+
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary) {
+        width: $two-column-width;
+    }
+
+    @media (max-width: contentWidth.$content-narrow-width) {
+        width: $one-column-width;
+    }
+}

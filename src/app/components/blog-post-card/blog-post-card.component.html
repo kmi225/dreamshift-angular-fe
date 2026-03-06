@@ -1,0 +1,6 @@
+<a (click)="navigateToPost(post.slug)" class="blog-post-item">
+    <div class="category-tag">{{ getCategoryName(post.class_list) }}</div>
+    <img [src]="'https://dreamshift.net/wp-content/uploads/2024/06/Blog-Thumbnail-new-31.png'" [alt]="getPostTitle(post)" />
+    <h5>{{ getPostTitle(post) }}</h5>
+    <div [innerHTML]="post.excerpt.rendered"></div>
+</a>

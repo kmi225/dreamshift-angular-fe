@@ -1,0 +1,23 @@
+<div class="inter-blog-navigation-container-wrapper">
+    
+<div class="inter-blog-navigation-container">
+    <div class="np-navigation-container">
+        <a href="#"><h3>
+            <i class="fa-solid fa-arrow-left"></i>
+            Previous
+        </h3>
+        </a>
+        <a href="#"><h3>
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </h3>
+        </a>
+    </div>
+    <div class="inter-blog-navigation-cards">
+        @for (post of relatedPosts; track post.id) {
+            <app-blog-post-card [post]="post"></app-blog-post-card>
+        }
+    </div>
+</div>
+
+</div>

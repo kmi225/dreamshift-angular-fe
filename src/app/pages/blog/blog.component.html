@@ -11,7 +11,7 @@
              <div class="select-container">
                 <label for="category">Select category</label>
                 <select id="category" class="form-select">
-                    @for (category of categories; track category.id) {
+                    @for (category of categoriesList; track category.id) {
                         <option *ngIf="category.visible">{{ category.name }}</option>
                     }
                 </select>
@@ -20,10 +20,7 @@
     </div>
     <div class="blog-posts-container" *ngIf="!loading">
         @for (post of posts; track post.id) {
-            <a (click)="navigateToPost(post.slug)" class="blog-post-item">
-                <img [src]="'https://dreamshift.net/wp-content/uploads/2024/06/Blog-Thumbnail-new-31.png'" [alt]="getPostTitle(post)" />
-                <h5>{{ getPostTitle(post) }}</h5>
-            </a>
+            <app-blog-post-card [post]="post"></app-blog-post-card>
         }
     </div>    
     <div class="loading-container" *ngIf="loading">

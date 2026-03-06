@@ -7,6 +7,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 import { BlogPostRightPanelComponent } from '../../components/blog-post-right-panel/blog-post-right-panel.component';
+import { InterBlogPostNavigationComponent } from '../../components/inter-blog-post-navigation/inter-blog-post-navigation.component';
+import { BlogPostListItem } from '../../models/blog-post-list-item.model';
 
 @Component({
   selector: 'app-blog-post',
@@ -14,7 +16,8 @@ import { BlogPostRightPanelComponent } from '../../components/blog-post-right-pa
     FooterComponent,
     CommonModule,
     FullWidthBannerComponent,
-    BlogPostRightPanelComponent 
+    BlogPostRightPanelComponent,
+    InterBlogPostNavigationComponent
   ],
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.scss'
@@ -52,8 +55,6 @@ export class BlogPostComponent {
       console.error(error);
       this.loading = false;
     });
-
-    console.log("PARAMS", this.route.snapshot);
   } 
 
   getPostContent(): string {

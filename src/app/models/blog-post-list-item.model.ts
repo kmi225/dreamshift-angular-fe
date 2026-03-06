@@ -6,4 +6,7 @@ export interface BlogPostListItem {
         rendered: string;
     };
     class_list: string[];
+    excerpt: {
+        rendered: string;
+    };
 }
