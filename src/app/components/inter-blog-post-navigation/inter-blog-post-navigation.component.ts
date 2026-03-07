@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { BlogPostListItem } from '../../models/blog-post-list-item.model';
+import { BlogPostListItem, BlogPostListItemResponse } from '../../models/blog-post-list-item.model';
 import { BlogService } from '../../services/blog.service';
 import { BlogPostCardComponent } from '../blog-post-card/blog-post-card.component';
 
@@ -15,9 +15,9 @@ export class InterBlogPostNavigationComponent {
   public relatedPosts: BlogPostListItem[] = [];
 
   ngOnInit() {
-    this.blogService.getPosts(1, 4).subscribe((posts: BlogPostListItem[]) => {
+    this.blogService.getPosts(1, 4).subscribe((posts: BlogPostListItemResponse) => {
       //filter out the current post from the list of related posts and get a maximum of 3 posts
-      this.relatedPosts = posts
+      this.relatedPosts = posts.data
         .filter((post: BlogPostListItem) => post.id !== this.currentPostId)
         .slice(0, 3);
     }, (error: any) => {

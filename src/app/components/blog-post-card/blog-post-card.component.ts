@@ -1,33 +1,32 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogPostListItem } from '../../models/blog-post-list-item.model';
-import { CATEGORIES_LIST } from '../../constants/blog.constants';
 import { ROUTES } from '../../constants/routes.constants';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-blog-post-card',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './blog-post-card.component.html',
   styleUrl: './blog-post-card.component.scss'
 })
 export class BlogPostCardComponent {
   private readonly router = inject(Router);
-  private readonly categoriesList = CATEGORIES_LIST;
+  private readonly categoriesList = [];
   @Input() post: BlogPostListItem = {
     id: 0,
     date: '',
     slug: '',
-    title: {
-      rendered: ''
-    },
-    class_list: [],
-    excerpt: {
-      rendered: ''
-    }
+    title: '',
+    featuredImage: '',
+    categories: [],
+    excerpt: ''
   };
 
   getPostTitle(post: BlogPostListItem): string {
-    const raw = String(post?.title?.rendered ?? '');
+    const raw = String(post?.title ?? '');
     return this.decodeHtmlEntities(raw);
   }
 
@@ -43,10 +42,5 @@ export class BlogPostCardComponent {
 
   navigateToPost(slug: string) {
     this.router.navigate([ROUTES.BLOG_POST_PREFIX, slug]);
-  }
-
-  getCategoryName(class_list: string[]): string {
-    //return first category name from the list of categories that exists in the class_list
-    return this.categoriesList.filter(category => class_list.includes(category.searchCategory))[0]?.name ?? '';
   }
 }

@@ -1,12 +1,16 @@
+import { BlogCategory } from "./blog-category.model";
+
 export interface BlogPostListItem {
     id: number;
-    date: string;
+    title: string;
     slug: string;
-    title: {
-        rendered: string;
-    };
-    class_list: string[];
-    excerpt: {
-        rendered: string;
-    };
+    date: string;
+    excerpt: string;
+    featuredImage: string;
+    categories: BlogCategory[];
+}
+
+export interface BlogPostListItemResponse {
+    data: BlogPostListItem[];
+    count: number;
 }

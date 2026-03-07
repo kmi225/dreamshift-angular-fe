@@ -1,6 +1,7 @@
 <a (click)="navigateToPost(post.slug)" class="blog-post-item">
-    <div class="category-tag">{{ getCategoryName(post.class_list) }}</div>
-    <img [src]="'https://dreamshift.net/wp-content/uploads/2024/06/Blog-Thumbnail-new-31.png'" [alt]="getPostTitle(post)" />
+    <div class="category-tag">{{ post.categories[0].name }}</div>
+    <img *ngIf="post.featuredImage" [src]="post.featuredImage" [alt]="getPostTitle(post)" />
+    <div *ngIf="!post.featuredImage" class="no-image-container"></div>
     <h5>{{ getPostTitle(post) }}</h5>
-    <div [innerHTML]="post.excerpt.rendered"></div>
+    <div class="excerpt-container" [innerHTML]="post.excerpt"></div>
 </a>

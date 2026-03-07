@@ -29,6 +29,18 @@
         }
     }
 
+    .excerpt-container {
+        color: colors.$ds-white-1;
+        font-size: 12px;
+        margin-bottom: 0px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Number of lines to show */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Optional: adds the ellipsis */
+    }
+
     ::ng-deep {
         p {
             color: colors.$ds-white-1;
@@ -46,7 +58,18 @@
     img {
         width: 100%;
         margin-bottom: 10px;
-        border-radius: 10px;
+        border-radius: 15px;
+        height: 220px;
+        object-fit: cover;
+        object-position: left;
+    }
+
+    .no-image-container {
+        width: 100%;
+        height: 220px;
+        background-color: colors.$ds-purple-2;
+        border-radius: 15px;
+        margin-bottom: 10px;
     }
 
     h5 {

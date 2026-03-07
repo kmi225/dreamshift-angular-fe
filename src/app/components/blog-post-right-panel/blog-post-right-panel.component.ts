@@ -14,7 +14,7 @@ export class BlogPostRightPanelComponent {
   readonly cdnUrl = CDN_URL;
   private readonly router = inject(Router);
   
-  public navigateToPage(page: typeof ROUTES) {
+  public navigateToPage(page: string) {
     this.router.navigate([page]);
   }
 }
