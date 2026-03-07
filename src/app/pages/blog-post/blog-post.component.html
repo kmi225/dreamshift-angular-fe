@@ -15,7 +15,7 @@
         <div class="blog-post-container">
             <h1>{{ blogTitle }}</h1>
             <div class="post-content">
-                <div [innerHTML]="getPostContent()"></div>
+                <div [innerHTML]="blogTextSafe"></div>
             </div>    
         </div>
         <div class="right-banner">

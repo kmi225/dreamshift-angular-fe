@@ -1,6 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
   selector: 'app-footer',
@@ -18,7 +19,7 @@ export class FooterComponent {
   @Input() origin: 'app' | 'blogPost' = 'app';
 
   ngOnInit() {
-    if (this.router.url.startsWith('/blog-post') && this.origin === 'app') {
+    if (this.router.url.startsWith(ROUTES.BLOG_POST_PREFIX) && this.origin === 'app') {
       this.showFooter = false;
     } else {
       this.showFooter = true;

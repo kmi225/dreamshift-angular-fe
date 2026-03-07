@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
 import { CDN_URL } from '../../constants/cdn.constants';
+import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
   selector: 'app-header',
@@ -25,6 +26,11 @@ export class HeaderComponent {
     id: 1,
     text: 'Home',
     route: 'home'
+  },
+  {
+    id: 2,
+    text: 'Our Services',
+    route: 'our-services'
   },
   {
     id: 3,
@@ -50,7 +56,7 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     // If on blog post page, don't hide header (header is outside router-outlet so use Router.url)
-    if (this.router.url.startsWith('/blog-post')) {
+    if (this.router.url.startsWith(ROUTES.BLOG_POST_PREFIX)) {
       this.isHeaderVisible = true;
       this.isBlogPostPage = true;
       return;
@@ -74,6 +80,10 @@ export class HeaderComponent {
     }
     
     this.lastScrollY = currentScrollY;
+  }
+
+  public navigateToHome() {
+    this.router.navigate([ROUTES.HOME]);
   }
 
   public openMenu(content: TemplateRef<unknown>) {

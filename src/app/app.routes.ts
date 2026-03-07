@@ -5,35 +5,38 @@ import { OurProcessComponent } from './pages/our-process/our-process.component';
 import { AussieToolkitComponent } from './pages/aussie-toolkit/aussie-toolkit.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogPostComponent } from './pages/blog-post/blog-post.component';
+import { ROUTES } from './constants/routes.constants';
 
 export const routes: Routes = [{
-    path: '', 
+    path: ROUTES.HOME, 
     component: HomeComponent
 }, {
-    path: 'our-services', 
+    path: ROUTES.OUR_SERVICES, 
     component: OurServicesComponent
 }, {
-    path: 'our-process', 
+    path: ROUTES.OUR_PROCESS, 
     component: OurProcessComponent
 }, {
-    path: 'aussie-toolkit', 
+    path: ROUTES.AUSSIE_TOOLKIT, 
     component: AussieToolkitComponent
 },  {
-    path: 'blog-post/:slug', 
+    path: ROUTES.BLOG_POST,
     component: BlogPostComponent
 }, {
-    path: 'blog',
+    path: ROUTES.BLOG,
     component: BlogComponent
-}, {
+}, 
+// OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
+{
     path: 'services', 
-    redirectTo: 'our-services',
+    redirectTo: ROUTES.OUR_SERVICES,
 }, {
     path: 'australia', 
-    redirectTo: 'aussie-toolkit'
+    redirectTo: ROUTES.AUSSIE_TOOLKIT,
 }, {    
     path: 'how-dreamshift-craft-job-winning-resumes', 
-    redirectTo: 'our-process'
+    redirectTo: ROUTES.OUR_PROCESS,
 },{
     path: '**', 
-    redirectTo: ''
+    redirectTo: ROUTES.HOME,
 }];

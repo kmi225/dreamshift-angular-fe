@@ -1,7 +1,7 @@
 <div class="header-container" [class.header-hidden]="!isHeaderVisible" [class.blog-post-page]="isBlogPostPage">
     <div class="navbar-container" >
         <div class="navbar-side-container">
-          <img [src]="cdnUrl + '2023/11/cropped-Asset-11.png'" alt="Dream Shift" />
+          <img [src]="cdnUrl + '2023/11/cropped-Asset-11.png'" alt="Dream Shift" (click)="navigateToHome()"/>
         </div>
       
         <div class="navbar-side-container">

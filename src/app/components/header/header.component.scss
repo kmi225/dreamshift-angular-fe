@@ -43,6 +43,10 @@
     > img {
       height: 42.1016px;
       width: 56px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .navbar-icon-button {

@@ -1,6 +1,6 @@
-import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { Component, DestroyRef, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { BlogService } from '../../services/blog.service';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -9,6 +9,7 @@ import { FullWidthBannerComponent } from '../../components/full-width-banner/ful
 import { BlogPostRightPanelComponent } from '../../components/blog-post-right-panel/blog-post-right-panel.component';
 import { InterBlogPostNavigationComponent } from '../../components/inter-blog-post-navigation/inter-blog-post-navigation.component';
 import { BlogPostListItem } from '../../models/blog-post-list-item.model';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-blog-post',
@@ -28,8 +29,9 @@ export class BlogPostComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly destroyRef = inject(DestroyRef);
 
-  public slug: string = this.route.snapshot.params['slug'];
+  public slug: string = '';
   private post: any;
   public blogTitle: string = '';
   public blogText: string = '';
@@ -41,21 +43,46 @@ export class BlogPostComponent {
   public mobileImageBanner: string = 'https://dreamshift.net/wp-content/uploads/2025/09/Blog-Thumbnail-new-26.png';
 
   ngOnInit() {
+    // When navigating from /blog-post/:slug to /blog-post/:otherSlug, Angular reuses this component
+    // instance. Subscribe so we reload content on param changes.
+    this.route.paramMap
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((params) => {
+        const nextSlug = params.get('slug') ?? '';
+        if (!nextSlug || nextSlug === this.slug) return;
+        this.slug = nextSlug;
+        this.loadPost(nextSlug);
+      });
+
+    // Initial load
+    const initialSlug = this.route.snapshot.paramMap.get('slug') ?? '';
+    if (initialSlug) {
+      this.slug = initialSlug;
+      this.loadPost(initialSlug);
+    }
+  }
+
+  private loadPost(slug: string) {
     this.loading = true;
-    this.blogService.getPostBySlug(this.slug).subscribe((post: any) => {
-      this.post = post[0];
-      this.blogTitle = this.post.title.rendered;
-      this.blogText = this.addContentHeadingIds(this.post.content.rendered);
-      // this.blogTextSafe = this.sanitizer.bypassSecurityTrustHtml(this.blogText);
-      this.toc = this.generateTOC(this.blogText);
-      console.log(this.toc);
-      console.log(this.blogText);
-      this.loading = false;
-    }, (error: any) => {
-      console.error(error);
-      this.loading = false;
-    });
-  } 
+    this.blogService.getPostBySlug(slug).subscribe(
+      (post: any) => {
+        this.post = post?.[0];
+        this.blogTitle = this.post?.title?.rendered ?? '';
+        this.blogText = this.addContentHeadingIds(this.post?.content?.rendered ?? '');
+        this.blogTextSafe = this.sanitizer.bypassSecurityTrustHtml(this.blogText);
+        this.toc = this.generateTOC(this.blogText);
+        this.loading = false;
+
+        if (isPlatformBrowser(this.platformId)) {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+      },
+      (error: any) => {
+        console.error(error);
+        this.loading = false;
+      }
+    );
+  }
 
   getPostContent(): string {
     return this.blogText.toString();

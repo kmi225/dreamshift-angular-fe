@@ -26,7 +26,7 @@ $one-column-width: calc(100% - $gap-size);
     padding: 20px;
     background-color: colors.$ds-purple-2;
     color: colors.$ds-white-1;
-
+    
     a {
         text-decoration: none;
         color: colors.$ds-white-1;
@@ -43,7 +43,7 @@ $one-column-width: calc(100% - $gap-size);
     flex-wrap: wrap;
     justify-content: center;
     gap: $gap-size;
-    padding: 50px 0;
+    padding: 0 0 50px 0;
     
     @media (min-width: contentWidth.$content-width) {
         flex: 0 0 $three-column-width;

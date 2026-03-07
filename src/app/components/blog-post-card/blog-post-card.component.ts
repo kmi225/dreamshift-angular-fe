@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogPostListItem } from '../../models/blog-post-list-item.model';
 import { CATEGORIES_LIST } from '../../constants/blog.constants';
+import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
   selector: 'app-blog-post-card',
@@ -41,7 +42,7 @@ export class BlogPostCardComponent {
   }
 
   navigateToPost(slug: string) {
-    this.router.navigate(['/blog-post', slug]);
+    this.router.navigate([ROUTES.BLOG_POST_PREFIX, slug]);
   }
 
   getCategoryName(class_list: string[]): string {

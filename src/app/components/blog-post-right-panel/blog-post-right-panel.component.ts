@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CDN_URL } from '../../constants/cdn.constants';
+import { Router } from '@angular/router';
+import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
   selector: 'app-blog-post-right-panel',
@@ -8,5 +10,11 @@ import { CDN_URL } from '../../constants/cdn.constants';
   styleUrl: './blog-post-right-panel.component.scss'
 })
 export class BlogPostRightPanelComponent {
+  public readonly routes = ROUTES;
   readonly cdnUrl = CDN_URL;
+  private readonly router = inject(Router);
+  
+  public navigateToPage(page: typeof ROUTES) {
+    this.router.navigate([page]);
+  }
 }
