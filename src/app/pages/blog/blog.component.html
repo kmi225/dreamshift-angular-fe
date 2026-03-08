@@ -25,7 +25,7 @@
             <app-blog-post-card [post]="post"></app-blog-post-card>
         }
     </div>
-    <div *ngIf="posts.length < totalPosts && !loading && !loadingMorePosts" class="load-more-btn-container">
+    <div *ngIf="posts.length < totalPosts && !loading" class="load-more-btn-container">
         <button 
         type="button" 
         class="btn ds-primary-btn load-more-btn" 

@@ -21,7 +21,7 @@
 
     <div class="aussie-resources-container row-1-container">
         @for (resource of row1Resources; track resource.id) {
-            <div class="aussie-resource-item">
+            <div class="aussie-resource-item" (click)="navigateToResource(resource.link)">
                 <img [src]="resource.image" [alt]="resource.title" />
                 <!-- <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i> -->
                 <h5 class="aussie-resource-title">{{ resource.title }}</h5>
