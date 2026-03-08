@@ -34,6 +34,25 @@ export class BlogPostComponent {
 
   public slug: string = '';
   public post: any;
+  public previousPost: {
+    id: number;
+    title: string;
+    slug: string;
+  } = {
+    id: 0,
+    title: '',
+    slug: ''
+  };
+  public nextPost: {
+    id: number;
+    title: string;
+    slug: string;
+  } = {
+    id: 0,
+    title: '',
+    slug: ''
+  };
+  public relatedPosts: BlogPostListItem[] = [];
   public blogTitle: string = '';
   public blogText: string = '';
   /** Sanitized HTML so heading IDs are preserved in the DOM for TOC scrolling */
@@ -75,6 +94,10 @@ export class BlogPostComponent {
         this.desktopImageBanner = this.post?.featuredImage ?? '';
         this.mobileImageBanner = this.post?.featuredImage ?? '';
         this.loading = false;
+
+        this.previousPost = post.previous;
+        this.nextPost = post.next;
+        this.relatedPosts = post.related;
 
         if (isPlatformBrowser(this.platformId)) {
           window.scrollTo({ top: 0, behavior: 'auto' });

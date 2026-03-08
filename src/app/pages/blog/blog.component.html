@@ -8,18 +8,15 @@
                     <i class="fa-solid fa-search"></i>
                 </button>
             </div>
-             <div class="select-container">
+            <div class="select-container" >
                 <label for="category">Select category</label>
-                <select *ngIf="!loadingCategories" id="category" class="form-select" [(ngModel)]="category" (ngModelChange)="setCategory()">
-                    <option [value]="undefined">All</option>
+                <select id="category" class="form-select" [(ngModel)]="category" (ngModelChange)="setCategory()">
+                    <option [value]="undefined"  *ngIf="!loadingCategories">All</option>
                     @for (cat of categoriesList; track cat.id) {
-                        <option [value]="cat.slug">{{ cat.name }}</option>
+                        <option [value]="cat.slug" *ngIf="!loadingCategories">{{ cat.name }}</option>
                     }
+                    <option disabled *ngIf="loadingCategories">Loading categories...</option>
                 </select>
-                <div class="loading-container" *ngIf="loadingCategories">
-                    <i class="fa-solid fa-spinner fa-spin fa-3x"></i>
-                    <h3>Loading categories...</h3>
-                </div>
              </div>
         </div>    
     </div>
@@ -27,18 +24,20 @@
         @for (post of posts; track post.id) {
             <app-blog-post-card [post]="post"></app-blog-post-card>
         }
+    </div>
+    <div *ngIf="posts.length < totalPosts && !loading && !loadingMorePosts" class="load-more-btn-container">
         <button 
-            *ngIf="posts.length < totalPosts"
-            type="button" 
-            class="btn ds-primary-btn load-more-btn" 
-            (click)="loadMorePosts()">
+        type="button" 
+        class="btn ds-primary-btn load-more-btn" 
+        (click)="loadMorePosts()">
             @if (loadingMorePosts) {
                 Loading...
             } @else {
                 Load More
             }
-        </button>
-    </div>    
+    </button>
+    </div>
+    
     <div class="loading-container" *ngIf="loading">
         <i class="fa-solid fa-spinner fa-spin fa-3x"></i>
         <h3>Loading...</h3>

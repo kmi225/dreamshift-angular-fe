@@ -54,7 +54,8 @@
     height: min-content;
     margin: auto 0;
 
-    &:hover {
-        background-color: colors.$ds-black-2;
+    &:hover, &:active {
+        background-color: colors.$ds-black-2 !important;
+        color: colors.$ds-yellow-1 !important;
     }
 }

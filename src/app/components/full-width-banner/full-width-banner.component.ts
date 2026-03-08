@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
   selector: 'app-full-width-banner',
@@ -11,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FullWidthBannerComponent {
   @Input() mode: 'home' | 'services' | 'process' | 'aussie-toolkit' | 'blog-post' = 'home';
+  private readonly router = inject(Router);
   readonly MOBILE_BREAKPOINT = 842;
 
   public isMobileDevice(): boolean {
@@ -76,5 +79,17 @@ export class FullWidthBannerComponent {
       case 'blog-post':
         return 'Get Started';
     }
+  }
+
+  onClickNavigationButton(): void {
+    switch (this.mode) {
+      case 'home':
+        this.router.navigate([ROUTES.CONTACT]);
+        break;
+      case 'services':
+        this.router.navigate([ROUTES.OUR_SERVICES]);
+        break;
+    }
+    this.router.navigate([ROUTES.CONTACT]);
   }
 }

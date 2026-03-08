@@ -63,10 +63,10 @@ export class BlogComponent {
     this.loadingCategories = true;
     this.blogService.getCategories().subscribe((categories: BlogCategory[]) => {
       this.categoriesList = categories;
-      this.loadingCategories = false;
+      // this.loadingCategories = false;
     }, (error: any) => {
       console.error(error);
-      this.loadingCategories = false;
+      // this.loadingCategories = false;
     });
   } 
 

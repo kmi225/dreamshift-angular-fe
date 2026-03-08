@@ -4,10 +4,10 @@ export interface BlogPostListItem {
     id: number;
     title: string;
     slug: string;
-    date: string;
-    excerpt: string;
+    date?: string;
+    excerpt?: string;
     featuredImage: string;
-    categories: BlogCategory[];
+    categories?: BlogCategory[];
 }
 
 export interface BlogPostListItemResponse {

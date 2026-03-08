@@ -36,10 +36,10 @@ body {
   background-color: colors.$ds-yellow-1;
   font-weight: 600;
 
-  &:hover {
+  &:hover, &:active {
       cursor: pointer;
-      background-color: colors.$ds-yellow-2;
-      color: colors.$ds-black-1;
+      background-color: colors.$ds-yellow-2 !important;
+      color: colors.$ds-black-1 !important;
       box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
   }
 }
@@ -50,10 +50,10 @@ body {
   color: colors.$ds-yellow-1;
   border-radius: 5px;
 
-  &:hover {
+  &:hover, &:active {
       cursor: pointer;
-      background-color: colors.$ds-purple-2;
-      color: colors.$ds-yellow-1;
+      background-color: colors.$ds-purple-2 !important;
+      color: colors.$ds-yellow-1 !important;
       box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
   }
 }
@@ -67,9 +67,9 @@ body {
   font-size: 21px;
   font-weight: 600;
 
-  &:hover {
-      color: colors.$ds-purple-2;
-      background-color: colors.$ds-yellow-1;
+  &:hover, &:active {
+      color: colors.$ds-purple-2 !important;
+      background-color: colors.$ds-yellow-1 !important;
   }
 }
 

@@ -10,7 +10,7 @@
                 </h2>
                 <h5 *ngIf="!isMobileDevice()">{{ getDesktopText() }}</h5>    
             </div>
-            <button class="btn black-btn">
+            <button class="btn black-btn" (click)="onClickNavigationButton()">
                 {{ getButtonText() }}
             </button>
         </div>

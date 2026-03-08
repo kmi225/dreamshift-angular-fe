@@ -2,12 +2,12 @@
     
 <div class="inter-blog-navigation-container">
     <div class="np-navigation-container">
-        <a href="#"><h3>
+        <a *ngIf="previousPost?.slug" (click)="navigateToPost(previousPost)"><h3>
             <i class="fa-solid fa-arrow-left"></i>
             Previous
         </h3>
         </a>
-        <a href="#"><h3>
+        <a *ngIf="nextPost?.slug" (click)="navigateToPost(nextPost)"><h3>
             Next
             <i class="fa-solid fa-arrow-right"></i>
         </h3>

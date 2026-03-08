@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BlogPostListItem } from '../../models/blog-post-list-item.model';
 import { ROUTES } from '../../constants/routes.constants';
 import { CommonModule } from '@angular/common';
+import { BlogCategory } from '../../models/blog-category.model';
 
 @Component({
   selector: 'app-blog-post-card',
@@ -17,12 +18,9 @@ export class BlogPostCardComponent {
   private readonly categoriesList = [];
   @Input() post: BlogPostListItem = {
     id: 0,
-    date: '',
     slug: '',
     title: '',
     featuredImage: '',
-    categories: [],
-    excerpt: ''
   };
 
   getPostTitle(post: BlogPostListItem): string {
@@ -42,5 +40,16 @@ export class BlogPostCardComponent {
 
   navigateToPost(slug: string) {
     this.router.navigate([ROUTES.BLOG_POST_PREFIX, slug]);
+  }
+
+  getCategory(): string {
+    if (!this.post.categories) {
+      return '';
+    }
+
+    return this.post.categories
+      .filter((category: BlogCategory) => category.parent === 0)
+      .map((category: BlogCategory) => category.name)
+      .join(', ');
   }
 }

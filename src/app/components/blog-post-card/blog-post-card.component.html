@@ -1,7 +1,7 @@
 <a (click)="navigateToPost(post.slug)" class="blog-post-item">
-    <div class="category-tag">{{ post.categories[0].name }}</div>
+    <div *ngIf="getCategory().length > 0" class="category-tag">{{ getCategory() }}</div>
     <img *ngIf="post.featuredImage" [src]="post.featuredImage" [alt]="getPostTitle(post)" />
     <div *ngIf="!post.featuredImage" class="no-image-container"></div>
     <h5>{{ getPostTitle(post) }}</h5>
-    <div class="excerpt-container" [innerHTML]="post.excerpt"></div>
+    <div *ngIf="post.excerpt" class="excerpt-container" [innerHTML]="post.excerpt"></div>
 </a>
