@@ -3,6 +3,6 @@ export interface BlogCategory {
     name: string;
     slug: string;
     parent: number;
-    postCount: number;
-    children: BlogCategory[];
+    postCount?: number;
+    children?: BlogCategory[];
 }

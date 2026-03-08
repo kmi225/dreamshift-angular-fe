@@ -1,7 +1,8 @@
-import { Component, TemplateRef, inject, HostListener } from '@angular/core';
+import { Component, TemplateRef, inject, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
+import { filter } from 'rxjs';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { ROUTES } from '../../constants/routes.constants';
 
@@ -15,13 +16,16 @@ import { ROUTES } from '../../constants/routes.constants';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   readonly cdnUrl = CDN_URL;
   private readonly router = inject(Router);
   private offcanvasService = inject(NgbOffcanvas);
   private lastScrollY = 0;
   public isHeaderVisible = true;
   public isBlogPostPage = false;
+  private routerEventsSub = this.router.events.pipe(
+    filter((e): e is NavigationEnd => e instanceof NavigationEnd)
+  ).subscribe(() => this.updateIsBlogPostPage());
   public readonly links = [{
     id: 1,
     text: 'Home',
@@ -53,15 +57,26 @@ export class HeaderComponent {
     route: 'blog'
   }];
 
+  private updateIsBlogPostPage(): void {
+    this.isBlogPostPage = this.router.url.startsWith('/' + ROUTES.BLOG_POST_PREFIX);
+    if (this.isBlogPostPage) {
+      this.isHeaderVisible = true;
+    }
+  }
+
+  ngOnInit() {
+    this.updateIsBlogPostPage();
+  }
+
+  ngOnDestroy() {
+    this.routerEventsSub.unsubscribe();
+  }
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    // If on blog post page, don't hide header (header is outside router-outlet so use Router.url)
-    if (this.router.url.startsWith(ROUTES.BLOG_POST_PREFIX)) {
-      this.isHeaderVisible = true;
-      this.isBlogPostPage = true;
+    if (this.isBlogPostPage) {
       return;
     }
-    this.isBlogPostPage = false;
 
     const currentScrollY = window.scrollY;
     

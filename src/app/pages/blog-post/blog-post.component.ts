@@ -10,6 +10,7 @@ import { BlogPostRightPanelComponent } from '../../components/blog-post-right-pa
 import { InterBlogPostNavigationComponent } from '../../components/inter-blog-post-navigation/inter-blog-post-navigation.component';
 import { BlogPostListItem } from '../../models/blog-post-list-item.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BlogPost } from '../../models/blog-post.model';
 
 @Component({
   selector: 'app-blog-post',
@@ -32,15 +33,15 @@ export class BlogPostComponent {
   private readonly destroyRef = inject(DestroyRef);
 
   public slug: string = '';
-  private post: any;
+  public post: any;
   public blogTitle: string = '';
   public blogText: string = '';
   /** Sanitized HTML so heading IDs are preserved in the DOM for TOC scrolling */
   public blogTextSafe: SafeHtml = '';
   public loading: boolean = false;
   public toc: any[] = [];
-  public desktopImageBanner: string = 'https://dreamshift.net/wp-content/uploads/elementor/thumbs/3-4-rfbqp4v0wb7w1n56a3wxynalv2c6lat26e1vn7optk.jpg';
-  public mobileImageBanner: string = 'https://dreamshift.net/wp-content/uploads/2025/09/Blog-Thumbnail-new-26.png';
+  public desktopImageBanner: string = '';
+  public mobileImageBanner: string = '';
 
   ngOnInit() {
     // When navigating from /blog-post/:slug to /blog-post/:otherSlug, Angular reuses this component
@@ -65,12 +66,14 @@ export class BlogPostComponent {
   private loadPost(slug: string) {
     this.loading = true;
     this.blogService.getPostBySlug(slug).subscribe(
-      (post: any) => {
-        this.post = post?.[0];
-        this.blogTitle = this.post?.title?.rendered ?? '';
-        this.blogText = this.addContentHeadingIds(this.post?.content?.rendered ?? '');
+      (post: BlogPost) => {
+        this.post = post.post;
+        this.blogTitle = this.post?.title ?? '';
+        this.blogText = this.addContentHeadingIds(this.post?.content ?? '');
         this.blogTextSafe = this.sanitizer.bypassSecurityTrustHtml(this.blogText);
         this.toc = this.generateTOC(this.blogText);
+        this.desktopImageBanner = this.post?.featuredImage ?? '';
+        this.mobileImageBanner = this.post?.featuredImage ?? '';
         this.loading = false;
 
         if (isPlatformBrowser(this.platformId)) {

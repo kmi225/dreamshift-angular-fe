@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { BlogPostListItem, BlogPostListItemResponse } from '../models/blog-post-list-item.model';
+import { BlogPostListItemResponse } from '../models/blog-post-list-item.model';
+import { BlogPost } from '../models/blog-post.model';
 import { BlogCategory } from '../models/blog-category.model';
 import { Observable } from 'rxjs';
 
@@ -36,6 +37,6 @@ export class BlogService {
     }
     
     getPostBySlug(dreamshift_slug: string) {
-        return this.http.get(`${this.DREAMSHIFT_API_URL}/posts?slug=${dreamshift_slug}`);
+        return this.http.get<BlogPost>(`${this.DREAMSHIFT_API_URL_FAST_API}/post.php?slug=${dreamshift_slug}`);
     }
 }
