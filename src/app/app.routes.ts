@@ -6,6 +6,7 @@ import { AussieToolkitComponent } from './pages/aussie-toolkit/aussie-toolkit.co
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogPostComponent } from './pages/blog-post/blog-post.component';
 import { ROUTES } from './constants/routes.constants';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [{
     path: ROUTES.HOME, 
@@ -25,7 +26,10 @@ export const routes: Routes = [{
 }, {
     path: ROUTES.BLOG,
     component: BlogComponent
-}, 
+}, {
+    path: ROUTES.CONTACT,
+    component: ContactComponent
+},
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {
     path: 'services', 

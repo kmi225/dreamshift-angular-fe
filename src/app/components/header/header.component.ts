@@ -29,22 +29,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public readonly links = [{
     id: 1,
     text: 'Home',
-    route: 'home'
+    route: ROUTES.HOME
   },
   {
     id: 2,
     text: 'Our Services',
-    route: 'our-services'
+    route: ROUTES.OUR_SERVICES
   },
   {
     id: 3,
     text: 'Our Process',
-    route: 'our-process'
+    route: ROUTES.OUR_PROCESS
   },
   {
     id: 4,
     text: 'Aussie Job Toolkit',
-    route: 'aussie-toolkit'
+    route: ROUTES.AUSSIE_TOOLKIT
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   {
     id: 6,
     text: 'Blog',
-    route: 'blog'
+    route: ROUTES.BLOG
   }];
 
   private updateIsBlogPostPage(): void {
@@ -99,6 +99,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public navigateToHome() {
     this.router.navigate([ROUTES.HOME]);
+  }
+
+  public navigateToContact() {
+    this.router.navigate([ROUTES.CONTACT]);
   }
 
   public openMenu(content: TemplateRef<unknown>) {

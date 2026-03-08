@@ -42,6 +42,12 @@ body {
       color: colors.$ds-black-1 !important;
       box-shadow: 0 15px 25px -7px rgb(0 0 0 / .1);
   }
+
+  &:disabled {
+    background-color: colors.$ds-grey-1 !important;
+    color: colors.$ds-white-1 !important;
+    cursor: not-allowed;
+  }
 }
 
 .ds-primary-inverted-btn {
@@ -122,8 +128,21 @@ body {
   gap: 50px;
   padding-top: 60px;
 
-  h1 {
+  h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    width: 90%;
+  }
+
+  .large-title {
+      @media (min-width: contentWidth.$content-width) {
+          font-size: 4rem;
+      }
+  
+      @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$content-width) {
+          font-size: 3rem;
+      }
+      
+      @media (max-width: contentWidth.$content-narrow-width) {
+          font-size: 2.5rem;
+      }
   }
 }

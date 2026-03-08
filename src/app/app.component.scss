@@ -25,3 +25,25 @@
     }
   }
 }
+
+.move-to-top-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.move-to-top-button {
+  background-color: colors.$ds-yellow-1;
+  color: colors.$ds-purple-2;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$ds-yellow-2;
+  }
+}

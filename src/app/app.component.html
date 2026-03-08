@@ -3,5 +3,10 @@
     <app-header></app-header>
     <router-outlet /> 
   </div>
+  <div class="move-to-top-container" *ngIf="showMoveToTopButton" @moveToTopEnterLeave>
+    <button class="move-to-top-button" (click)="moveToTop()">
+      <i class="fa-solid fa-angle-up fa-lg"></i>
+    </button>
+  </div>
   <app-footer [origin]="'app'"></app-footer>
 </div>
