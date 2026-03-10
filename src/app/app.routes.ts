@@ -7,6 +7,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { BlogPostComponent } from './pages/blog-post/blog-post.component';
 import { ROUTES } from './constants/routes.constants';
 import { ContactComponent } from './pages/contact/contact.component';
+import { UpskillingResourcesComponent } from './pages/upskilling-resources/upskilling-resources.component';
 
 export const routes: Routes = [{
     path: ROUTES.HOME, 
@@ -29,6 +30,10 @@ export const routes: Routes = [{
 }, {
     path: ROUTES.CONTACT,
     component: ContactComponent
+},
+{
+    path: ROUTES.AUSSIE_UPSKILLING_RESOURCES,
+    component: UpskillingResourcesComponent
 },
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {

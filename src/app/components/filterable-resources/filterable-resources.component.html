@@ -1,0 +1,71 @@
+<div class="filterable-resources-section">
+  <div class="filter-container">
+    <div class="search-row">
+      <div class="search-input-wrapper">
+        <svg class="search-input-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+        </svg>
+        <input
+          class="custom-input-base search-input"
+          type="text"
+          [placeholder]="searchPlaceholder()"
+          [ngModel]="searchQuery()"
+          (ngModelChange)="searchQuery.set($event)"
+        />
+      </div>
+    </div>
+    <div class="filters-row">
+      @for (filter of filters(); track filter.id) {
+        <div class="filter-col">
+          <div class="multi-select-wrapper">
+            <button
+              type="button"
+              class="multi-select-trigger"
+              [class.has-selection]="hasSelection(filter.id)"
+              (click)="toggleDropdown(filter.id)"
+            >
+              <span class="trigger-text">{{ triggerText(filter) }}</span>
+              <svg class="chevron" fill="none" height="14" stroke="#f6b900" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="multi-select-dropdown" [class.open]="openDropdownId() === filter.id">
+              @for (option of filter.options; track option) {
+                <label class="multi-select-option">
+                  <input
+                    type="checkbox"
+                    [checked]="isOptionSelected(filter.id, option)"
+                    (change)="toggleOption(filter.id, option)"
+                  />
+                  {{ option }}
+                </label>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="cards-grid-3x3">
+    @for (resource of filteredResources(); track resource.link) {
+      <article class="card">
+        <h4 class="card-title">{{ resource.name }}</h4>
+        <div class="card-meta">
+          @for (tag of resource.metaTags; track tag) {
+            <span class="meta-tag">{{ tag }}</span>
+          }
+        </div>
+        <p class="card-desc">{{ resource.description }}</p>
+        <div class="card-divider"></div>
+        <div class="card-footer">
+          <a class="card-btn" [href]="resource.link" rel="noopener" target="_blank">Explore</a>
+        </div>
+      </article>
+    }
+    @if (filteredResources().length === 0) {
+      <div class="no-results">{{ noResultsMessage() }}</div>
+    }
+  </div>
+</div>

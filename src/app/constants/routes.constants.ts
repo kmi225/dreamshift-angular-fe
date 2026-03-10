@@ -8,4 +8,5 @@ export const ROUTES = {
     BLOG_POST_PREFIX: 'blog-post',
     BLOG_POST: 'blog-post/:slug',
     CONTACT: 'contact',
+    AUSSIE_UPSKILLING_RESOURCES: 'aussie-upskilling-resources',
 }
