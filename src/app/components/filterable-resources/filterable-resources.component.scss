@@ -26,8 +26,7 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+  font-size: 18px;
   color: #f6b900;
   pointer-events: none;
   z-index: 1;
@@ -75,95 +74,6 @@
 
 .custom-input-base:focus {
   box-shadow: 0 0 0 3px rgba(246, 185, 0, 0.25);
-}
-
-/* Custom Multi-Select Dropdown */
-.multi-select-wrapper {
-  position: relative;
-  user-select: none;
-}
-
-.multi-select-trigger {
-  margin: 0;
-  font: inherit;
-  width: 100%;
-  background-color: #411c30;
-  border: 2px solid #f6b900;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.7);
-  outline: none;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.multi-select-trigger.has-selection {
-  color: #fff;
-  font-weight: 500;
-}
-
-.chevron {
-  transition: transform 0.2s ease;
-}
-
-.multi-select-dropdown {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  max-height: 300px;
-  overflow-y: auto;
-  display: none;
-  padding: 10px;
-}
-
-.multi-select-dropdown.open {
-  display: block;
-}
-
-.multi-select-dropdown::-webkit-scrollbar {
-  width: 8px;
-}
-.multi-select-dropdown::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-.multi-select-dropdown::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-.multi-select-option {
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-  cursor: pointer;
-  border-radius: 6px;
-  color: #411c30;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  transition: background 0.1s;
-}
-
-.multi-select-option:hover {
-  background-color: #fff8e1;
-}
-
-.multi-select-option input {
-  margin-right: 12px;
-  width: 16px;
-  height: 16px;
-  accent-color: #411c30;
-  cursor: pointer;
 }
 
 /* Grid Layout */
@@ -345,8 +255,7 @@
     padding: 10px 14px;
   }
   .search-input-icon {
-    width: 16px;
-    height: 16px;
+    font-size: 16px;
     left: 12px;
   }
   .multi-select-trigger {

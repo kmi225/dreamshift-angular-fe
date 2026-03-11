@@ -1,0 +1,25 @@
+<div class="ds-dropdown" ngbDropdown [autoClose]="'outside'">
+  <button
+    type="button"
+    class="ds-dropdown-trigger"
+    ngbDropdownToggle
+    [class.has-selection]="hasSelection()"
+  >
+    <span class="ds-dropdown-trigger-text">{{ triggerText() }}</span>
+    <svg class="ds-dropdown-chevron" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <div ngbDropdownMenu class="ds-dropdown-menu">
+    @for (option of options(); track $index) {
+      <label class="ds-dropdown-option">
+        <input
+          type="checkbox"
+          [checked]="isOptionSelected(option)"
+          (change)="toggleOption(option)"
+        />
+        {{ option }}
+      </label>
+    }
+  </div>
+</div>
