@@ -40,6 +40,13 @@
         font-size: 50px;
         margin: 20px auto;
     }
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-0.2rem);
+        border: 2px solid colors.$ds-yellow-1;
+        transition: all 0.3s ease;
+    }
 }
 
 .aussie-resources-container {

@@ -20,7 +20,7 @@
     </div>
 
     <div class="aussie-resources-container row-1-container">
-        @for (resource of row1Resources; track resource.id) {
+        @for (resource of primaryAussieResources; track resource.id) {
             <div class="aussie-resource-item" (click)="navigateToResource(resource.link)">
                 <img [src]="resource.image" [alt]="resource.title" />
                 <!-- <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i> -->
@@ -33,8 +33,8 @@
     <div>
         <h3>Do these - Land Jobs Even Faster!</h3>
         <div class="aussie-resources-container row-2-container">
-            @for (resource of row2Resources; track resource.id) {
-                <div class="aussie-resource-item">
+            @for (resource of landJobsFasterResources; track resource.id) {
+                <div class="aussie-resource-item" (click)="navigateToResource(resource.link)">
                     <img [src]="resource.image" [alt]="resource.title" />
                     <!-- <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i> -->
                     <h5 class="aussie-resource-title">{{ resource.title }}</h5>
@@ -47,8 +47,8 @@
     <div>
         <h3>Additional Resources</h3>
         <div class="aussie-resources-container row-3-container">
-            @for (resource of row3Resources; track resource.id) {
-                <div class="aussie-resource-item">
+            @for (resource of additionalExternalResources; track resource.id) {
+                <div class="aussie-resource-item" (click)="navigateToResource(resource.link)">
                     <!-- <img [src]="resource.image" [alt]="resource.title" /> -->
                     <i [ngClass]="resource.icon" class="fa-solid aussie-resource-icon"></i>
                     <h5 class="aussie-resource-title">{{ resource.title }}</h5>

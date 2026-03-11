@@ -3,6 +3,7 @@ import { BlogService } from '../../services/blog.service';
 import { BlogPostListItem, BlogPostListItemResponse } from '../../models/blog-post-list-item.model';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BlogPostCardComponent } from '../../components/blog-post-card/blog-post-card.component';
 import { DsDropdownComponent } from '../../components/ds-dropdown/ds-dropdown.component';
 import { DsInputComponent } from '../../components/ds-input/ds-input.component';
@@ -13,6 +14,7 @@ import { BlogCategory } from '../../models/blog-category.model';
   imports: [
     RouterModule,
     CommonModule,
+    FormsModule,
     BlogPostCardComponent,
     DsDropdownComponent,
     DsInputComponent,

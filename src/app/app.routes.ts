@@ -20,20 +20,25 @@ export const routes: Routes = [{
     component: OurProcessComponent
 }, {
     path: ROUTES.AUSSIE_TOOLKIT, 
-    component: AussieToolkitComponent
+    children: [
+        {
+            path: '',
+            component: AussieToolkitComponent
+        },
+        {
+            path: ROUTES.UPSKILLING_RESOURCES,
+            component: UpskillingResourcesComponent
+        },
+    ]
 },  {
     path: ROUTES.BLOG_POST,
     component: BlogPostComponent
 }, {
     path: ROUTES.BLOG,
-    component: BlogComponent
+    component: BlogComponent,
 }, {
     path: ROUTES.CONTACT,
     component: ContactComponent
-},
-{
-    path: ROUTES.AUSSIE_UPSKILLING_RESOURCES,
-    component: UpskillingResourcesComponent
 },
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {
