@@ -36,7 +36,9 @@ export class DsDropdownComponent {
   }
 
   protected toggleOption(value: string): void {
-    if (!this.multiSelect()) {
+    console.log('toggleOption', value, this.multiSelect());
+
+    if (this.multiSelect()) {
       const set = new Set(this.selected() ?? []);
       if (set.has(value)) set.delete(value);
       else set.add(value);

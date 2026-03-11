@@ -95,11 +95,11 @@ export class BlogComponent {
     return this.loadingCategories ? 'Loading categories...' : 'Select category';
   }
 
-  /** Current selection for ds-dropdown: empty = "All", otherwise single category name */
+  /** Current selection for ds-dropdown: "All" when no category, otherwise single category name */
   public getSelectedCategorySet(): Set<string> {
-    if (this.category == null) return new Set();
+    if (this.category == null) return new Set(['All']);
     const name = this.categoriesList.find((c) => c.slug === this.category)?.name;
-    return name != null ? new Set([name]) : new Set();
+    return name != null ? new Set([name]) : new Set(['All']);
   }
 
   /** Handle category dropdown change (single-select: one category or "All") */
