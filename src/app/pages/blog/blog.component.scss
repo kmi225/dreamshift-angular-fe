@@ -28,22 +28,23 @@ h1 {
         align-items: center;
         gap: 10px;
         width: 40%;
-        
-        input {
-            width: 90%;
-            height: 45px;
-            padding-left: 10px;
-        }
+    }
 
-        label {
-            width: 200px;
+    .search-container {
+        ds-input {
+            flex: 1;
+            min-width: 0;
         }
+    }
 
-        select {
-            width: -webkit-fill-available;
-            height: 45px;
-            padding-left: 10px;
-        }
+    .select-container label {
+        width: 200px;
+        flex-shrink: 0;
+    }
+
+    .select-container ds-dropdown {
+        flex: 1;
+        min-width: 0;
     }
 
     @media (max-width: contentWidth.$content-narrow-width) {
@@ -59,10 +60,6 @@ h1 {
             min-height: 40px;
             min-width: 40px;
             font-size: 16px;
-        }
-
-        input, select {
-            height: 35px !important;
         }
     }
 

@@ -1,16 +1,12 @@
 <div class="filterable-resources-section">
   <div class="filter-container">
     <div class="search-row">
-      <div class="search-input-wrapper">
-        <i class="fa-solid fa-magnifying-glass search-input-icon" aria-hidden="true"></i>
-        <input
-          class="custom-input-base search-input"
-          type="text"
-          [placeholder]="searchPlaceholder()"
-          [ngModel]="searchQuery()"
-          (ngModelChange)="searchQuery.set($event)"
-        />
-      </div>
+      <ds-input
+        icon="fa-solid fa-magnifying-glass"
+        [placeholder]="searchPlaceholder()"
+        [value]="searchQuery()"
+        (valueChange)="searchQuery.set($event)"
+      />
     </div>
       <div class="filters-row">
       @for (filter of filters(); track filter.id) {
@@ -19,6 +15,7 @@
             [options]="filter.options"
             [label]="filter.label"
             [selected]="getSelectedForFilter(filter.id)"
+            [multiSelect]="filter.multiSelect"
             (selectedChange)="setSelection(filter.id, $event)"
           />
         </div>

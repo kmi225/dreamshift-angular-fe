@@ -1,13 +1,13 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { DsDropdownComponent } from '../ds-dropdown/ds-dropdown.component';
+import { DsInputComponent } from '../ds-input/ds-input.component';
 import { FilterableCard } from '../../models/filterable-card.model';
 import { FilterConfig } from '../../models/filter-config.model';
 
 @Component({
   selector: 'app-filterable-resources',
-  imports: [CommonModule, FormsModule, DsDropdownComponent],
+  imports: [CommonModule, DsDropdownComponent, DsInputComponent],
   templateUrl: './filterable-resources.component.html',
   styleUrl: './filterable-resources.component.scss',
 })

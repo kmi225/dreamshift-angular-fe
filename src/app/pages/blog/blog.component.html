@@ -2,22 +2,26 @@
     <div>
         <h1>Blog</h1>
         <div class="filters-container">
-            <div class="search-container">
-                <input type="text" placeholder="Search" [(ngModel)]="search" (keyup.enter)="setSearch()" />
-                <button type="button" class="btn ds-primary-btn search-btn" (click)="setSearch()">
+            <form class="search-container" (ngSubmit)="setSearch()">
+                <ds-input
+                    icon="fa-solid fa-search"
+                    placeholder="Search"
+                    [value]="search ?? ''"
+                    (valueChange)="search = $event"
+                />
+                <button type="submit" class="btn ds-primary-btn search-btn" aria-label="Search">
                     <i class="fa-solid fa-search"></i>
                 </button>
+            </form>
+            <div class="select-container">
+                <label>Select category</label>
+                <ds-dropdown
+                    [options]="getCategoryOptions()"
+                    [label]="getCategoryDropdownLabel()"
+                    [selected]="getSelectedCategorySet()"
+                    (selectedChange)="onCategorySelectionChange($event)"
+                />
             </div>
-            <div class="select-container" >
-                <label for="category">Select category</label>
-                <select id="category" class="form-select" [(ngModel)]="category" (ngModelChange)="setCategory()">
-                    <option [value]="undefined"  *ngIf="!loadingCategories">All</option>
-                    @for (cat of categoriesList; track cat.id) {
-                        <option [value]="cat.slug" *ngIf="!loadingCategories">{{ cat.name }}</option>
-                    }
-                    <option disabled *ngIf="loadingCategories">Loading categories...</option>
-                </select>
-             </div>
         </div>    
     </div>
     <div class="blog-posts-container" *ngIf="!loading">

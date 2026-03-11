@@ -1,0 +1,42 @@
+/* Reusable Dreamshift text input – optional Font Awesome icon */
+.ds-input-wrapper {
+  position: relative;
+  width: 100%;
+
+  &.has-icon .ds-input {
+    padding-left: 46px;
+  }
+}
+
+.ds-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #f6b900;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ds-input {
+  width: 100%;
+  background-color: #411c30;
+  border: 2px solid #f6b900;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ds-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ds-input:focus {
+  box-shadow: 0 0 0 3px rgba(246, 185, 0, 0.25);
+}
