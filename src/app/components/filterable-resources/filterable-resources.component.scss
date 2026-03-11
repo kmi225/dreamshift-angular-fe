@@ -87,6 +87,67 @@
   color: #555;
 }
 
+/* Optional branches tooltip (e.g. recruiters) – only used when card has branches */
+.branches-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.branches-btn {
+  background: #fff;
+  border: 1.5px solid #f6b900;
+  color: #411c30;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &::after {
+    display: none !important;
+  }
+
+  &:hover {
+    background: #fff8e1;
+    border-color: #f6b900;
+  }
+}
+
+.branches-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.branches-dropdown {
+  min-width: 180px;
+  max-width: 280px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.branches-item {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #411c30;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.branches-item:hover {
+  background: #fff8e1;
+}
+
 .card-desc {
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -194,6 +255,10 @@
     margin-bottom: 10px;
   }
   .meta-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  .branches-btn {
     font-size: 10px;
     padding: 3px 8px;
   }

@@ -5,6 +5,7 @@ export const ROUTES = {
     AUSSIE_TOOLKIT: 'aussie-toolkit',
     UPSKILLING_RESOURCES: 'upskilling-resources',
     EVENTS_AND_NETWORKING: 'events-and-networking',
+    RECRUITERS: 'recruiters',
     BLOG: 'blog',
     BLOG_POST_PREFIX: 'blog-post',
     BLOG_POST: 'blog-post/:slug',

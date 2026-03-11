@@ -1,5 +1,6 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DsDropdownComponent } from '../ds-dropdown/ds-dropdown.component';
 import { DsInputComponent } from '../ds-input/ds-input.component';
 import { FilterableCard } from '../../models/filterable-card.model';
@@ -7,7 +8,7 @@ import { FilterConfig } from '../../models/filter-config.model';
 
 @Component({
   selector: 'app-filterable-resources',
-  imports: [CommonModule, DsDropdownComponent, DsInputComponent],
+  imports: [CommonModule, NgbDropdownModule, DsDropdownComponent, DsInputComponent],
   templateUrl: './filterable-resources.component.html',
   styleUrl: './filterable-resources.component.scss',
 })
@@ -34,6 +35,7 @@ export class FilterableResourcesComponent {
       card.name,
       card.description,
       ...card.metaTags,
+      ...(card.branches ?? []),
       ...Object.values(card.filterValues).flatMap((v) => (Array.isArray(v) ? v : [v])),
     ];
 

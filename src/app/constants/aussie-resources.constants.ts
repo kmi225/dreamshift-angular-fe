@@ -7,7 +7,7 @@ export const PRIMARY_AUSSIE_RESOURCES: AussieResource[] = [
       title: 'Top Australian Recruiters',
       description: 'Find the top recruiters in Australia by industry and region.',
       image: 'https://dreamshift.net/wp-content/uploads/2025/09/Recruiters.svg',
-      link: 'https://dreamshift.net/australian-recruiters/',
+      link: ROUTES.RECRUITERS,
     },
     {
       id: 2,  
@@ -38,7 +38,7 @@ export const LAND_JOBS_FASTER_RESOURCES: AussieResource[] = [
       title: 'Networking Platforms',
       description: 'Find the best networking platforms to build your career connections.',
       image: 'https://dreamshift.net/wp-content/uploads/2025/09/Networking.svg',
-      link: 'https://dreamshift.net/networking/'
+      link: ROUTES.EVENTS_AND_NETWORKING
     }
 ]
 
