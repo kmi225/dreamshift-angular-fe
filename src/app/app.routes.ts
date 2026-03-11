@@ -8,6 +8,7 @@ import { BlogPostComponent } from './pages/blog-post/blog-post.component';
 import { ROUTES } from './constants/routes.constants';
 import { ContactComponent } from './pages/contact/contact.component';
 import { UpskillingResourcesComponent } from './pages/upskilling-resources/upskilling-resources.component';
+import { EventsAndNetworkingComponent } from './pages/events-and-networking/events-and-networking.component';
 
 export const routes: Routes = [{
     path: ROUTES.HOME, 
@@ -29,6 +30,10 @@ export const routes: Routes = [{
             path: ROUTES.UPSKILLING_RESOURCES,
             component: UpskillingResourcesComponent
         },
+        {
+            path: ROUTES.EVENTS_AND_NETWORKING,
+            component: EventsAndNetworkingComponent
+        }
     ]
 },  {
     path: ROUTES.BLOG_POST,
