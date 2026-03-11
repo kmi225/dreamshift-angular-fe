@@ -1,6 +1,16 @@
-<app-filterable-resources
-  [data]="data"
-  [filters]="filters"
-  searchPlaceholder="Search platforms, subjects, keywords..."
-  noResultsMessage="No platforms match your filters."
-/>
+<div class="page-container">
+  <div>
+    <h1 class="large-title">Upskilling Resources</h1>
+    <h5 class="yellow-title">
+      Explore a range of free and paid online platforms to upskill yourself for the Australian job market. 
+    </h5>  
+  </div>
+  <app-filterable-resources
+    [data]="data"
+    [filters]="filters"
+    searchPlaceholder="Search platforms, subjects, keywords..."
+    noResultsMessage="No platforms match your filters."
+  />
+  <app-full-width-banner mode="aussie-toolkit" />
+</div>
+

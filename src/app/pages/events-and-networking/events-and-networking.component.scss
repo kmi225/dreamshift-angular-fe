@@ -1,1 +1,19 @@
-/* Page uses app-filterable-resources styles; add page-specific overrides here if needed */
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.events-subtitle {
+    @media (min-width: contentWidth.$content-width) {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$content-width) {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    @media (max-width: contentWidth.$content-narrow-width) {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+

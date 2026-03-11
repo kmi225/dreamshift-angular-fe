@@ -1,6 +1,13 @@
-<app-filterable-resources
-  [data]="data"
-  [filters]="filters"
-  searchPlaceholder="Search recruiters, industries, keywords..."
-  noResultsMessage="No recruiters match your filters."
-/>
+<div class="page-container">
+  <div>
+    <h1 class="large-title">Recruiting Agencies in Australia</h1>
+    <h5 class="yellow-title">Find top recruitment agencies, industry-specific opportunities, and visa-friendly career guidance</h5>  
+  </div>
+  <app-filterable-resources
+    [data]="data"
+    [filters]="filters"
+    searchPlaceholder="Search recruiters, industries, keywords..."
+    noResultsMessage="No recruiters match your filters."
+  />
+  <app-full-width-banner mode="aussie-toolkit" />
+</div>

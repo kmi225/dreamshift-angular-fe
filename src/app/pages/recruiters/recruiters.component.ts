@@ -4,10 +4,11 @@ import {
   DEFAULT_RECRUITERS_CARDS,
   DEFAULT_RECRUITERS_FILTERS,
 } from '../../constants/recruiters.constants';
+import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 
 @Component({
   selector: 'app-recruiters',
-  imports: [FilterableResourcesComponent],
+  imports: [FilterableResourcesComponent, FullWidthBannerComponent],
   templateUrl: './recruiters.component.html',
   styleUrl: './recruiters.component.scss',
 })

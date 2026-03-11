@@ -21,6 +21,10 @@
             justify-content: space-between;
             min-width: 300px;
             color: colors.$ds-black-1;
+
+            h1, h2, h5, p {
+                text-align: left;
+            }
             
             @media (min-width: contentWidth.$content-width){
                 padding: 0 contentWidth.$padding-width;

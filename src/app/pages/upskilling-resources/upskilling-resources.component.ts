@@ -4,10 +4,11 @@ import {
   DEFAULT_UPSKILLING_CARDS,
   DEFAULT_UPSKILLING_FILTERS,
 } from '../../constants/upskilling-resources.constants';
+import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 
 @Component({
   selector: 'app-upskilling-resources',
-  imports: [FilterableResourcesComponent],
+  imports: [FilterableResourcesComponent, FullWidthBannerComponent],
   templateUrl: './upskilling-resources.component.html',
   styleUrl: './upskilling-resources.component.scss',
 })
