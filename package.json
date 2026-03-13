@@ -28,6 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^18.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "exceljs": "^4.4.0",
     "express": "^4.18.2",
     "handsontable": "^17.0.0",
     "rxjs": "~7.8.0",

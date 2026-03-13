@@ -16,25 +16,41 @@ const TEMPLATE_CSV_URL = '/Connection%20Bank%20Template%20-%20DreamShift.csv';
 
 const EXCEL_STYLE_RENDERER = 'excelStyleRenderer';
 
-/** Shared ref so the renderer can read current styles (avoids cells callback timing issues in the Angular wrapper). */
-const cellStylesRef: { current: Record<string, string> } = { current: {} };
+export interface ExcelCellStyle {
+  bg?: string;
+  color?: string;
+  bold?: boolean;
+  italic?: boolean;
+}
 
-// function rgbToHex(rgb: string): string {
-//   if (!rgb || typeof rgb !== 'string') return '';
-//   const s = rgb.replace(/^#/, '').toUpperCase();
-//   if (s.length === 8) return '#' + s.slice(2);
-//   if (s.length === 6) return '#' + s;
-//   return '';
-// }
+/** Shared ref so the renderer can read current styles (avoids cells callback timing issues in the Angular wrapper). */
+const cellStylesRef: { current: Record<string, ExcelCellStyle> } = { current: {} };
 
 function rgbToHex(rgb: string): string {
   if (!rgb || typeof rgb !== 'string') return '';
   const s = rgb.replace(/^#/, '').toUpperCase();
-  // ARGB format (8 chars) — strip alpha channel prefix
   if (s.length === 8) return '#' + s.slice(2);
-  // Standard RGB (6 chars)
   if (s.length === 6) return '#' + s;
   return '';
+}
+
+/** ExcelJS uses ARGB (e.g. FFB6D7A8); convert to #RRGGBB */
+function argbToHex(argb: string | undefined): string {
+  if (!argb || typeof argb !== 'string') return '';
+  const s = argb.replace(/^#/, '').toUpperCase();
+  if (s.length === 8) return '#' + s.slice(2);
+  if (s.length === 6) return '#' + s;
+  return '';
+}
+
+function isNoFillSentinel(rgb: string): boolean {
+  const upper = rgb.toUpperCase();
+  return (
+    upper === '00000000' ||
+    upper === 'FFFFFF00' ||
+    upper === '000000' ||
+    upper === 'FFFFFF'
+  );
 }
 
 function excelStyleRenderer(
@@ -44,12 +60,16 @@ function excelStyleRenderer(
   col: number,
   prop: string | number,
   value: unknown,
-  cellProperties: CellProperties & { excelBg?: string }
+  cellProperties: CellProperties
 ): void {
   textRenderer(hotInstance as never, TD, row, col, prop, value, cellProperties);
-  const bg = cellStylesRef.current[`${row},${col}`];
-  // if (bg) TD.style.backgroundColor = bg;
-  if (bg) TD.style.setProperty('background-color', bg, 'important');
+  const style = cellStylesRef.current[`${row},${col}`];
+  if (style && Object.keys(style).length === 0) return;
+  console.log("CONTINUE 0", style);
+  if (style?.bg) TD.style.setProperty('background-color', style.bg, 'important');
+  if (style?.color) TD.style.setProperty('color', style.color, 'important');
+  if (style?.bold) TD.style.setProperty('font-weight', 'bold', 'important');
+  if (style?.italic) TD.style.setProperty('font-style', 'italic', 'important');
 }
 
 @Component({
@@ -61,7 +81,7 @@ function excelStyleRenderer(
 export class ConnectionBankComponent implements OnInit {
   readonly sheetData = signal<unknown[][]>([]);
   readonly mergeCells = signal<Array<{ row: number; col: number; rowspan: number; colspan: number }>>([]);
-  readonly cellStyles = signal<Record<string, string>>({});
+  readonly cellStyles = signal<Record<string, ExcelCellStyle>>({});
   readonly loadError = signal<string | null>(null);
   readonly loading = signal(true);
   readonly isBrowser = signal(false);
@@ -78,10 +98,10 @@ export class ConnectionBankComponent implements OnInit {
       licenseKey: 'non-commercial-and-evaluation',
       mergeCells: mergeCells.length ? mergeCells : undefined,
       renderer: EXCEL_STYLE_RENDERER,
-      cells: (row: number, col: number) => {
-        const bg = cellStylesMap[`${row},${col}`];
-        return bg ? { excelBg: bg } : {};
-      },
+      // cells: (row: number, col: number) => {
+      //   const style = cellStylesMap[`${row},${col}`];
+      //   return style?.bg ? { excelBg: style.bg } : {};
+      // },
     };
   });
 
@@ -111,83 +131,128 @@ export class ConnectionBankComponent implements OnInit {
     this.http
       .get(TEMPLATE_XLSX_URL, { responseType: 'arraybuffer' })
       .subscribe({
-        next: (buffer) => this.parseXlsx(buffer),
+        next: (buffer) => void this.parseXlsx(buffer),
         error: () => this.loadCsvFallback(),
       });
   }
 
-  // private parseXlsx(buffer: ArrayBuffer): void {
-  //   console.log('Parsing XLSX');
-  //   try {
-  //     const workbook = XLSXStyle.read(buffer, { type: 'array', cellStyles: true });
-  //     const firstSheetName = workbook.SheetNames[0];
-  //     const sheet = workbook.Sheets[firstSheetName] as Record<string, { v?: unknown; s?: { fill?: { fgColor?: { rgb?: string } } } }>;
-  //     const data = XLSXStyle.utils.sheet_to_json<unknown[]>(sheet, {
-  //       header: 1,
-  //       defval: '',
-  //     }) as unknown[][];
-  //     this.sheetData.set(data);
 
-  //     const merges: Array<{ row: number; col: number; rowspan: number; colspan: number }> = [];
-  //     const rangeList = (sheet as { '!merges'?: Array<{ s: { r: number; c: number }; e: { r: number; c: number } }> })['!merges'];
-  //     if (rangeList?.length) {
-  //       for (const r of rangeList) {
-  //         merges.push({
-  //           row: r.s.r,
-  //           col: r.s.c,
-  //           rowspan: r.e.r - r.s.r + 1,
-  //           colspan: r.e.c - r.s.c + 1,
-  //         });
-  //       }
-  //     }
-  //     this.mergeCells.set(merges);
-
-  //     const styles: Record<string, string> = {};
-  //     const cellRef = /^[A-Z]+[0-9]+$/;
-  //     for (const key of Object.keys(sheet)) {
-  //       if (!cellRef.test(key)) continue;
-  //       const cell = sheet[key] as { s?: { fill?: { fgColor?: { rgb?: string }; bgColor?: { rgb?: string } }; fgColor?: { rgb?: string }; bgColor?: { rgb?: string } } } | undefined;
-  //       const s = cell?.s;
-  //       if (!s) continue;
-  //       // When reading, xlsx-js-style puts fill colors in s.fgColor/s.bgColor; when writing they're under s.fill
-  //       const rgb =
-  //         s.fill?.fgColor?.rgb ??
-  //         s.fill?.bgColor?.rgb ??
-  //         s.fgColor?.rgb ??
-  //         s.bgColor?.rgb;
-  //       if (rgb) {
-  //         const decoded = XLSXStyle.utils.decode_cell(key);
-  //         styles[`${decoded.r},${decoded.c}`] = rgbToHex(rgb);
-  //       }
-  //     }
-  //     this.cellStyles.set(styles);
-  //     cellStylesRef.current = styles;
-  //     this.loadError.set(null);
-  //   } catch (err) {
-  //     this.loadError.set(
-  //       err instanceof Error ? err.message : 'Failed to parse Excel file'
-  //     );
-  //   } finally {
-  //     this.loading.set(false);
-  //   }
-  // }
-
-  private parseXlsx(buffer: ArrayBuffer): void {
+  private async parseXlsx(buffer: ArrayBuffer): Promise<void> {
     try {
-      // Use plain xlsx for reading — more reliable style extraction than xlsx-js-style
-      const workbook = XLSX.read(buffer, { type: 'array', cellStyles: true });
+      const ok = await this.parseXlsxWithExcelJS(buffer);
+      if (ok) return;
+      this.parseXlsxWithXlsxStyle(buffer);
+    } catch (err) {
+      this.loadError.set(
+        err instanceof Error ? err.message : 'Failed to parse Excel file'
+      );
+    } finally {
+      this.loading.set(false);
+    }
+  }
+
+  /** Parse with ExcelJS to get font + fill; returns true if successful. */
+  private async parseXlsxWithExcelJS(buffer: ArrayBuffer): Promise<boolean> {
+    const ExcelJS = await import('exceljs');
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(buffer as unknown as ArrayBuffer);
+    const ws = workbook.worksheets[0];
+    if (!ws) return false;
+
+    const dimensions = (ws as { dimensions?: { bottom: number; right: number } }).dimensions;
+    const maxRow = dimensions?.bottom ?? 0;
+    const maxCol = dimensions?.right ?? 0;
+    if (maxRow === 0 || maxCol === 0) return false;
+
+    const data: unknown[][] = [];
+    const styles: Record<string, ExcelCellStyle> = {};
+
+    for (let r = 1; r <= maxRow; r++) {
+      const row: unknown[] = [];
+      for (let c = 1; c <= maxCol; c++) {
+        const cell = ws.getCell(r, c);
+        const value = cell.value;
+        row.push(value != null && typeof value === 'object' && 'text' in value ? (value as { text: string }).text : value ?? '');
+        const style = cell.style;
+        if (style) {
+          const entry: ExcelCellStyle = {};
+          const fill = style.fill as { fgColor?: { argb?: string }; bgColor?: { argb?: string } } | undefined;
+          const fg = fill?.fgColor?.argb ?? fill?.bgColor?.argb;
+          if (fg && !isNoFillSentinel(fg)) entry.bg = argbToHex(fg);
+          const font = style.font as { color?: { argb?: string }; bold?: boolean; italic?: boolean } | undefined;
+          if (font?.color?.argb) entry.color = argbToHex(font.color.argb);
+          if (font?.bold) entry.bold = true;
+          if (font?.italic) entry.italic = true;
+          if (Object.keys(entry).length) styles[`${r - 1},${c - 1}`] = entry;
+        }
+      }
+      data.push(row);
+    }
+
+    const merges: Array<{ row: number; col: number; rowspan: number; colspan: number }> = [];
+    const model = (ws as unknown as { model?: { merges?: Array<{ top: number; left: number; bottom: number; right: number } | string> } }).model;
+    const mergeList = model?.merges;
+    if (mergeList?.length) {
+      for (const m of mergeList) {
+        if (typeof m === 'object' && m != null && 'top' in m) {
+          const o = m as { top: number; left: number; bottom: number; right: number };
+          merges.push({
+            row: o.top - 1,
+            col: o.left - 1,
+            rowspan: o.bottom - o.top + 1,
+            colspan: o.right - o.left + 1,
+          });
+        } else if (typeof m === 'string' && m.includes(':')) {
+          const [tl, br] = m.split(':');
+          if (tl && br) {
+            const s = XLSX.utils.decode_cell(tl);
+            const e = XLSX.utils.decode_cell(br);
+            merges.push({
+              row: s.r,
+              col: s.c,
+              rowspan: e.r - s.r + 1,
+              colspan: e.c - s.c + 1,
+            });
+          }
+        }
+      }
+    }
+
+    console.log("CONTINUE 2", styles);
+    this.sheetData.set(data);
+    this.mergeCells.set(merges);
+    this.cellStyles.set(styles);
+    cellStylesRef.current = styles;
+    this.loadError.set(null);
+    return true;
+  }
+
+  /** Fallback when ExcelJS is unavailable or fails; xlsx-js-style often only exposes fill. */
+  private parseXlsxWithXlsxStyle(buffer: ArrayBuffer): void {
+    console.log("CONTINUE 4");
+    try {
+      const workbook = XLSXStyle.read(buffer, { type: 'array', cellStyles: true });
       const firstSheetName = workbook.SheetNames[0];
-      const sheet = workbook.Sheets[firstSheetName];
-  
-      const data = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
+      const sheet = workbook.Sheets[firstSheetName] as Record<
+        string,
+        {
+          s?: {
+            fill?: { fgColor?: { rgb?: string }; bgColor?: { rgb?: string } };
+            fgColor?: { rgb?: string };
+            bgColor?: { rgb?: string };
+            font?: { color?: { rgb?: string }; bold?: boolean; italic?: boolean };
+          };
+        }
+      >;
+
+      const data = XLSXStyle.utils.sheet_to_json<unknown[]>(sheet, {
         header: 1,
         defval: '',
       }) as unknown[][];
       this.sheetData.set(data);
-  
-      // Merges
+
       const merges: Array<{ row: number; col: number; rowspan: number; colspan: number }> = [];
-      const rangeList = (sheet as any)['!merges'];
+      const rangeList = (sheet as { '!merges'?: Array<{ s: { r: number; c: number }; e: { r: number; c: number } }> })['!merges'];
       if (rangeList?.length) {
         for (const r of rangeList) {
           merges.push({
@@ -199,44 +264,48 @@ export class ConnectionBankComponent implements OnInit {
         }
       }
       this.mergeCells.set(merges);
-  
-      // Styles
-      const styles: Record<string, string> = {};
+
+      const styles: Record<string, ExcelCellStyle> = {};
       const cellRef = /^[A-Z]+[0-9]+$/;
-  
+
+      console.log("CONTINUE 3", sheet);
       for (const key of Object.keys(sheet)) {
         if (!cellRef.test(key)) continue;
-        const cell = (sheet as any)[key];
+        const cell = sheet[key];
         const s = cell?.s;
         if (!s) continue;
-        console.log("CONTINUE 0", s);
-  
-        // When reading, xlsx puts fill color at s.fgColor (for solid pattern fills)
-        // s.bgColor is the pattern background (usually white), not what you want
-        const rgb: string | undefined = s.fgColor?.rgb ?? s?.bgColor?.rgb;
-        if (!rgb || typeof rgb !== 'string') continue;
-  
-        // Filter out transparent/no-fill sentinel values Excel uses
-        const upper = rgb.toUpperCase();
-        if (
-          upper === '00000000' ||  // transparent
-          upper === 'FFFFFF00' ||  // transparent white  
-          upper === '000000'  ||   // default black (usually means no fill was set)
-          upper === 'FFFFFF'       // default white — omit if you want grid bg to show through
-        ) continue;
-  
-        const decoded = XLSX.utils.decode_cell(key);
-        styles[`${decoded.r},${decoded.c}`] = rgbToHex(rgb);
-        
+
+        const decoded = XLSXStyle.utils.decode_cell(key);
+        const cellKey = `${decoded.r},${decoded.c}`;
+        let entry = styles[cellKey];
+        if (!entry) {
+          entry = {};
+          styles[cellKey] = entry;
+        }
+
+        const fillRgb =
+          s.fill?.fgColor?.rgb ??
+          s.fill?.bgColor?.rgb ??
+          s.fgColor?.rgb ??
+          s.bgColor?.rgb;
+        if (fillRgb && typeof fillRgb === 'string' && !isNoFillSentinel(fillRgb)) {
+          entry.bg = rgbToHex(fillRgb);
+        }
+        console.log("C5453", cell);
+
+        const fontRgb = s.font?.color?.rgb;
+        if (fontRgb && typeof fontRgb === 'string') entry.color = rgbToHex(fontRgb);
+        if (s.font?.bold) entry.bold = true;
+        if (s.font?.italic) entry.italic = true;
       }
-  
+
       this.cellStyles.set(styles);
       cellStylesRef.current = styles;
       this.loadError.set(null);
     } catch (err) {
-      this.loadError.set(err instanceof Error ? err.message : 'Failed to parse Excel file');
-    } finally {
-      this.loading.set(false);
+      this.loadError.set(
+        err instanceof Error ? err.message : 'Failed to parse Excel file'
+      );
     }
   }
 
