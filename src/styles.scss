@@ -33,8 +33,11 @@ body {
 }
 
 .ds-primary-btn {
-  background-color: colors.$ds-yellow-1;
-  font-weight: 600;
+  background-color: colors.$ds-yellow-1 !important;
+  font-weight: 600 !important;
+  color: colors.$ds-black-1 !important;
+  border-radius: 8px;
+  min-height: 40px;
 
   &:hover, &:active {
       cursor: pointer;
@@ -76,6 +79,18 @@ body {
   &:hover, &:active {
       color: colors.$ds-purple-2 !important;
       background-color: colors.$ds-yellow-1 !important;
+  }
+}
+
+.ds-white-btn {
+  background-color: colors.$ds-white-1;
+  color: colors.$ds-black-1;
+  border-radius: 8px;
+  padding: 0px 20px;
+  min-height: 40px;
+
+  &:hover, &:active {
+    background-color: rgba(colors.$ds-white-1, 0.9) !important;
   }
 }
 

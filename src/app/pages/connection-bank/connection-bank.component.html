@@ -1,11 +1,19 @@
 <div class="page-container connection-bank-preview">
-  <h1 class="large-title yellow-title">Connection Bank Template</h1>
-  <p class="text-center">Preview of the DreamShift Connection Bank template. Download or copy the file to edit.</p>
+  <h1 class="large-title">The Connection Bank</h1>
 
-  <app-excel-preview
-    xlsxUrl="/Connection%20Bank%20Template%20-%20DreamShift.xlsx"
-    csvUrl="/Connection%20Bank%20Template%20-%20DreamShift.csv"
-    [extraEmptyRows]="10"
-    [extraEmptyCols]="2"
-  />
+  <div class="excel-downloads-container">
+      <app-excel-downloads 
+        [xlsxUrl]="xlsxUrl"
+        [csvUrl]="csvUrl"
+        [sheetsUrl]="sheetsUrl"
+        [fileName]="fileName"
+    />
+
+    <app-excel-preview
+      [xlsxUrl]="xlsxUrl"
+      [csvUrl]="csvUrl"
+      [extraEmptyRows]="10"
+      [extraEmptyCols]="2"
+    />
+  </div>
 </div>

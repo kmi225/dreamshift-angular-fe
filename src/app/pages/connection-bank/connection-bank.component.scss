@@ -1,5 +1,8 @@
 @use '../../../styles/colors.styles.scss' as colors;
 @use '../../../styles/content-width.styles.scss' as contentWidth;
 
-.connection-bank-preview {
+.excel-downloads-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

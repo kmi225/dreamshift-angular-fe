@@ -1,0 +1,43 @@
+<div class="excel-downloads-container">
+    <button class="btn ds-white-btn" (click)="openInSheets()">
+        <i class="fa-solid fa-file-excel"></i>
+        Open in Sheets
+    </button>
+    <div ngbDropdown class="btn-group d-inline-flex" placement="bottom-end">
+      <!-- Primary action: click text to download Excel -->
+      <button
+        type="button"
+        class="btn ds-primary-btn"
+        (click)="downloadAsExcel()"
+      >
+        <i class="fa-solid fa-download"></i>
+        Download as Excel
+      </button>
+    
+      <!-- Split button toggle: click caret to open menu -->
+      <button
+        type="button"
+        class="btn ds-primary-btn dropdown-toggle dropdown-toggle-split"
+        ngbDropdownToggle
+        id="excelDownloadDropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="visually-hidden">Toggle dropdown</span>
+      </button>
+    
+      <div
+        ngbDropdownMenu
+        aria-labelledby="excelDownloadDropdown"
+        class="dropdown-menu dropdown-menu-end"
+      >
+        <button
+          ngbDropdownItem
+          type="button"
+          (click)="downloadAsCsv()"
+        >
+          Download CSV
+        </button>
+      </div>
+    </div>
+</div>

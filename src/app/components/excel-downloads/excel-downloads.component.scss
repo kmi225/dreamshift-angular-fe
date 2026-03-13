@@ -1,0 +1,12 @@
+// Align dropdown menu to the right edge of the toggle button
+.excel-downloads-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-menu-end {
+  right: 0 !important;
+  left: auto !important;
+}
