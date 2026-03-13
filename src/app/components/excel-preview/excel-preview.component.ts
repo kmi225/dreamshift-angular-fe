@@ -206,12 +206,12 @@ export class ExcelPreviewComponent implements OnInit {
           } | undefined;
 
           const styleToPx = (s?: string): number => {
-            if (!s) return 2;
+            if (!s) return 1;
             const lower = s.toLowerCase();
-            if (lower === 'hair' || lower === 'thin') return 2;
-            if (lower === 'medium') return 4;
-            if (lower === 'thick' || lower === 'double') return 6;
-            return 2;
+            if (lower === 'hair' || lower === 'thin') return 1;
+            if (lower === 'medium') return 2;
+            if (lower === 'thick' || lower === 'double') return 3;
+            return 1;
           };
 
           if (border) {
