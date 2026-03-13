@@ -14,7 +14,7 @@ export const PRIMARY_AUSSIE_RESOURCES: AussieResource[] = [
       title: 'The Connection Bank',
       description: 'Find and download the connection bank template to track your connections.',
       image: 'https://dreamshift.net/wp-content/uploads/2025/09/ConnectionBank.svg',
-      link: 'https://dreamshift.net/connection-bank/'
+      link: ROUTES.CONNECTION_BANK
     },
     {
       id: 3,  

@@ -6,6 +6,7 @@ export const ROUTES = {
     UPSKILLING_RESOURCES: 'upskilling-resources',
     EVENTS_AND_NETWORKING: 'events-and-networking',
     RECRUITERS: 'recruiters',
+    CONNECTION_BANK: 'connection-bank',
     BLOG: 'blog',
     BLOG_POST_PREFIX: 'blog-post',
     BLOG_POST: 'blog-post/:slug',
