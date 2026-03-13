@@ -2,14 +2,4 @@
 @use '../../../styles/content-width.styles.scss' as contentWidth;
 
 .connection-bank-preview {
-  .hot-table-container {
-    overflow: auto;
-    border-radius: 8px;
-    background: colors.$ds-white-1;
-    color: colors.$ds-black-1;
-
-    hot-table {
-      display: block;
-    }
-  }
 }
