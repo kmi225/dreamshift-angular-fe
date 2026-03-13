@@ -7,11 +7,9 @@
     <div class="alert alert-warning text-center" role="alert">
       {{ loadError() }}
     </div>
-  } @else {
+  } @else { 
     <div class="hot-table-container">
       <hot-table [data]="sheetData()" [settings]="gridSettings()" />
     </div>
   }
 </div>
-
-<p>excel-preview works!</p>

@@ -392,12 +392,12 @@ export class ExcelPreviewComponent implements OnInit {
           | undefined;
 
         const styleToPx = (st?: string): number => {
-          if (!st) return 2;
+          if (!st) return 1;
           const lower = st.toLowerCase();
-          if (lower === 'hair' || lower === 'thin') return 2;
-          if (lower === 'medium') return 4;
-          if (lower === 'thick' || lower === 'double') return 6;
-          return 2;
+          if (lower === 'hair' || lower === 'thin') return 1;
+          if (lower === 'medium') return 2;
+          if (lower === 'thick' || lower === 'double') return 3;
+          return 1;
         };
 
         if (border) {
@@ -502,16 +502,4 @@ export class ExcelPreviewComponent implements OnInit {
       this.loading.set(false);
     }
   }
-}
-
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-excel-preview',
-  imports: [],
-  templateUrl: './excel-preview.component.html',
-  styleUrl: './excel-preview.component.scss'
-})
-export class ExcelPreviewComponent {
-
 }
