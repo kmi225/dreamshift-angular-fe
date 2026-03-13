@@ -1,0 +1,18 @@
+<div class="page-container connection-bank-preview">
+  <h1 class="large-title yellow-title">Connection Bank Template</h1>
+  <p class="text-center">Preview of the DreamShift Connection Bank template. Download or copy the file to edit.</p>
+
+  @if (!isBrowser()) {
+    <div class="text-center py-4">Loading…</div>
+  } @else if (loading()) {
+    <div class="text-center py-4">Loading template…</div>
+  } @else if (loadError()) {
+    <div class="alert alert-warning text-center" role="alert">
+      {{ loadError() }}
+    </div>
+  } @else {
+    <div class="hot-table-container">
+      <hot-table [data]="sheetData()" [settings]="gridSettings()" />
+    </div>
+  }
+</div>

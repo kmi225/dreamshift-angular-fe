@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 
 interface ProcessStep {
@@ -20,6 +21,8 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
   @ViewChild('walkthroughContainer') walkthroughContainer?: ElementRef<HTMLElement>;
   @ViewChildren('iconContainer') iconContainers!: QueryList<ElementRef<HTMLElement>>;
 
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {}
+
   /** Overall scroll progress 0..1: 0 when first circle at viewport center, 1 when last circle at viewport center */
   scrollProgress = 0;
 
@@ -34,9 +37,12 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     const icons = this.iconContainers?.toArray();
     if (!icons?.length) return;
-    const first = icons[0].nativeElement.getBoundingClientRect();
+    const el0 = icons[0].nativeElement;
+    if (typeof el0?.getBoundingClientRect !== 'function') return;
+    const first = el0.getBoundingClientRect();
     const last = icons[icons.length - 1].nativeElement.getBoundingClientRect();
     const viewportCenter = window.innerHeight / 2;
     const y1 = first.top + first.height / 2;

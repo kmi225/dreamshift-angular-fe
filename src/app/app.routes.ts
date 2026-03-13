@@ -9,7 +9,6 @@ import { ROUTES } from './constants/routes.constants';
 import { ContactComponent } from './pages/contact/contact.component';
 import { UpskillingResourcesComponent } from './pages/upskilling-resources/upskilling-resources.component';
 import { EventsAndNetworkingComponent } from './pages/events-and-networking/events-and-networking.component';
-import { ConnectionBankComponent } from './pages/connection-bank/connection-bank.component';
 import { RecruitersComponent } from './pages/recruiters/recruiters.component';
 
 export const routes: Routes = [{
@@ -42,7 +41,10 @@ export const routes: Routes = [{
         },
         {
             path: ROUTES.CONNECTION_BANK,
-            component: ConnectionBankComponent
+            loadComponent: () =>
+              import('./pages/connection-bank/connection-bank.component').then(
+                (m) => m.ConnectionBankComponent
+              ),
         }
     ]
 },  {
