@@ -45,6 +45,13 @@ export const routes: Routes = [{
               import('./pages/connection-bank/connection-bank.component').then(
                 (m) => m.ConnectionBankComponent
               ),
+        }, 
+        {
+            path: ROUTES.JOB_SEARCH,
+            loadComponent: () =>
+              import('./pages/job-seach/job-seach.component').then(
+                (m) => m.JobSeachComponent
+              ),
         }
     ]
 },  {

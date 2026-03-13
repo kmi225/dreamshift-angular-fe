@@ -4,24 +4,23 @@ import { ROUTES } from './routes.constants';
 export const PRIMARY_AUSSIE_RESOURCES: AussieResource[] = [
     {
       id: 1,  
+      title: 'Online Job Search',
+      description: 'Action plan + messaging templates for online job search.',
+      image: 'https://dreamshift.net/wp-content/uploads/2025/09/JobSearch.svg',
+      link: ROUTES.JOB_SEARCH
+    }, {
+      id: 2,  
       title: 'Top Australian Recruiters',
       description: 'Find the top recruiters in Australia by industry and region.',
       image: 'https://dreamshift.net/wp-content/uploads/2025/09/Recruiters.svg',
       link: ROUTES.RECRUITERS,
     },
     {
-      id: 2,  
+      id: 3,  
       title: 'The Connection Bank',
       description: 'Find and download the connection bank template to track your connections.',
       image: 'https://dreamshift.net/wp-content/uploads/2025/09/ConnectionBank.svg',
       link: ROUTES.CONNECTION_BANK
-    },
-    {
-      id: 3,  
-      title: 'Online Job Search',
-      description: 'Action plan + messaging templates for online job search.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/JobSearch.svg',
-      link: 'https://dreamshift.net/job-search/'
     }
 ]
 

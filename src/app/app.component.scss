@@ -28,7 +28,7 @@
 
 .move-to-top-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 25px;
   right: 20px;
   z-index: 1000;
 }
@@ -42,6 +42,8 @@
   height: 50px;
   font-size: 20px;
   cursor: pointer;
+  border: 1px solid colors.$ds-purple-1;
+  box-shadow: 5px 18px 18px rgba(0, 0, 0, .18);
 
   &:hover {
     background-color: colors.$ds-yellow-2;

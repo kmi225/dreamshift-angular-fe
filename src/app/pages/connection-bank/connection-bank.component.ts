@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ExcelPreviewComponent } from '../../components/excel-preview/excel-preview.component';
 import { ExcelDownloadsComponent } from '../../components/excel-downloads/excel-downloads.component';
+import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 
 @Component({
   selector: 'app-connection-bank',
   standalone: true,
-  imports: [ExcelPreviewComponent, ExcelDownloadsComponent],
+  imports: [ExcelPreviewComponent, ExcelDownloadsComponent, FullWidthBannerComponent],
   templateUrl: './connection-bank.component.html',
   styleUrl: './connection-bank.component.scss',
 })

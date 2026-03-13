@@ -7,6 +7,7 @@ export const ROUTES = {
     EVENTS_AND_NETWORKING: 'events-and-networking',
     RECRUITERS: 'recruiters',
     CONNECTION_BANK: 'connection-bank',
+    JOB_SEARCH: 'job-search',
     BLOG: 'blog',
     BLOG_POST_PREFIX: 'blog-post',
     BLOG_POST: 'blog-post/:slug',
