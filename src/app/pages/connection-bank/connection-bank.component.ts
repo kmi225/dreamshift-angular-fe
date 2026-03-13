@@ -15,7 +15,7 @@ const TEMPLATE_XLSX_URL = '/Connection%20Bank%20Template%20-%20DreamShift.xlsx';
 const TEMPLATE_CSV_URL = '/Connection%20Bank%20Template%20-%20DreamShift.csv';
 
 const EXCEL_STYLE_RENDERER = 'excelStyleRenderer';
-const EXTRA_EMPTY_ROWS = 5;
+const EXTRA_EMPTY_ROWS = 10;
 const EXTRA_EMPTY_COLS = 2;
 
 export interface ExcelCellStyle {
@@ -23,6 +23,10 @@ export interface ExcelCellStyle {
   color?: string;
   bold?: boolean;
   italic?: boolean;
+  borderTop?: string;
+  borderRight?: string;
+  borderBottom?: string;
+  borderLeft?: string;
 }
 
 /** Shared ref so the renderer can read current styles (avoids cells callback timing issues in the Angular wrapper). */
@@ -67,11 +71,14 @@ function excelStyleRenderer(
   textRenderer(hotInstance as never, TD, row, col, prop, value, cellProperties);
   const style = cellStylesRef.current[`${row},${col}`];
   if (style && Object.keys(style).length === 0) return;
-  console.log("CONTINUE 0", style);
   if (style?.bg) TD.style.setProperty('background-color', style.bg, 'important');
   if (style?.color) TD.style.setProperty('color', style.color, 'important');
   if (style?.bold) TD.style.setProperty('font-weight', 'bold', 'important');
   if (style?.italic) TD.style.setProperty('font-style', 'italic', 'important');
+  if (style?.borderTop) TD.style.setProperty('border-top', style.borderTop, 'important');
+  if (style?.borderRight) TD.style.setProperty('border-right', style.borderRight, 'important');
+  if (style?.borderBottom) TD.style.setProperty('border-bottom', style.borderBottom, 'important');
+  if (style?.borderLeft) TD.style.setProperty('border-left', style.borderLeft, 'important');
 }
 
 @Component({
@@ -180,13 +187,57 @@ export class ConnectionBankComponent implements OnInit {
         const style = cell.style;
         if (style) {
           const entry: ExcelCellStyle = {};
+
           const fill = style.fill as { fgColor?: { argb?: string }; bgColor?: { argb?: string } } | undefined;
           const fg = fill?.fgColor?.argb ?? fill?.bgColor?.argb;
           if (fg && !isNoFillSentinel(fg)) entry.bg = argbToHex(fg);
+
           const font = style.font as { color?: { argb?: string }; bold?: boolean; italic?: boolean } | undefined;
           if (font?.color?.argb) entry.color = argbToHex(font.color.argb);
           if (font?.bold) entry.bold = true;
           if (font?.italic) entry.italic = true;
+
+          const border = style.border as {
+            top?: { style?: string; color?: { argb?: string } };
+            right?: { style?: string; color?: { argb?: string } };
+            bottom?: { style?: string; color?: { argb?: string } };
+            left?: { style?: string; color?: { argb?: string } };
+          } | undefined;
+
+          const styleToPx = (s?: string): number => {
+            if (!s) return 1;
+            const lower = s.toLowerCase();
+            if (lower === 'hair' || lower === 'thin') return 1;
+            if (lower === 'medium') return 4;
+            if (lower === 'thick' || lower === 'double') return 6;
+            return 1;
+          };
+
+          if (border) {
+            const defaultColor = '#000000';
+
+            if (border.top) {
+              const color = border.top.color?.argb ? argbToHex(border.top.color.argb) || defaultColor : defaultColor;
+              const width = styleToPx(border.top.style);
+              entry.borderTop = `${width}px solid ${color}`;
+            }
+            if (border.right) {
+              const color = border.right.color?.argb ? argbToHex(border.right.color.argb) || defaultColor : defaultColor;
+              const width = styleToPx(border.right.style);
+              entry.borderRight = `${width}px solid ${color}`;
+            }
+            if (border.bottom) {
+              const color = border.bottom.color?.argb ? argbToHex(border.bottom.color.argb) || defaultColor : defaultColor;
+              const width = styleToPx(border.bottom.style);
+              entry.borderBottom = `${width}px solid ${color}`;
+            }
+            if (border.left) {
+              const color = border.left.color?.argb ? argbToHex(border.left.color.argb) || defaultColor : defaultColor;
+              const width = styleToPx(border.left.style);
+              entry.borderLeft = `${width}px solid ${color}`;
+            }
+          }
+
           if (Object.keys(entry).length) styles[`${r - 1},${c - 1}`] = entry;
         }
       }
@@ -297,7 +348,6 @@ export class ConnectionBankComponent implements OnInit {
       const styles: Record<string, ExcelCellStyle> = {};
       const cellRef = /^[A-Z]+[0-9]+$/;
 
-      console.log("CONTINUE 3", sheet);
       for (const key of Object.keys(sheet)) {
         if (!cellRef.test(key)) continue;
         const cell = sheet[key];
@@ -320,12 +370,61 @@ export class ConnectionBankComponent implements OnInit {
         if (fillRgb && typeof fillRgb === 'string' && !isNoFillSentinel(fillRgb)) {
           entry.bg = rgbToHex(fillRgb);
         }
-        console.log("C5453", cell);
 
         const fontRgb = s.font?.color?.rgb;
         if (fontRgb && typeof fontRgb === 'string') entry.color = rgbToHex(fontRgb);
         if (s.font?.bold) entry.bold = true;
         if (s.font?.italic) entry.italic = true;
+
+        const border = (s as {
+          border?: {
+            top?: { style?: string; color?: { rgb?: string } };
+            right?: { style?: string; color?: { rgb?: string } };
+            bottom?: { style?: string; color?: { rgb?: string } };
+            left?: { style?: string; color?: { rgb?: string } };
+          };
+        }).border as
+          | {
+              top?: { style?: string; color?: { rgb?: string } };
+              right?: { style?: string; color?: { rgb?: string } };
+              bottom?: { style?: string; color?: { rgb?: string } };
+              left?: { style?: string; color?: { rgb?: string } };
+            }
+          | undefined;
+
+        const styleToPx = (st?: string): number => {
+          if (!st) return 2;
+          const lower = st.toLowerCase();
+          if (lower === 'hair' || lower === 'thin') return 2;
+          if (lower === 'medium') return 4;
+          if (lower === 'thick' || lower === 'double') return 6;
+          return 2;
+        };
+
+        if (border) {
+          const defaultColor = '#000000';
+
+          if (border.top) {
+            const color = border.top.color?.rgb ? rgbToHex(border.top.color.rgb) || defaultColor : defaultColor;
+            const width = styleToPx(border.top.style);
+            entry.borderTop = `${width}px solid ${color}`;
+          }
+          if (border.right) {
+            const color = border.right.color?.rgb ? rgbToHex(border.right.color.rgb) || defaultColor : defaultColor;
+            const width = styleToPx(border.right.style);
+            entry.borderRight = `${width}px solid ${color}`;
+          }
+          if (border.bottom) {
+            const color = border.bottom.color?.rgb ? rgbToHex(border.bottom.color.rgb) || defaultColor : defaultColor;
+            const width = styleToPx(border.bottom.style);
+            entry.borderBottom = `${width}px solid ${color}`;
+          }
+          if (border.left) {
+            const color = border.left.color?.rgb ? rgbToHex(border.left.color.rgb) || defaultColor : defaultColor;
+            const width = styleToPx(border.left.style);
+            entry.borderLeft = `${width}px solid ${color}`;
+          }
+        }
       }
 
       this.cellStyles.set(styles);
