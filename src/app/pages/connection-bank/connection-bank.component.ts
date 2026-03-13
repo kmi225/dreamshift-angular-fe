@@ -15,6 +15,8 @@ const TEMPLATE_XLSX_URL = '/Connection%20Bank%20Template%20-%20DreamShift.xlsx';
 const TEMPLATE_CSV_URL = '/Connection%20Bank%20Template%20-%20DreamShift.csv';
 
 const EXCEL_STYLE_RENDERER = 'excelStyleRenderer';
+const EXTRA_EMPTY_ROWS = 5;
+const EXTRA_EMPTY_COLS = 2;
 
 export interface ExcelCellStyle {
   bg?: string;
@@ -160,8 +162,10 @@ export class ConnectionBankComponent implements OnInit {
     if (!ws) return false;
 
     const dimensions = (ws as { dimensions?: { bottom: number; right: number } }).dimensions;
-    const maxRow = dimensions?.bottom ?? 0;
-    const maxCol = dimensions?.right ?? 0;
+    let maxRow = dimensions?.bottom ?? 0;
+    let maxCol = dimensions?.right ?? 0;
+    if (maxRow > 0) maxRow += EXTRA_EMPTY_ROWS;
+    if (maxCol > 0) maxCol += EXTRA_EMPTY_COLS;
     if (maxRow === 0 || maxCol === 0) return false;
 
     const data: unknown[][] = [];
@@ -245,10 +249,35 @@ export class ConnectionBankComponent implements OnInit {
         }
       >;
 
-      const data = XLSXStyle.utils.sheet_to_json<unknown[]>(sheet, {
+      const rawData = XLSXStyle.utils.sheet_to_json<unknown[]>(sheet, {
         header: 1,
         defval: '',
       }) as unknown[][];
+
+      // Normalise to a full rectangle so Handsontable doesn't "hide" columns
+      // that only appear on later rows in the template.
+      const maxColsXlsx = rawData.reduce(
+        (max, row) => (row.length > max ? row.length : max),
+        0,
+      );
+      const baseData = maxColsXlsx
+        ? rawData.map((row) =>
+            Array.from({ length: maxColsXlsx }, (_, i) =>
+              i < row.length ? row[i] : '',
+            ),
+          )
+        : rawData;
+
+      const data =
+        maxColsXlsx === 0
+          ? baseData
+          : [
+              ...baseData,
+              ...Array.from({ length: EXTRA_EMPTY_ROWS }, () =>
+                Array.from({ length: maxColsXlsx + EXTRA_EMPTY_COLS }, () => ''),
+              ),
+            ];
+
       this.sheetData.set(data);
 
       const merges: Array<{ row: number; col: number; rowspan: number; colspan: number }> = [];
@@ -326,10 +355,35 @@ export class ConnectionBankComponent implements OnInit {
       const workbook = XLSX.read(csv, { type: 'string', raw: true });
       const firstSheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[firstSheetName];
-      const data = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
+      const rawData = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
         header: 1,
         defval: '',
       }) as unknown[][];
+
+      // Normalise to a full rectangle so Handsontable doesn't "hide" columns
+      // that only appear on later rows in the CSV.
+      const maxColsCsv = rawData.reduce(
+        (max, row) => (row.length > max ? row.length : max),
+        0,
+      );
+      const baseData = maxColsCsv
+        ? rawData.map((row) =>
+            Array.from({ length: maxColsCsv }, (_, i) =>
+              i < row.length ? row[i] : '',
+            ),
+          )
+        : rawData;
+
+      const data =
+        maxColsCsv === 0
+          ? baseData
+          : [
+              ...baseData,
+              ...Array.from({ length: EXTRA_EMPTY_ROWS }, () =>
+                Array.from({ length: maxColsCsv + EXTRA_EMPTY_COLS }, () => ''),
+              ),
+            ];
+
       this.sheetData.set(data);
       this.mergeCells.set([]);
       this.cellStyles.set({});
