@@ -1,9 +1,17 @@
+@use 'styles/content-width.styles.scss' as contentWidth;
+
 // Align dropdown menu to the right edge of the toggle button
 .excel-downloads-container {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: end;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: contentWidth.$content-narrow-width) {
+    flex-direction: column;
+    align-items: end;
+  }
 }
 
 .dropdown-menu-end {

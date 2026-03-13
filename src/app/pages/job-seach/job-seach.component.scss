@@ -1,0 +1,25 @@
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.excel-downloads-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .excel-downloads-container-item {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: contentWidth.$content-extra-narrow-width) {
+            flex-direction: column;
+            gap: 20px;        
+        }
+    }
+
+    .excel-downloads-text {
+        line-height: 20px;
+
+        @media (max-width: contentWidth.$content-extra-narrow-width) {
+            text-align: center;
+        }
+    }
+}

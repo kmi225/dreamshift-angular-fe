@@ -1,1 +1,32 @@
-<p>job-seach works!</p>
+<div class="page-container connection-bank-preview">
+    <h1 class="large-title">Tracking Template</h1>
+
+    <div class="excel-downloads-container">
+        <div class="excel-downloads-container-item">
+            <span class="excel-downloads-text">
+                <div>
+                    Keep a spreadsheet with the following columns.
+                </div>
+                <div>
+                    You can simply download the following
+                </div>
+            </span>
+            <app-excel-downloads 
+            [xlsxUrl]="xlsxUrl"
+            [csvUrl]="csvUrl"
+            [sheetsUrl]="sheetsUrl"
+            [fileName]="fileName"
+          />
+      
+        </div>
+    
+        <app-excel-preview
+          [xlsxUrl]="xlsxUrl"
+          [csvUrl]="csvUrl"
+          [extraEmptyRows]="10"
+          [extraEmptyCols]="11"
+        />
+    </div>
+
+    <app-full-width-banner mode="aussie-toolkit"></app-full-width-banner>
+</div>
