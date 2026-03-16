@@ -42,7 +42,9 @@
               "node_modules/handsontable/styles/ht-theme-main.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/chatbot.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
