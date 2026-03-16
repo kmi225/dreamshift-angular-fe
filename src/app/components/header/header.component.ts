@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   {
     id: 5,
     text: 'About Us',
-    route: ''
+    route: ROUTES.ABOUT_US
   },
   {
     id: 6,

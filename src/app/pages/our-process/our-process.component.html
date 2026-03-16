@@ -16,6 +16,9 @@
         <h1 class="yellow-title">The Process</h1>
     </div>
     <app-process-walkthrough [processSteps]="processSteps"></app-process-walkthrough>
-    <app-faq></app-faq>
+    <div>
+        <h1>FAQ</h1>
+        <app-accordion [accordionItems]="frequentlyAskedQuestions"></app-accordion>
+    </div>
     <app-full-width-banner mode="process"></app-full-width-banner>
 </div>

@@ -9,4 +9,11 @@ import { CDN_URL } from '../../constants/cdn.constants';
 })
 export class InterviewGuaranteeBannerComponent {
   readonly cdnUrl = CDN_URL;
+
+  public goToInterviewGuaranteeBannerLarge() {
+    const interviewGuaranteeBannerLarge = document.getElementById('interview-guarantee-banner-large');
+    if (interviewGuaranteeBannerLarge) {
+      interviewGuaranteeBannerLarge.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

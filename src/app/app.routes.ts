@@ -10,6 +10,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { UpskillingResourcesComponent } from './pages/upskilling-resources/upskilling-resources.component';
 import { EventsAndNetworkingComponent } from './pages/events-and-networking/events-and-networking.component';
 import { RecruitersComponent } from './pages/recruiters/recruiters.component';
+import { TermsAndPoliciesComponent } from './pages/terms-and-policies/terms-and-policies.component';
+import { AuVisaPathwaysComponent } from './pages/au-visa-pathways/au-visa-pathways.component';
+import { InProgressComponent } from './pages/in-progress/in-progress.component';
 
 export const routes: Routes = [{
     path: ROUTES.HOME,
@@ -64,6 +67,10 @@ export const routes: Routes = [{
         }
     ]
 }, {
+    path: ROUTES.AUSTRALIAN_VISA_PATHWAYS,
+    component: AuVisaPathwaysComponent,
+    title: 'Australian Visa Pathways - DreamShift'
+}, {
     path: ROUTES.BLOG_POST,
     component: BlogPostComponent,
     title: 'Blog Post - Dreamshift'
@@ -76,6 +83,16 @@ export const routes: Routes = [{
     component: ContactComponent,
     title: 'Contact Us For Resume Writing Services - DreamShift'
 },
+{
+    path: ROUTES.TERMS_AND_POLICIES,
+    component: TermsAndPoliciesComponent,
+    title: 'Terms and Policies - DreamShift'
+},
+{
+    path: ROUTES.ABOUT_US,
+    component: InProgressComponent,
+    title: 'About Us - DreamShift'
+},
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {
     path: 'services', 
@@ -86,6 +103,9 @@ export const routes: Routes = [{
 }, {    
     path: 'how-dreamshift-craft-job-winning-resumes', 
     redirectTo: ROUTES.OUR_PROCESS,
+},{
+    path: 'au-visa-portal', 
+    redirectTo: ROUTES.AUSTRALIAN_VISA_PATHWAYS,
 },{
     path: '**', 
     redirectTo: ROUTES.HOME,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { RotatingImagesArrayComponent } from '../../components/rotating-images-array/rotating-images-array.component';
 import { ClientTestimonialContainerComponent } from '../../components/client-testimonial-container/client-testimonial-container.component';
@@ -9,6 +9,8 @@ import { InterviewGuaranteeBannerComponent } from '../../components/interview-gu
 import { InterviewGuaranteeBannerLargeComponent } from '../../components/interview-guarantee-banner-large/interview-guarantee-banner-large.component';
 import { PriceTestimonialComponent } from '../../components/price-testimonial/price-testimonial.component';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
+import { ROUTES } from '../../constants/routes.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,4 +30,16 @@ import { FullWidthBannerComponent } from '../../components/full-width-banner/ful
 })
 export class HomeComponent {
   readonly cdnUrl = CDN_URL;
+  private readonly router = inject(Router);
+
+  public goToContactForm() {
+    this.router.navigate([ROUTES.CONTACT]);
+  }
+
+  public goToPackagesSection() {
+    const packagesSection = document.getElementById('packages');
+    if (packagesSection) {
+      packagesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

@@ -1,0 +1,17 @@
+<div ngbAccordion #accordion="ngbAccordion" [closeOthers]="true">
+  <div *ngFor="let item of accordionItems" [ngbAccordionItem]="item.id">
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>
+        <i class="fa-solid fa-chevron-down"></i>
+        <h6>{{ item.title }}</h6>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>
+          <div [innerHTML]="item.contentHtml"></div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

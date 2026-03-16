@@ -1,0 +1,47 @@
+@use 'styles/colors.styles.scss' as colors;
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.visa-subheading {
+    color: colors.$ds-yellow-1;
+    margin: 15px 0 25px 0;
+    font-weight: 400;
+}
+
+.visa-classes-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 2px solid colors.$ds-yellow-1;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.visa-class-item {
+    background-color: colors.$ds-purple-2;
+    border: 1px solid colors.$ds-white-1;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    color: colors.$ds-white-1;
+
+    // 4 columns (default: >= media-boundary)
+    flex: 0 0 calc((100% - 60px) / 4);
+
+    @media (max-width: contentWidth.$media-boundary) {
+        // 2 columns
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+
+    @media (max-width: contentWidth.$content-extra-narrow-width) {
+        // 1 column
+        flex: 0 0 100%;
+    }
+
+    &:hover {
+        color: colors.$ds-purple-1;
+        background-color: colors.$ds-yellow-1;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+}

@@ -12,4 +12,7 @@ export const ROUTES = {
     BLOG_POST_PREFIX: 'blog-post',
     BLOG_POST: 'blog-post/:slug',
     CONTACT: 'contact',
+    TERMS_AND_POLICIES: 'terms-and-policies',
+    AUSTRALIAN_VISA_PATHWAYS: 'australian-visa-pathways',
+    ABOUT_US: 'about-us',
 }

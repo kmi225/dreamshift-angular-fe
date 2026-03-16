@@ -6,7 +6,7 @@
         <h3>
             We write CVs that Land Job Interviews with a 60-Day Guarantee
         </h3>
-        <button class="btn ds-secondary-btn">
+        <button class="btn ds-secondary-btn" (click)="goToPackagesSection()">
             I'm ready to start
         </button>
     </div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="centered-btn-container">
-    <button class="btn ds-primary-btn rounded-btn">
+    <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
         Okay, Let's Start!
     </button>    
 </div>
@@ -41,8 +41,6 @@
 <div class="video-testimonials-container">
 </div>
 <app-video-testimonial></app-video-testimonial>
-
-
 
 <app-client-testimonial-container></app-client-testimonial-container>
 
@@ -63,9 +61,9 @@
         title="Our Process">
     </iframe>
 </div>
-<app-packages></app-packages>
+<app-packages id="packages"></app-packages>
 
 <app-price-testimonial></app-price-testimonial>
-<app-interview-guarantee-banner-large></app-interview-guarantee-banner-large>
+<app-interview-guarantee-banner-large id="interview-guarantee-banner-large"></app-interview-guarantee-banner-large>
 
 <app-full-width-banner></app-full-width-banner>

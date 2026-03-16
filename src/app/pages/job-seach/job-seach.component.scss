@@ -14,6 +14,11 @@ h2 {
     justify-content: space-between;
     gap: 20px;
 
+    @media (max-width: contentWidth.$media-boundary) {
+        flex-direction: column;
+        gap: 30px;       
+    }
+
     .left-panel {
         flex: 0.35;
     }
@@ -45,7 +50,7 @@ h2 {
         display: flex;
         justify-content: space-between;
 
-        @media (max-width: contentWidth.$content-narrow-width) {
+        @media (max-width: contentWidth.$media-boundary) {
             flex-direction: column;
             gap: 20px;        
         }
@@ -76,7 +81,7 @@ h2 {
         flex-direction: column;
         gap: 15px;
 
-        @media (max-width: contentWidth.$content-narrow-width) {
+        @media (max-width: contentWidth.$media-boundary) {
             width: 100%;
             gap: 20px;        
         }

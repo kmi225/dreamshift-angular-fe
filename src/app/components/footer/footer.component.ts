@@ -15,6 +15,7 @@ import { ROUTES } from '../../constants/routes.constants';
 export class FooterComponent implements OnInit, OnDestroy {
   public readonly currentYear = new Date().getFullYear();
   private readonly router = inject(Router);
+  public readonly routes = ROUTES;
   public showFooter = false;
 
   @Input() pageRoute = '';
@@ -37,5 +38,9 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.showFooter =
       (this.origin === 'app' && !isBlogPostUrl) ||
       (this.origin === 'blogPost' && isBlogPostUrl);
+  }
+
+  public navigateToPage(page: string) {
+    this.router.navigate([page]);
   }
 }

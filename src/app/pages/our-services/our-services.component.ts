@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MainServicesComponent } from '../../components/main-services/main-services.component';
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
-import { FaqComponent } from '../../components/faq/faq.component';
 import { AdditionalServiceComponent } from '../../components/additional-service/additional-service.component';
+import { AccordionComponent } from '../../components/accordion/accordion.component';
+import { FREQUENTLY_ASKED_QUESTIONS } from '../../constants/frequently-asked-questions.constants';
 
 @Component({
   selector: 'app-our-services',
@@ -11,12 +12,12 @@ import { AdditionalServiceComponent } from '../../components/additional-service/
     MainServicesComponent,
     PackagesComponent,
     FullWidthBannerComponent,
-    FaqComponent,
-    AdditionalServiceComponent
+    AdditionalServiceComponent,
+    AccordionComponent
   ],
   templateUrl: './our-services.component.html',
   styleUrl: './our-services.component.scss'
 })
 export class OurServicesComponent {
-
+  public frequentlyAskedQuestions = FREQUENTLY_ASKED_QUESTIONS;
 }

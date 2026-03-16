@@ -1,0 +1,21 @@
+@use 'styles/colors.styles.scss' as colors;
+
+.terms-and-policies-container {
+    padding: 20px;
+    background-color: colors.$ds-white-1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    color: colors.$ds-black-1;
+    display: block;
+    position: relative;
+    color: colors.$ds-grey-2;
+
+    h3 {
+        text-align: left !important;
+        color: colors.$ds-black-1 !important;
+    }
+
+    h1 {
+        color: colors.$ds-black-1 !important;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="page-container">
+    <div>
+        <h1>Australian Visa Pathways</h1>
+        <h5 class="yellow-title">A beginner-friendly A–Z guide for international students and skilled migrants to build a career in Australia</h5>
+    </div>
+    <div class="visa-classes-container">
+        <button *ngFor="let auVisa of auVisas" class="btn visa-class-item" (click)="scrollToVisa(auVisa.id)">
+            {{ auVisa.navTitle }}
+        </button>
+    </div>
+    <div *ngFor="let auVisa of auVisas" [id]="auVisa.id">
+        <h2>{{ auVisa.heading }}</h2>
+        <h5 class="visa-subheading">{{ auVisa.subtext }}</h5>
+        <app-accordion [accordionItems]="auVisa.accordionItems"></app-accordion>
+    </div>
+</div>
