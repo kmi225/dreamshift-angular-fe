@@ -23,29 +23,35 @@
     </div>
 
     <h2 class="yellow-title" id="online-job-applications">Online Job Applications </h2>
-    <div>
-        <h3 class="job-search-subtitle">Guidelines</h3>
-    </div>
-    <div>
-        <h3 class="job-search-subtitle">Email Templates</h3>
-        <app-email-template-list [templates]="onlineJobSearchTemplates"></app-email-template-list>    
+    <div class="two-column-container">
+        <div class="left-panel">
+            <h3 class="job-search-subtitle">Steps to follow</h3>
+            <app-process-walkthrough [processSteps]="onlineJobSearchProcessSteps" [animate]="false"></app-process-walkthrough>
+        </div>
+        <div class="right-panel">
+            <h3 class="job-search-subtitle">Email Templates</h3>
+            <app-email-template-list [templates]="onlineJobSearchTemplates"></app-email-template-list>    
+        </div>
     </div>
 
 
     <h2 class="yellow-title" id="utilizing-your-connections">Utilizing Your Connections </h2>
-    <div>
-        <h3 class="job-search-subtitle">Guidelines</h3>
-    </div>
-    <div>
-        <h3 class="job-search-subtitle">Email Templates</h3>
-        <app-email-template-list [templates]="utilizingYourConnectionsTemplates"></app-email-template-list>    
+    <div class="two-column-container">
+        <div class="left-panel">
+            <h3 class="job-search-subtitle">Steps to follow</h3>
+            <app-process-walkthrough [processSteps]="utilizingYourConnectionsProcessSteps" [animate]="false"></app-process-walkthrough>
+        </div>
+        <div class="right-panel">
+            <h3 class="job-search-subtitle">Email Templates</h3>
+            <app-email-template-list [templates]="utilizingYourConnectionsTemplates"></app-email-template-list>    
+        </div>
     </div>
 
     <h2 class="yellow-title" id="reaching-out-to-recruiters">Reaching Out to Recruiters</h2>
     <div class="two-column-container">
         <div class="left-panel">
             <h3 class="job-search-subtitle">Steps to follow</h3>
-            <app-process-walkthrough [processSteps]="reachingOutToRecruitersProcessSteps"></app-process-walkthrough>
+            <app-process-walkthrough [processSteps]="reachingOutToRecruitersProcessSteps" [animate]="false"></app-process-walkthrough>
         </div>
         <div class="right-panel">
             <h3 class="job-search-subtitle">Email Templates</h3>

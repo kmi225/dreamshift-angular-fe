@@ -4,7 +4,7 @@ import { ExcelDownloadsComponent } from '../../components/excel-downloads/excel-
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 import { EmailTemplateListComponent } from '../../components/email-template-list/email-template-list.component';
 import { EmailTemplateModel } from '../../models/email-template.model';
-import { ONLINE_JOB_SEARCH_TEMPLATES, UTILIZING_YOUR_CONNECTIONS_TEMPLATES, REACHING_OUT_TO_RECRUITERS_TEMPLATES, REACHING_OUT_TO_RECRUITERS_PROCESS_STEPS } from '../../constants/online-job-search.constants';
+import { ONLINE_JOB_SEARCH_TEMPLATES, UTILIZING_YOUR_CONNECTIONS_TEMPLATES, REACHING_OUT_TO_RECRUITERS_TEMPLATES, REACHING_OUT_TO_RECRUITERS_PROCESS_STEPS, ONLINE_JOB_SEARCH_PROCESS_STEPS, UTILIZING_YOUR_CONNECTIONS_PROCESS_STEPS } from '../../constants/online-job-search.constants';
 import { ProcessWalkthroughComponent } from '../../components/process-walkthrough/process-walkthrough.component';
 import { ProcessStep } from '../../models/process-step.model';
 
@@ -31,6 +31,8 @@ export class JobSeachComponent {
   public utilizingYourConnectionsTemplates: Array<EmailTemplateModel> = UTILIZING_YOUR_CONNECTIONS_TEMPLATES;
   public reachingOutToRecruitersTemplates: Array<EmailTemplateModel> = REACHING_OUT_TO_RECRUITERS_TEMPLATES;
   
+  public onlineJobSearchProcessSteps: ProcessStep[] = ONLINE_JOB_SEARCH_PROCESS_STEPS;
+  public utilizingYourConnectionsProcessSteps: ProcessStep[] = UTILIZING_YOUR_CONNECTIONS_PROCESS_STEPS;
   public reachingOutToRecruitersProcessSteps: ProcessStep[] = REACHING_OUT_TO_RECRUITERS_PROCESS_STEPS;
   
   scrollTo(section: string) {

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, PLATFORM_ID, QueryList, ViewChild, ViewChildren, booleanAttribute } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { ProcessStep } from '../../models/process-step.model';
@@ -16,6 +16,8 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
   @ViewChildren('iconContainer') iconContainers!: QueryList<ElementRef<HTMLElement>>;
 
   @Input() public processSteps!: ProcessStep[];
+  /** When false, disables scroll-based animation and shows all steps as fully yellow. */
+  @Input({ transform: booleanAttribute }) public animate: boolean = true;
 
   constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {}
 
@@ -28,11 +30,19 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.onWindowScroll();
+    if (this.animate) {
+      this.onWindowScroll();
+    } else {
+      this.scrollProgress = 1;
+    }
   }
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
+    if (!this.animate) {
+      this.scrollProgress = 1;
+      return;
+    }
     if (!isPlatformBrowser(this.platformId)) return;
     const icons = this.iconContainers?.toArray();
     if (!icons?.length) return;
@@ -54,6 +64,9 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
 
   /** Progress 0 (purple) -> 1 (yellow) for the element at the given index (0 = first circle, 1 = first line, 2 = second circle, ...). */
   getElementProgress(elementIndex: number): number {
+    if (!this.animate) {
+      return 1;
+    }
     const raw = this.scrollProgress * this.totalElements - elementIndex;
     return Math.max(0, Math.min(1, raw));
   }
