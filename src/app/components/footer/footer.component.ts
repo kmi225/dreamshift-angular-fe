@@ -43,4 +43,23 @@ export class FooterComponent implements OnInit, OnDestroy {
   public navigateToPage(page: string) {
     this.router.navigate([page]);
   }
+
+  public navigateToSocials(social: string) {
+    switch (social) {
+      case 'linkedin':
+        window.open('https://www.linkedin.com/company/dreamshiftcareers/posts/?feedView=all', '_blank');
+        break;
+      case 'instagram':
+        window.open('https://www.instagram.com/dreamshift.careers/', '_blank');
+        break;
+      case 'tiktok':
+        window.open('https://www.tiktok.com/@dreamshift.careers/', '_blank');
+        break;
+      case 'facebook':
+        window.open('https://www.facebook.com/dreamshift.careers/', '_blank');
+        break;
+      default:
+        break;
+    }
+  }
 }
