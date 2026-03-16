@@ -1,4 +1,5 @@
 @use 'styles/content-width.styles.scss' as contentWidth;
+@use 'styles/colors.styles.scss' as colors;
 
 div {
     font-size: 1.2rem;
@@ -8,10 +9,10 @@ h2 {
     font-weight: bold !important; 
 }
 
-.template-selection-dropdown {
-    position: absolute;
-    margin-top: -5px;
-    min-width: 320px;
+.job-search-subtitle {
+    font-weight: bold !important;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .excel-downloads-container {
@@ -35,5 +36,14 @@ h2 {
         @media (max-width: contentWidth.$content-extra-narrow-width) {
             text-align: center;
         }
+    }
+}
+
+a {
+    color: colors.$ds-yellow-1 !important;
+
+    &:hover {
+        color: colors.$ds-yellow-2 !important;
+        cursor: pointer !important;
     }
 }

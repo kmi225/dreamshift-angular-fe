@@ -1,0 +1,35 @@
+@use 'styles/content-width.styles.scss' as contentWidth;
+
+.email-template-container {
+    position: relative;
+    width: 100%;
+
+    
+
+    @media (max-width: contentWidth.$content-narrow-width) {
+        .template-selection-dropdown {
+            width: 100%;
+            margin-bottom: 20px;
+            display: block;
+        }
+    }
+
+    @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$content-width) {
+        .template-selection-dropdown {
+            position: absolute;
+            margin-top: -5px;
+            min-width: 320px;
+            width: 55%;
+        }
+    }
+
+    @media (min-width: contentWidth.$content-width) {
+        .template-selection-dropdown {
+            position: absolute;
+            margin-top: -5px;
+            min-width: 320px;
+            width: 35%;
+        }
+    }
+    
+}

@@ -47,6 +47,12 @@
   transform: rotate(180deg);
 }
 
+.ds-dropdown-trigger-text {
+  max-width: 100%;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
 .ds-dropdown-menu {
   background: #fff;
   border: 1px solid #ddd;

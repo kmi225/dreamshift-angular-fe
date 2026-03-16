@@ -1,24 +1,26 @@
-<div class="email-template-container-header">
-    <!-- <h3>
-        <span *ngIf="emailIcon.length > 0">
-            <i [class]="emailIcon"></i>
-        </span>
-        {{ emailTitle }}
-    </h3> -->
+<div class="email-template-container-wrapper">
+    <div class="email-template-container-header">
+        <h3 *ngIf="emailTitle.length > 0">
+            <span *ngIf="emailIcon.length > 0">
+                <i [class]="emailIcon"></i>
+            </span>
+            {{ emailTitle }}
+        </h3>
 
-    <a *ngIf="emailTo.length > 0" [href]="getMailerLink()" class="btn ds-primary-btn">
-        <i class="fa-regular fa-paper-plane"></i>
-        Send email from template
-    </a>
-    <button *ngIf="emailTo.length === 0" (click)="copyText()" class="btn ds-primary-btn">
-        <i class="fa-regular fa-copy"></i>
-        Copy text
-    </button>
-</div>
-<div class="email-template-container"> 
-    <div class="email-section" *ngIf="emailTo.length > 0"><b>To:</b> {{ emailTo }}</div>
-    <div class="email-section" *ngIf="emailSubject.length > 0"><b>Subject:</b> {{ emailSubject }}</div>
-    <div class="email-section">
-        <div [innerHTML]="emailBody"></div>
+        <a *ngIf="emailTo.length > 0" [href]="getMailerLink()" class="btn ds-primary-btn">
+            <i class="fa-regular fa-paper-plane"></i>
+            Send email from template
+        </a>
+        <button *ngIf="emailTo.length === 0" (click)="copyText()" class="btn ds-primary-btn">
+            <i class="fa-regular fa-copy"></i>
+            Copy text
+        </button>
+    </div>
+    <div class="email-template-container"> 
+        <div class="email-section" *ngIf="emailTo.length > 0"><b>To:</b> {{ emailTo }}</div>
+        <div class="email-section" *ngIf="emailSubject.length > 0"><b>Subject:</b> {{ emailSubject }}</div>
+        <div class="email-section">
+            <div [innerHTML]="emailBody"></div>
+        </div>
     </div>
 </div>

@@ -5,29 +5,40 @@
         We’ve created a simple Job Search Strategy for you, focusing on three key areas to help you land your next opportunity:
         
         <ol>
-            <li>Online Job Applications</li>
-            <li>Utilizing Your Connections</li>
-            <li>Reaching Out to Recruiters</li>
+            <li><a (click)="scrollTo('online-job-applications')">Online Job Applications</a></li>
+            <li><a (click)="scrollTo('utilizing-your-connections')">Utilizing Your Connections</a></li>
+            <li><a (click)="scrollTo('reaching-out-to-recruiters')">Reaching Out to Recruiters</a></li>
         </ol>
         This guide will walk you through everything you need to do each week as you work toward landing your next job. From job applications to follow-ups and networking — we’ve broken it down into clear, easy steps.
     </div>
 
-    <h2 class="yellow-title">Online Job Applications </h2>
-
+    <h2 class="yellow-title" id="online-job-applications">Online Job Applications </h2>
     <div>
-        <ds-dropdown
-            class="template-selection-dropdown"
-            [options]="['Option 1', 'Option 2', 'Option 3']"
-            label="Select an option"
-            [selected]="selected"
-            (selectedChange)="selected = $event"
-        />
-        <app-email-template></app-email-template>
+        <h3 class="job-search-subtitle">Guidelines</h3>
+    </div>
+    <div>
+        <h3 class="job-search-subtitle">Email Templates</h3>
+        <app-email-template-list [templates]="onlineJobSearchTemplates"></app-email-template-list>    
     </div>
 
-    <h2 class="yellow-title">Utilizing Your Connections </h2>
 
-    <h2 class="yellow-title">Reaching Out to Recruiters</h2>
+    <h2 class="yellow-title" id="utilizing-your-connections">Utilizing Your Connections </h2>
+    <div>
+        <h3 class="job-search-subtitle">Guidelines</h3>
+    </div>
+    <div>
+        <h3 class="job-search-subtitle">Email Templates</h3>
+        <app-email-template-list [templates]="utilizingYourConnectionsTemplates"></app-email-template-list>    
+    </div>
+
+    <h2 class="yellow-title" id="reaching-out-to-recruiters">Reaching Out to Recruiters</h2>
+    <div>
+        <h3 class="job-search-subtitle">Guidelines</h3>
+    </div>
+    <div>
+        <h3 class="job-search-subtitle">Email Templates</h3>
+        <app-email-template-list [templates]="reachingOutToRecruitersTemplates"></app-email-template-list>    
+    </div>
 
 
     <h1 class="large-title">Tracking Template</h1>

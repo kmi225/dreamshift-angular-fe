@@ -1,0 +1,14 @@
+<div class="email-template-container">
+    <ds-dropdown
+        class="template-selection-dropdown"
+        [options]="getDropdownOptions()"
+        label="Select an option"
+        [selected]="selected"
+        (selectedChange)="onTemplateSelectionChange($event)"
+    />
+    <app-email-template
+      [emailTo]="getSelectedTemplate()?.emailTo ?? ''"
+      [emailSubject]="getSelectedTemplate()?.emailSubject ?? ''"
+      [emailBody]="getSelectedTemplate()?.emailBody ?? ''"
+    ></app-email-template>
+</div>

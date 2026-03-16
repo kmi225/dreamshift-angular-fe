@@ -10,20 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './email-template.component.scss'
 })
 export class EmailTemplateComponent {
-@Input() emailIcon: string = 'fa-regular fa-envelope';
-@Input() emailTitle: string = 'Application Email with Referral';
-@Input() emailSubject: string = 'Application for [Job Title] – Referral from [Referrer’s Name]';
-@Input() emailBody: string = `
-  <p>Dear [Hiring Manager’s Name],</p>
-
-  <p>I’m writing to express my interest in the [Job Title] role at [Company Name]. I have a strong background in [Brief Skills/Field], and I was encouraged to apply by [Referrer’s Name or Title], who spoke highly of your team.
-
-  <p>I would appreciate the opportunity to discuss how my experience aligns with your team’s needs.</p>
-
-  <p>Kind regards,</p>
-  <p>[Your Name]</p>
-  `;
-  @Input() emailTo: string = '';
+@Input() emailIcon: string = '';
+@Input() emailTitle: string = '';
+@Input() emailSubject: string = '';
+@Input() emailBody: string = ``;
+@Input() emailTo: string = '';
 
   private htmlToUrlEncoded(html: string): string {
     // Step 1: Restore paragraph breaks to double newlines
