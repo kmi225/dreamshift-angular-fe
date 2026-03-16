@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Package } from '../../models/package.model';
 import { CommonModule } from '@angular/common';
 import { CDN_URL } from '../../constants/cdn.constants';
-
+import { ROUTES } from '../../constants/routes.constants';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-packages',
   imports: [CommonModule],
@@ -13,6 +14,7 @@ export class PackagesComponent {
   @Input() mode: 'home' | 'services' = 'home';
 
   readonly cdnUrl = CDN_URL;
+  private readonly router = inject(Router);
 
   public readonly packages: Package[] = [ {
     id: 1,
@@ -183,4 +185,8 @@ export class PackagesComponent {
     ],
     packageExclusions: []
   }]
+
+  public navigateToContact() {
+    this.router.navigate([ROUTES.CONTACT]);
+  }
 }
