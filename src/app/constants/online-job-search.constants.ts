@@ -1,6 +1,7 @@
 import { EmailTemplateModel } from "../models/email-template.model";
+import { ProcessStep } from "../models/process-step.model";
 
-export const ONLINE_JOB_SEARCH: EmailTemplateModel[] = [
+export const ONLINE_JOB_SEARCH_TEMPLATES: EmailTemplateModel[] = [
   {
     title: 'Application Email with Referral',
     emailTo: 'hiringmanager@company.com',
@@ -31,6 +32,38 @@ export const ONLINE_JOB_SEARCH: EmailTemplateModel[] = [
       <p>Best regards,<br/>[Your Name]</p>`
   }
 ];
+export const UTILIZING_YOUR_CONNECTIONS_TEMPLATES: EmailTemplateModel[] = ONLINE_JOB_SEARCH_TEMPLATES;
+export const REACHING_OUT_TO_RECRUITERS_TEMPLATES: EmailTemplateModel[] = ONLINE_JOB_SEARCH_TEMPLATES;
 
-export const UTILIZING_YOUR_CONNECTIONS: EmailTemplateModel[] = ONLINE_JOB_SEARCH;
-export const REACHING_OUT_TO_RECRUITERS: EmailTemplateModel[] = ONLINE_JOB_SEARCH;
+export const REACHING_OUT_TO_RECRUITERS_PROCESS_STEPS: ProcessStep[] = [
+  {
+    id: 1,
+    description: 'Search on LinkedIn by title: "Recruiter", "Talent Acquisition", or through Company websites(look at the Careers or Team page).',
+    // icon: 'fa-solid fa-search',
+    icon: 'fa-solid fa-1',
+  },
+  {
+    id: 2,
+    description: 'Connect with recruiters on LinkedIn',
+    // icon: 'fa-brands fa-linkedin-in',
+    icon: 'fa-solid fa-2',
+  },
+  {
+    id: 3,
+    description: 'Message them once connected',
+    // icon: 'fa-solid fa-message',
+    icon: 'fa-solid fa-3',
+  },
+  {
+    id: 4,
+    description: 'Save their emails if listed and follow up',
+    // icon: 'fa-solid fa-phone',
+    icon: 'fa-solid fa-4',
+  },
+  {
+    id: 5,
+    description: 'Always be polite and specific',
+    // icon: 'fa-regular fa-handshake',
+    icon: 'fa-solid fa-5',
+  }
+];

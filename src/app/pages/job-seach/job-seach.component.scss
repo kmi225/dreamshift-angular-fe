@@ -9,6 +9,26 @@ h2 {
     font-weight: bold !important; 
 }
 
+.two-column-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    .left-panel {
+        flex: 0.35;
+    }
+
+    .right-panel {
+        flex: 0.65;
+    }
+}
+
+.weekly-overview-subtitle {
+    font-weight: bold !important;
+    text-align: left;
+    margin: 40px 0 20px 0;
+}
+
 .job-search-subtitle {
     font-weight: bold !important;
     text-align: left;
@@ -19,12 +39,13 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    text-align: left;
 
     .excel-downloads-container-item {
         display: flex;
         justify-content: space-between;
 
-        @media (max-width: contentWidth.$content-extra-narrow-width) {
+        @media (max-width: contentWidth.$content-narrow-width) {
             flex-direction: column;
             gap: 20px;        
         }
@@ -32,9 +53,32 @@ h2 {
 
     .excel-downloads-text {
         line-height: 20px;
+    }
 
-        @media (max-width: contentWidth.$content-extra-narrow-width) {
-            text-align: center;
+    h4 {
+        font-weight: bold !important;
+        text-align: left;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    ul {
+        padding-left: 1rem;
+        li {
+            line-height: 30px;
+            text-align: left;
+        }
+    }
+
+    .excel-sheet-container {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @media (max-width: contentWidth.$content-narrow-width) {
+            width: 100%;
+            gap: 20px;        
         }
     }
 }

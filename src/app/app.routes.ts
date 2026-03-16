@@ -12,16 +12,20 @@ import { EventsAndNetworkingComponent } from './pages/events-and-networking/even
 import { RecruitersComponent } from './pages/recruiters/recruiters.component';
 
 export const routes: Routes = [{
-    path: ROUTES.HOME, 
-    component: HomeComponent
+    path: ROUTES.HOME,
+    component: HomeComponent,
+    title: 'DreamShift | We write CVs with a 60-Day Interview Guarantee - Australia'
 }, {
-    path: ROUTES.OUR_SERVICES, 
-    component: OurServicesComponent
+    path: ROUTES.OUR_SERVICES,
+    component: OurServicesComponent,
+    title: 'Services and Packages (Resume Writing Services) - DreamShift'
 }, {
-    path: ROUTES.OUR_PROCESS, 
-    component: OurProcessComponent
+    path: ROUTES.OUR_PROCESS,
+    component: OurProcessComponent,
+    title: 'How DreamShift Crafts Job Winning Resumes? - DreamShift'
 }, {
-    path: ROUTES.AUSSIE_TOOLKIT, 
+    path: ROUTES.AUSSIE_TOOLKIT,
+    title: 'Australian Job Search Toolkit - DreamShift',
     children: [
         {
             path: '',
@@ -29,40 +33,48 @@ export const routes: Routes = [{
         },
         {
             path: ROUTES.UPSKILLING_RESOURCES,
-            component: UpskillingResourcesComponent
+            component: UpskillingResourcesComponent,
+            title: 'Courses & Upskilling Resources - Dreamshift'
         },
         {
             path: ROUTES.EVENTS_AND_NETWORKING,
-            component: EventsAndNetworkingComponent
+            component: EventsAndNetworkingComponent,
+            title: 'Networking Resources - Dreamshift'
         },
         {
             path: ROUTES.RECRUITERS,
-            component: RecruitersComponent
+            component: RecruitersComponent,
+            title: 'Top Australian Recruiters - Dreamshift'
         },
         {
             path: ROUTES.CONNECTION_BANK,
+            title: 'The Connection Bank - Dreamshift',
             loadComponent: () =>
               import('./pages/connection-bank/connection-bank.component').then(
                 (m) => m.ConnectionBankComponent
               ),
-        }, 
+        },
         {
             path: ROUTES.JOB_SEARCH,
+            title: 'Job Search Action Plan - Dreamshift',
             loadComponent: () =>
               import('./pages/job-seach/job-seach.component').then(
                 (m) => m.JobSeachComponent
               ),
         }
     ]
-},  {
+}, {
     path: ROUTES.BLOG_POST,
-    component: BlogPostComponent
+    component: BlogPostComponent,
+    title: 'Blog Post - Dreamshift'
 }, {
     path: ROUTES.BLOG,
     component: BlogComponent,
+    title: 'Blog - Dreamshift'
 }, {
     path: ROUTES.CONTACT,
-    component: ContactComponent
+    component: ContactComponent,
+    title: 'Contact Us For Resume Writing Services - DreamShift'
 },
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {

@@ -1,13 +1,7 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
-
-interface ProcessStep {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-}
+import { ProcessStep } from '../../models/process-step.model';
 
 @Component({
   selector: 'app-process-walkthrough',
@@ -20,6 +14,8 @@ interface ProcessStep {
 export class ProcessWalkthroughComponent implements AfterViewInit {
   @ViewChild('walkthroughContainer') walkthroughContainer?: ElementRef<HTMLElement>;
   @ViewChildren('iconContainer') iconContainers!: QueryList<ElementRef<HTMLElement>>;
+
+  @Input() public processSteps!: ProcessStep[];
 
   constructor(@Inject(PLATFORM_ID) private readonly platformId: object) {}
 
@@ -61,42 +57,4 @@ export class ProcessWalkthroughComponent implements AfterViewInit {
     const raw = this.scrollProgress * this.totalElements - elementIndex;
     return Math.max(0, Math.min(1, raw));
   }
-
-  public readonly processSteps: ProcessStep[] = [
-    {
-      id: 1,
-      title: 'Consultation/ Onboarding Call',
-      description: 'Initial discussion to understand your needs and onboard you to our services.',
-      icon: 'fa-phone',
-    }, {
-      id: 2,
-      title: 'Invoice & Contract Agreement (NDA)',
-      description: 'Formalizing our partnership with a Legal Agreement and NDA.',
-      icon: 'fa-handshake',
-    },
-    {
-      id: 3,
-      title: 'ATS & Job Market Research',
-      description: 'In-depth analysis of your industry and ATS (Applicant Tracking Systems)',
-      icon: 'fa-search',
-    },
-    {
-      id: 4,
-      title: 'Data Collection via Questionnaire',
-      description: 'Offering you taregeted questions to brand your unqiueness in Resume/CV.',
-      icon: 'fa-file-circle-question',
-    },
-    {
-      id: 5,
-      title: 'Branding & Writing your Resume/CV',
-      description: 'Crafting your professional narrative through Career Highlights & Key Projects.',
-      icon: 'fa-file-pen',
-    },
-    {
-      id: 6,
-      title: 'Enhancing with your Revisions',
-      description: 'Fine-tuning your documents based on your valuable feedback.',
-      icon: 'fa-comments',
-    },
-  ];
 }

@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { BlogService } from '../../services/blog.service';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -29,6 +29,7 @@ export class BlogPostComponent {
   private readonly blogService = inject(BlogService);
   private readonly route = inject(ActivatedRoute);
   private readonly sanitizer = inject(DomSanitizer);
+  private readonly title = inject(Title);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -94,6 +95,9 @@ export class BlogPostComponent {
         this.desktopImageBanner = this.post?.featuredImage ?? '';
         this.mobileImageBanner = this.post?.featuredImage ?? '';
         this.loading = false;
+        if (this.blogTitle) {
+          this.title.setTitle(`${this.blogTitle} | DreamShift`);
+        }
 
         this.previousPost = post.previous;
         this.nextPost = post.next;

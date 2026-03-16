@@ -10,6 +10,16 @@
             <li><a (click)="scrollTo('reaching-out-to-recruiters')">Reaching Out to Recruiters</a></li>
         </ol>
         This guide will walk you through everything you need to do each week as you work toward landing your next job. From job applications to follow-ups and networking — we’ve broken it down into clear, easy steps.
+    
+        <h2 class="weekly-overview-subtitle">Weekly Overview</h2>
+        Before getting started, make sure keep track of your weekly goals:
+        <ul>
+            <li>Apply for highly relevant jobs</li>
+            <li>Follow up on previous applications</li>
+            <li>Reach out to recruiters and contacts</li>
+            <li><a (click)="scrollTo('tracking-template')">Track everything in a simple spreadsheet</a></li>
+        </ul>
+        <i>Focus on quality applications over quantity. One strong, tailored application is better than ten generic ones.</i>
     </div>
 
     <h2 class="yellow-title" id="online-job-applications">Online Job Applications </h2>
@@ -32,42 +42,52 @@
     </div>
 
     <h2 class="yellow-title" id="reaching-out-to-recruiters">Reaching Out to Recruiters</h2>
-    <div>
-        <h3 class="job-search-subtitle">Guidelines</h3>
-    </div>
-    <div>
-        <h3 class="job-search-subtitle">Email Templates</h3>
-        <app-email-template-list [templates]="reachingOutToRecruitersTemplates"></app-email-template-list>    
+    <div class="two-column-container">
+        <div class="left-panel">
+            <h3 class="job-search-subtitle">Steps to follow</h3>
+            <app-process-walkthrough [processSteps]="reachingOutToRecruitersProcessSteps"></app-process-walkthrough>
+        </div>
+        <div class="right-panel">
+            <h3 class="job-search-subtitle">Email Templates</h3>
+            <app-email-template-list [templates]="reachingOutToRecruitersTemplates"></app-email-template-list>    
+        </div>
     </div>
 
 
-    <h1 class="large-title">Tracking Template</h1>
+    <h1 class="large-title" id="tracking-template">Tracking Template</h1>
 
     <div class="excel-downloads-container">
         <div class="excel-downloads-container-item">
-            <span class="excel-downloads-text">
+            <div class="excel-downloads-text">
                 <div>
                     Keep a spreadsheet with the following columns.
                 </div>
                 <div>
                     You can simply download the following
                 </div>
-            </span>
-            <app-excel-downloads 
-            [xlsxUrl]="xlsxUrl"
-            [csvUrl]="csvUrl"
-            [sheetsUrl]="sheetsUrl"
-            [fileName]="fileName"
-          />
-      
+                <h4 class="yellow-title">Remember</h4>
+                <ul>
+                    <li>Apply weekly</li>
+                    <li>Follow up professionally</li>
+                    <li>Keep networking</li>
+                    <li>Be consistent and patient</li>
+                </ul>   
+            </div>
+            <div class="excel-sheet-container">
+                <app-excel-downloads 
+                    [xlsxUrl]="xlsxUrl"
+                    [csvUrl]="csvUrl"
+                    [sheetsUrl]="sheetsUrl"
+                    [fileName]="fileName"
+                />
+                <app-excel-preview
+                    [xlsxUrl]="xlsxUrl"
+                    [csvUrl]="csvUrl"
+                    [extraEmptyRows]="10"
+                    [extraEmptyCols]="3"
+                />    
+            </div>
         </div>
-    
-        <app-excel-preview
-          [xlsxUrl]="xlsxUrl"
-          [csvUrl]="csvUrl"
-          [extraEmptyRows]="10"
-          [extraEmptyCols]="11"
-        />
     </div>
 
     <app-full-width-banner mode="aussie-toolkit"></app-full-width-banner>

@@ -11,6 +11,11 @@ export const serverRoutes: ServerRoute[] = [
     path: 'aussie-toolkit/connection-bank',
     renderMode: RenderMode.Server
   },
+  // Blog list fetches from external API at runtime; server-render on request
+  {
+    path: 'blog',
+    renderMode: RenderMode.Server
+  },
   {
     path: '**',
     renderMode: RenderMode.Prerender
