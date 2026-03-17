@@ -163,7 +163,9 @@ export class ExcelPreviewComponent implements OnInit {
 
   /** Parse with ExcelJS to get font + fill; returns true if successful. */
   private async parseXlsxWithExcelJS(buffer: ArrayBuffer): Promise<boolean> {
-    const ExcelJS = await import('exceljs');
+    const mod = await import('exceljs');
+    // Production bundles often expose CJS modules as default; support both shapes.
+    const ExcelJS = mod.default?.Workbook ? mod.default : mod;
     const workbook = new ExcelJS.Workbook();
     await workbook.xlsx.load(buffer as unknown as ArrayBuffer);
     const ws = workbook.worksheets[0];

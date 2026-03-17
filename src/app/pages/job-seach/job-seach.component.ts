@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BASE_HREF } from '../../constants/deployment.constants';
 import { ExcelPreviewComponent } from '../../components/excel-preview/excel-preview.component';
 import { ExcelDownloadsComponent } from '../../components/excel-downloads/excel-downloads.component';
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
@@ -11,9 +12,9 @@ import { ProcessStep } from '../../models/process-step.model';
 @Component({
   selector: 'app-job-seach',
   imports: [
-    ExcelPreviewComponent, 
-    ExcelDownloadsComponent, 
-    FullWidthBannerComponent, 
+    ExcelPreviewComponent,
+    ExcelDownloadsComponent,
+    FullWidthBannerComponent,
     EmailTemplateListComponent,
     ProcessWalkthroughComponent
   ],
@@ -21,10 +22,15 @@ import { ProcessStep } from '../../models/process-step.model';
   styleUrl: './job-seach.component.scss'
 })
 export class JobSeachComponent {
-  readonly xlsxUrl = '/Tracking%20Template%20-%20DreamShift.xlsx';
-  readonly csvUrl = '/Tracking%20Template%20-%20DreamShift.csv';
+  readonly xlsxUrl: string;
+  readonly csvUrl: string;
   readonly sheetsUrl = 'https://docs.google.com/spreadsheets/d/1DzHlsIzzbDRbMMRnybXQPJvY5ZOXvbAvui6OtDkaLqA/edit?usp=sharing';
   readonly fileName = 'Tracking Template - DreamShift';
+
+  constructor() {
+    this.xlsxUrl = BASE_HREF + 'Tracking%20Template%20-%20DreamShift.xlsx';
+    this.csvUrl = BASE_HREF + 'Tracking%20Template%20-%20DreamShift.csv';
+  }
 
   
   public onlineJobSearchTemplates: Array<EmailTemplateModel> = ONLINE_JOB_SEARCH_TEMPLATES;
