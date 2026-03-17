@@ -4,6 +4,7 @@
 	[pauseOnHover]="true"
 	(slide)="onSlide($event)"
 	class="testimonials-track"
+	[showNavigationArrows]="testimonialsPerSlide < testimonialSlides.length"
     [showNavigationIndicators]="false"
 >
 	@for (slide of testimonialSlides; track $index) {

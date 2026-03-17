@@ -1,69 +1,74 @@
-<div class="banner-container">
-    <div class="banner-text-container">
-        <h1>
-            Land Job Interviews <br/>in Just <span class="days">60 Days</span>
-        </h1>
-        <h3>
-            We write CVs that Land Job Interviews with a 60-Day Guarantee
-        </h3>
-        <button class="btn ds-secondary-btn" (click)="goToPackagesSection()">
-            I'm ready to start
-        </button>
+<div class="page-container">
+
+    <div class="banner-container">
+        <div class="banner-text-container">
+            <h1>
+                Land Job Interviews <br/>in Just <span class="days">60 Days</span>
+            </h1>
+            <h3>
+                We write CVs that Land Job Interviews with a 60-Day Guarantee
+            </h3>
+            <button class="btn ds-secondary-btn" (click)="goToPackagesSection()">
+                I'm ready to start
+            </button>
+        </div>
+        <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" alt="Land job interviews in 60 days" />
     </div>
-    <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" alt="Land job interviews in 60 days" />
+    <a href="#dream-jobs" class="down-arrow-container">
+        <i class="fa-solid fa-chevron-down down-arrow"></i>
+    </a>
+
+    <div class="process-text" id="this-is-why">
+        This Is Why You Keep Getting Rejection Emails All The Time!
+    </div>
+    <div class="process-video-container">
+        <iframe src="https://player.vimeo.com/video/1120396633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+            title="Our Process">
+        </iframe>
+    </div>
+
+    <div class="centered-btn-container">
+        <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
+            Okay, Let's Start!
+        </button>    
+    </div>
+
+    <app-interview-guarantee-banner></app-interview-guarantee-banner>
+
+    <div class="process-text" id="client-testimonial-videos">
+        This Is What Our Clients Said After Landing Jobs Within 60 Days
+    </div>
+    <app-video-testimonial></app-video-testimonial>
+
+    <div>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow1"></app-client-testimonial-container>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow2"></app-client-testimonial-container>
+    
+    </div>
+
+    <div class="process-text" id="dream-jobs">
+        Our Clients have Landed their Dream Jobs at
+    </div>
+    <app-rotating-images-array></app-rotating-images-array>
+
+    <app-main-services></app-main-services>
+
+    <div class="process-text" id="process">
+        Our Unique Process
+    </div>
+    <div class="process-video-container">
+        <iframe src="https://player.vimeo.com/video/1128317553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+            title="Our Process">
+        </iframe>
+    </div>
+    <app-packages id="packages"></app-packages>
+
+    <app-price-testimonial></app-price-testimonial>
+    <app-interview-guarantee-banner-large id="interview-guarantee-banner-large"></app-interview-guarantee-banner-large>
+
+    <app-full-width-banner></app-full-width-banner>
 </div>
-<a href="#dream-jobs" class="down-arrow-container">
-    <i class="fa-solid fa-chevron-down down-arrow"></i>
-</a>
-
-<div class="process-text" id="this-is-why">
-    This Is Why You Keep Getting Rejection Emails All The Time!
-</div>
-<div class="process-video-container">
-    <iframe src="https://player.vimeo.com/video/1120396633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
-        title="Our Process">
-    </iframe>
-</div>
-
-<div class="centered-btn-container">
-    <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
-        Okay, Let's Start!
-    </button>    
-</div>
-
-<app-interview-guarantee-banner></app-interview-guarantee-banner>
-
-<div class="process-text" id="client-testimonial-videos">
-    This Is What Our Clients Said After Landing Jobs Within 60 Days
-</div>
-<div class="video-testimonials-container">
-</div>
-<app-video-testimonial></app-video-testimonial>
-
-<app-client-testimonial-container></app-client-testimonial-container>
-
-<div class="process-text" id="dream-jobs">
-    Our Clients have Landed their Dream Jobs at
-</div>
-<app-rotating-images-array></app-rotating-images-array>
-
-<app-main-services></app-main-services>
-
-<div class="process-text" id="process">
-    Our Unique Process
-</div>
-<div class="process-video-container">
-    <iframe src="https://player.vimeo.com/video/1128317553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
-        title="Our Process">
-    </iframe>
-</div>
-<app-packages id="packages"></app-packages>
-
-<app-price-testimonial></app-price-testimonial>
-<app-interview-guarantee-banner-large id="interview-guarantee-banner-large"></app-interview-guarantee-banner-large>
-
-<app-full-width-banner></app-full-width-banner>

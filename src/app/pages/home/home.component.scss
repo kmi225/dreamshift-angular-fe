@@ -24,6 +24,7 @@
         font-weight: 600;
         line-height: 72px;
         color: #FFF;
+        text-align: left;
 
         .days {
             color: colors.$ds-yellow-1;
@@ -91,11 +92,6 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 40px;
-}
-
-#this-is-why {
-    margin-top:8vh;
 }
 
 @keyframes MoveUpDown {
@@ -112,7 +108,6 @@
     font-size: 36px;
     font-weight: 600;
     color: colors.$ds-white-1;
-    margin-top: 50px;
 }
 
 .clients-text {

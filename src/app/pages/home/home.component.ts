@@ -11,6 +11,7 @@ import { PriceTestimonialComponent } from '../../components/price-testimonial/pr
 import { FullWidthBannerComponent } from '../../components/full-width-banner/full-width-banner.component';
 import { ROUTES } from '../../constants/routes.constants';
 import { Router } from '@angular/router';
+import { CLIENT_TESTIMONIALS_ROW_1, CLIENT_TESTIMONIALS_ROW_2 } from '../../constants/client-testimonials.constants';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,8 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   readonly cdnUrl = CDN_URL;
   private readonly router = inject(Router);
+  public readonly clientTestimonialsRow1 = CLIENT_TESTIMONIALS_ROW_1;
+  public readonly clientTestimonialsRow2 = CLIENT_TESTIMONIALS_ROW_2;
 
   public goToContactForm() {
     this.router.navigate([ROUTES.CONTACT]);

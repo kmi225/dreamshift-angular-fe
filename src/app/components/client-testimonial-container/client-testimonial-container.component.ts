@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnDestroy, ChangeDetectorRef, inject, PLATFORM_ID } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, ChangeDetectorRef, inject, PLATFORM_ID, Input } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
@@ -19,51 +19,7 @@ export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly platformId = inject(PLATFORM_ID);
   private resizeListener: (() => void) | null = null;
-
-  readonly testimonials: ClientTestimonial[] = [
-    {
-      id: 1,
-      name: 'John Doe',
-      position: 'Software Engineer',
-      testimonial: `"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service."`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    },
-    {
-      id: 2,
-      name: 'Jane Doe',
-      position: 'Software Engineer',
-      testimonial: `"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service."`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    },
-    {
-      id: 3,
-      name: 'John Doe',
-      position: `Business Analyst <br>Peoplecare Health Insurance`,
-      testimonial: `"Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service."`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    },
-    {
-      id: 4,
-      name: 'John Doe',
-      position: 'Software Engineer',
-      testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    },
-    {
-      id: 5,
-      name: 'Jane Doe',
-      position: 'Software Engineer',
-      testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    },
-    {
-      id: 6,
-      name: 'John Doe',
-      position: `Business Analyst <br>Peoplecare Health Insurance`,
-      testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service.`,
-      imageURL: CDN_URL + '2025/01/DreamShift-Client-5-Reviews-amp-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg'
-    }
-  ];
+  @Input() testimonials: ClientTestimonial[] = [];
 
   testimonialsPerSlide = 3;
 

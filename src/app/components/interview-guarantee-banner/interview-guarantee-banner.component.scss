@@ -9,7 +9,7 @@
     background: colors.$ds-purple-gradient;
     background-image: radial-gradient(at top center, colors.$ds-purple-1 23%, colors.$ds-purple-2 92%);
     max-width: 800px;
-    margin: 50px auto 0px auto;
+    margin: 0px auto;
 
     @media only screen and (max-width: contentWidth.$media-boundary) {
         flex-direction: column;
