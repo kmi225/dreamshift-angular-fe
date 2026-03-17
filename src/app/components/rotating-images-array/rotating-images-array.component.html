@@ -1,7 +1,10 @@
-<div class="company-list-container">
-    <div #track class="company-list-track">
-      @for (company of companiesList; track company.label) {
-        <img [src]="company.imageURL" class="client-logo" [alt]="company.label" />
-      }
+<div class="carousel-wrapper">
+  <div class="carousel-track" #track>
+    <div class="carousel-image-container" *ngFor="let company of companiesList">
+      <img [src]="company.imageURL" [alt]="company.label" />
     </div>
+    <div class="carousel-image-container" *ngFor="let company of companiesList">
+      <img [src]="company.imageURL" [alt]="company.label" />
+    </div>
+  </div>
 </div>
