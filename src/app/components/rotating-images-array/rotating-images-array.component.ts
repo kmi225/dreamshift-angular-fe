@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@ang
 import { CDN_URL } from '../../constants/cdn.constants';
 import { CompaniesListItem } from '../../models/companies-list-item.model';
 import { CommonModule } from '@angular/common';
+import { COMPANIES_LIST } from '../../constants/companies-list.constants';
 
 @Component({
   selector: 'app-rotating-images-array',
@@ -14,20 +15,12 @@ import { CommonModule } from '@angular/common';
 export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   @ViewChild('track') trackRef!: ElementRef<HTMLElement>;
   
-  readonly companiesList: CompaniesListItem[] = [
-    { label: 'ansell', imageURL: CDN_URL + '2024/02/Ansell-logo-monochrome-white.svg' },
-    { label: 'deloitte', imageURL: CDN_URL + '2024/02/Deloitte-logo-monochrome-white.svg' },
-    { label: 'kiwi bank', imageURL: CDN_URL + '2024/02/Kiwi-bank-monochrome-white.svg' },
-    { label: 'pwc', imageURL: CDN_URL + '2024/02/PWC-white-monochrome-white.svg' },
-    { label: 'emirates', imageURL: CDN_URL + '2024/02/Emirates-monochrome-white.svg' },
-    { label: 'qatar airways', imageURL: CDN_URL + '2024/02/Qatar-airways-monochrome-white.svg' },
-    { label: 'kpmg', imageURL: CDN_URL + '2024/02/KPMG-monochrome-white-3.svg' }
-  ];
+  readonly companiesList: CompaniesListItem[] = COMPANIES_LIST;
 
   private animationId: number | null = null;
   private offset = 0;
   private singleTrackWidth = 0;
-  private speed = 1; // px per frame — adjust for faster/slower
+  private speed = 0.6; // px per frame — adjust for faster/slower
 
   ngAfterViewInit(): void {
     // Wait one frame for the DOM to fully render and measure

@@ -1,54 +1,45 @@
-@use 'styles/colors.styles.scss' as colors;
 @use 'styles/content-width.styles.scss' as contentWidth;
 
-.testimonials-track {
+:host {
+  display: block;
+  width: 100%;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: -webkit-fill-available;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+
+$three-testimonials-width: 34%;
+$two-testimonials-width: 48%;
+$one-testimonials-width: 90%;
+
+.carousel-image-container {
+  flex: 0 0 auto;
+  padding: 20px;
+  height: -webkit-fill-available;
+
+  @media (min-width: contentWidth.$content-width) {
+    width: $three-testimonials-width;
+  }
+
+  @media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$content-width) {
+    width: $two-testimonials-width;
+  }
+
+  @media (max-width: contentWidth.$content-narrow-width) {
+    width: $one-testimonials-width;
+  }
+
+  app-client-testimonial {
+    height: -webkit-fill-available !important;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  }
 }
-
-.testimonials-slide {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-}
-
-::ng-deep .carousel-control-prev {
-    right: 0;
-    left: unset;
-    justify-content: end;
-}
-
-::ng-deep .carousel-control-next {
-    left: 0;
-    right: unset;
-    justify-content: start;
-}
-
-::ng-deep .carousel-control-prev-icon, ::ng-deep .carousel-control-next-icon {
-    transform: rotate(180deg);
-}
-
-@media (min-width: contentWidth.$media-boundary) {
-    app-client-testimonial {
-        width: 29%;
-    }
-}
-
-@media (min-width: contentWidth.$content-narrow-width) and (max-width: contentWidth.$media-boundary){    
-    app-client-testimonial {
-        width: 40%;
-    }
-}
-
-@media (max-width: contentWidth.$content-narrow-width) {
-    app-client-testimonial {
-        width: 80%;
-    }
-}
-

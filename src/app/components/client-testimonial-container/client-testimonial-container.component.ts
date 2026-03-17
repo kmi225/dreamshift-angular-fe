@@ -1,87 +1,76 @@
-import { Component, ViewChild, OnInit, OnDestroy, ChangeDetectorRef, inject, PLATFORM_ID, Input } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { NgbCarousel, NgbCarouselModule, NgbSlide, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
-import { ClientTestimonialComponent } from '../client-testimonial/client-testimonial.component';
-import { CDN_URL } from '../../constants/cdn.constants';
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnDestroy, PLATFORM_ID, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ClientTestimonial } from '../../models/client-testimonial.model';
-
-const TABLET_BREAKPOINT = 1024;
-const MOBILE_BREAKPOINT = 842;
+import { CLIENT_TESTIMONIALS_ROW_1 } from '../../constants/client-testimonials.constants';
+import { ClientTestimonialComponent } from '../client-testimonial/client-testimonial.component';
 
 @Component({
   selector: 'app-client-testimonial-container',
-  imports: [CommonModule, NgbCarouselModule, NgbSlide, ClientTestimonialComponent],
+  imports: [
+    CommonModule,
+    ClientTestimonialComponent
+  ],
   templateUrl: './client-testimonial-container.component.html',
   styleUrl: './client-testimonial-container.component.scss'
 })
-export class ClientTestimonialContainerComponent implements OnInit, OnDestroy {
-  private readonly cdr = inject(ChangeDetectorRef);
-  private readonly platformId = inject(PLATFORM_ID);
-  private resizeListener: (() => void) | null = null;
-  @Input() testimonials: ClientTestimonial[] = [];
+export class ClientTestimonialContainerComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('track') trackRef!: ElementRef<HTMLElement>;
+  
+  @Input() testimonials!: ClientTestimonial[];
+  /** When true, the track moves to the left; when false, to the right. */
+  @Input() animationLeft = true;
+  @Input() speed = 0.6; // px per frame — adjust for faster/slower
 
-  testimonialsPerSlide = 3;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.updateTestimonialsPerSlide();
-      this.resizeListener = () => {
-        this.updateTestimonialsPerSlide();
-      };
-      window.addEventListener('resize', this.resizeListener);
+  private animationId: number | null = null;
+  private offset = 0;
+  private singleTrackWidth = 0;
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
+    // Wait one frame for the DOM to fully render and measure
+    requestAnimationFrame(() => this.init());
+  }
+
+  private init(): void {
+    const track = this.trackRef.nativeElement;
+    // The track renders 2 passes of the list, so half = one full pass width
+    this.singleTrackWidth = track.scrollWidth / 2;
+
+    // For rightward animation, start from the end of the first track so the
+    // visible content matches the leftward case.
+    if (!this.animationLeft) {
+      this.offset = this.singleTrackWidth;
+    }
+
+    this.animate();
+  }
+
+  private animate(): void {
+    const direction = this.animationLeft ? 1 : -1;
+    this.offset += this.speed * direction;
+
+    if (this.animationLeft) {
+      // Moving left: once we've scrolled one full pass, reset to 0 — seamless loop
+      if (this.offset >= this.singleTrackWidth) {
+        this.offset = 0;
+      }
+    } else {
+      // Moving right: once we've reached the start, jump back to one full pass width
+      if (this.offset <= 0) {
+        this.offset = this.singleTrackWidth;
+      }
+    }
+
+    this.trackRef.nativeElement.style.transform = `translateX(-${this.offset}px)`;
+    this.animationId = requestAnimationFrame(() => this.animate());
   }
 
   ngOnDestroy(): void {
-    if (isPlatformBrowser(this.platformId) && this.resizeListener) {
-      window.removeEventListener('resize', this.resizeListener);
+    if (this.animationId !== null) {
+      cancelAnimationFrame(this.animationId);
     }
   }
-
-  private updateTestimonialsPerSlide(): void {
-    const next = window.innerWidth > TABLET_BREAKPOINT ? 3 : (window.innerWidth > MOBILE_BREAKPOINT ? 2 : 1);
-    if (next !== this.testimonialsPerSlide) {
-      this.testimonialsPerSlide = next;
-      this.cdr.markForCheck();
-    }
-  }
-
-  get testimonialSlides(): ClientTestimonial[][] {
-    const slides: ClientTestimonial[][] = [];
-    for (let i = 0; i < this.testimonials.length; i += this.testimonialsPerSlide) {
-      slides.push(this.testimonials.slice(i, i + this.testimonialsPerSlide));
-    }
-    return slides;
-  }
-
-  paused = false;
-	unpauseOnArrow = false;
-	pauseOnIndicator = false;
-	pauseOnHover = true;
-	pauseOnFocus = true;
-
-	@ViewChild('carousel', { static: true }) carousel!: NgbCarousel;
-
-	togglePaused() {
-		if (this.paused) {
-			this.carousel.cycle();
-		} else {
-			this.carousel.pause();
-		}
-		this.paused = !this.paused;
-	}
-
-	onSlide(slideEvent: NgbSlideEvent) {
-		if (
-			this.unpauseOnArrow &&
-			slideEvent.paused &&
-			(slideEvent.source === NgbSlideEventSource.ARROW_LEFT || slideEvent.source === NgbSlideEventSource.ARROW_RIGHT)
-		) {
-			this.togglePaused();
-		}
-		if (this.pauseOnIndicator && !slideEvent.paused && slideEvent.source === NgbSlideEventSource.INDICATOR) {
-			this.togglePaused();
-		}
-	}
 }
