@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: -webkit-fill-available;
+    min-height: 100%;
 
     @media (min-width: contentWidth.$media-boundary) {
         width: 32%;

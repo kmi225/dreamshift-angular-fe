@@ -1,4 +1,5 @@
 @use 'styles/content-width.styles.scss' as contentWidth;
+@use 'styles/colors.styles.scss' as colors;
 
 :host {
   display: block;
@@ -8,7 +9,7 @@
 .carousel-wrapper {
   width: 100%;
   overflow: hidden;
-  height: -webkit-fill-available;
+  // height: max-content;
 }
 
 .carousel-track {
@@ -24,7 +25,6 @@ $one-testimonials-width: 90%;
 .carousel-image-container {
   flex: 0 0 auto;
   padding: 20px;
-  height: -webkit-fill-available;
 
   @media (min-width: contentWidth.$content-width) {
     width: $three-testimonials-width;
@@ -36,10 +36,5 @@ $one-testimonials-width: 90%;
 
   @media (max-width: contentWidth.$content-narrow-width) {
     width: $one-testimonials-width;
-  }
-
-  app-client-testimonial {
-    height: -webkit-fill-available !important;
-    display: flex;
   }
 }
