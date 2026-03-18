@@ -98,6 +98,9 @@ export const routes: Routes = [{
     path: 'services', 
     redirectTo: ROUTES.OUR_SERVICES,
 }, {
+    path: 'pricing-au', 
+    redirectTo: ROUTES.OUR_SERVICES,
+}, {
     path: 'australia', 
     redirectTo: ROUTES.AUSSIE_TOOLKIT,
 }, {    
