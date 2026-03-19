@@ -7,10 +7,43 @@
             {{ emailTitle }}
         </h3>
 
-        <a *ngIf="emailTo.length > 0" [href]="getMailerLink()" class="btn ds-primary-btn">
+        <div *ngIf="emailTo.length > 0" ngbDropdown class="btn-group d-inline-flex" placement="bottom-end">
+            <!-- Primary action: click text to download Excel -->
+            <button
+              type="button"
+              class="btn ds-primary-btn"
+              (click)="sendEmailFromTemplate()"
+            >
             <i class="fa-regular fa-paper-plane"></i>
-            Send email from template
-        </a>
+              Send email from template
+            </button>
+          
+            <!-- Split button toggle: click caret to open menu -->
+            <button
+              type="button"
+              class="btn ds-primary-btn dropdown-toggle dropdown-toggle-split"
+              ngbDropdownToggle
+              id="excelDownloadDropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">Toggle dropdown</span>
+            </button>
+          
+            <div
+              ngbDropdownMenu
+              aria-labelledby="excelDownloadDropdown"
+              class="dropdown-menu dropdown-menu-end"
+            >
+              <button
+                ngbDropdownItem
+                type="button"
+                (click)="copyText()"
+              >
+                Copy Email Body
+              </button>
+            </div>
+          </div>
         <button *ngIf="emailTo.length === 0" (click)="copyText()" class="btn ds-primary-btn">
             <i class="fa-regular fa-copy"></i>
             Copy text

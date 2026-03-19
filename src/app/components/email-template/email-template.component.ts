@@ -1,10 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbDropdown, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-email-template',
   imports: [
     CommonModule,
+    NgbDropdown,
+    NgbDropdownToggle,
+    NgbDropdownMenu,
+    NgbDropdownItem,
+    NgbDropdownButtonItem,
   ],
   templateUrl: './email-template.component.html',
   styleUrl: './email-template.component.scss'
@@ -47,5 +53,9 @@ export class EmailTemplateComponent {
 
     // Show a success message
     alert('Text copied to clipboard');
+  }
+
+  public sendEmailFromTemplate(): void {
+    window.open(this.getMailerLink(), '_blank');
   }
 }
