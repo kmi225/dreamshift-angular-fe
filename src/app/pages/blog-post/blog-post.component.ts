@@ -114,6 +114,10 @@ export class BlogPostComponent {
     );
   }
 
+  getCategories() {
+    return this.post?.categories?.map((category: any) => category.name).join(', ');
+  }
+
   getPostContent(): string {
     return this.blogText.toString();
   }

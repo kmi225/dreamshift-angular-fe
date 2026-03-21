@@ -36,6 +36,10 @@
     // }
 }
 
+h1 {
+    margin-block-end: 20px !important;
+}
+
 .blog-post-page-content {
     display: flex;
     justify-content: space-between;
@@ -55,6 +59,26 @@
     @media (max-width: contentWidth.$media-boundary) {
         width: 0%;
         display: none;
+    }
+}
+
+.blog-post-info {
+    color: black !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    i {
+        color: colors.$ds-yellow-1 !important;
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        // align-items: flex-start;
+        // justify-content: flex-start;
+        // gap: 5px;
     }
 }
 
