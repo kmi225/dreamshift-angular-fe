@@ -5,6 +5,7 @@ import { FullWidthBannerComponent } from '../../components/full-width-banner/ful
 import { AdditionalServiceComponent } from '../../components/additional-service/additional-service.component';
 import { AccordionComponent } from '../../components/accordion/accordion.component';
 import { FREQUENTLY_ASKED_QUESTIONS } from '../../constants/frequently-asked-questions.constants';
+import { AnimateOnVisibleDirective } from '../../directives/animate-on-visible.directive';
 
 @Component({
   selector: 'app-our-services',
@@ -13,7 +14,8 @@ import { FREQUENTLY_ASKED_QUESTIONS } from '../../constants/frequently-asked-que
     PackagesComponent,
     FullWidthBannerComponent,
     AdditionalServiceComponent,
-    AccordionComponent
+    AccordionComponent,
+    AnimateOnVisibleDirective
   ],
   templateUrl: './our-services.component.html',
   styleUrl: './our-services.component.scss'

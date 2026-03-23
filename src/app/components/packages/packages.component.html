@@ -1,6 +1,8 @@
-<h1 class="packages-main-text animated-element-first slide-in-from-bottom" id="packages" animateOnVisible>Our Packages</h1>
+<h1 class="packages-main-text slide-in-from-bottom" id="packages" animateOnVisible>
+    Our Packages
+</h1>
 
-<div class="consultation-card animated-element-first slide-in-from-bottom" *ngIf="mode === 'home'" animateOnVisible>
+<div class="consultation-card slide-in-from-bottom" *ngIf="mode === 'home'" animateOnVisible>
     <img 
     [src]="cdnUrl + 'elementor/thumbs/Methsara-Dp-Popup-rdt38a6w4i545ufkx4z6tjr2tyyrmepfry045dd0iw.png'" 
     alt="Founder Profile Photo" />
@@ -12,7 +14,7 @@
     </div>
 </div>
 
-<h3 class="packages-sub-text" *ngIf="mode === 'services'">
+<h3 class="packages-sub-text slide-in-from-bottom" *ngIf="mode === 'services'" animateOnVisible>
     (60-Day Interview Guarantee)
 </h3>
 
@@ -21,9 +23,9 @@
 <div class="packages-container">
     @for (package of packages; track package.id) {
         <div class="package-card" animateOnVisible 
-            [ngClass]="{'animated-element-first slide-in-from-left': package.id === 1, 
-                'animated-element-second slide-in-from-bottom': package.id === 2, 
-                'animated-element-third slide-in-from-right': package.id === 3}" animateOnVisible>
+            [ngClass]="{'slide-in-from-left': package.id === 1, 
+                'slide-in-from-bottom': package.id === 2, 
+                'slide-in-from-right': package.id === 3}" animateOnVisible>
             <div class="best-seller-badge" *ngIf="package.bestSeller">
                 <h6>BEST SELLER</h6>
             </div>

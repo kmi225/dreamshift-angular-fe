@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { MainService } from '../../models/main-service.model';
 import { CommonModule } from '@angular/common';
+import { AnimateOnVisibleDirective } from '../../directives/animate-on-visible.directive';
 
 @Component({
   selector: 'app-main-services',
   imports: [
-    CommonModule
+    CommonModule,
+    AnimateOnVisibleDirective
   ],
   templateUrl: './main-services.component.html',
   styleUrl: './main-services.component.scss'

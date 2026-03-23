@@ -28,6 +28,13 @@ $animation-delay: 0.25s;
 .animated-element-fifth  { animation-delay: calc($animation-delay * 5); }
 .animated-element-sixth  { animation-delay: calc($animation-delay * 6); }
 
+[animateOnVisible].slide-in-from-left,
+[animateOnVisible].slide-in-from-bottom,
+[animateOnVisible].slide-in-from-right,
+[animateOnVisible].fade-in {
+    animation-delay: calc(var(--aov-order, 1) * var(--aov-delay-step, #{$animation-delay}));
+}
+
 .slide-in-from-left {
     animation-name: fadeLeft;
     animation-duration: $animation-duration * 3;

@@ -1,9 +1,9 @@
 <div class="page-container">
     <app-main-services mode="services"></app-main-services>
     <app-packages mode="services"></app-packages>
-    <app-additional-service></app-additional-service>
+    <app-additional-service class="slide-in-from-bottom" animateOnVisible></app-additional-service>
     <div>
-        <h1>FAQ</h1>
+        <h1 class="slide-in-from-bottom" animateOnVisible>FAQ</h1>
         <app-accordion [accordionItems]="frequentlyAskedQuestions"></app-accordion>
     </div>
     <app-full-width-banner mode="services"></app-full-width-banner>

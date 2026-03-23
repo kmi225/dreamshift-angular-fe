@@ -7,5 +7,16 @@ import { AppComponent } from './app/app.component';
 
 registerAllModules();
 
+try {
+  if (typeof window !== 'undefined') {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }
+} catch {
+  /* noop */
+}
+
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));

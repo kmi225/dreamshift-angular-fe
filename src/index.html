@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>
+    try {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      if (document.body) {
+        document.body.scrollTop = 0;
+      }
+    } catch (e) { /* noop */ }
+  </script>
   <title>DreamShift</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">

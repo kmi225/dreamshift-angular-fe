@@ -1,4 +1,4 @@
-import { afterNextRender, Component, inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { RotatingImagesArrayComponent } from '../../components/rotating-images-array/rotating-images-array.component';
@@ -41,16 +41,10 @@ export class HomeComponent {
   public readonly clientTestimonialsRow2 = CLIENT_TESTIMONIALS_ROW_2;
 
   constructor() {
-    // Pin scroll before child directives run IntersectionObserver (parent constructor runs first).
+    // Extra pin before child views initialize (index.html + main.ts already set scroll early).
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo(0, 0);
     }
-    // Repeat after hydration / first paint in case the browser restores scroll offset.
-    afterNextRender(() => {
-      if (isPlatformBrowser(this.platformId)) {
-        window.scrollTo(0, 0);
-      }
-    });
   }
 
   public goToContactForm() {

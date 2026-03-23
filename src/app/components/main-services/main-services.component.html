@@ -1,9 +1,12 @@
-<h1 class="services-main-text" id="main-services">Our Main Services</h1>
-<h3 class="services-sub-text" *ngIf="mode === 'home'">(60-Day Interview Guarantee)</h3>
+<h1 class="services-main-text slide-in-from-bottom" id="main-services" animateOnVisible>Our Main Services</h1>
+<h3 class="services-sub-text slide-in-from-bottom" *ngIf="mode === 'home'" animateOnVisible>(60-Day Interview Guarantee)</h3>
 
 <div class="services-container">
     @for (service of services; track service.id) {
-        <div class="service-card">
+        <div class="service-card" animateOnVisible 
+            [ngClass]="{'slide-in-from-left': service.id === 1, 
+                'slide-in-from-bottom': service.id === 2, 
+                'slide-in-from-right': service.id === 3}" animateOnVisible>
             <div class="service-card-header">
                 <i [class]="service.icon" class="service-card-icon"></i>
                 <div class="service-card-header-title">
