@@ -1,0 +1,72 @@
+$animation-duration: 1s;
+$animation-delay: 0.25s;
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(200px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-200px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(200px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.animated-element-first  { animation-delay: calc($animation-delay * 1); }
+.animated-element-second { animation-delay: calc($animation-delay * 2); }
+.animated-element-third  { animation-delay: calc($animation-delay * 3); }
+.animated-element-fourth { animation-delay: calc($animation-delay * 4); }
+.animated-element-fifth  { animation-delay: calc($animation-delay * 5); }
+.animated-element-sixth  { animation-delay: calc($animation-delay * 6); }
+
+.slide-in-from-left {
+    animation-name: fadeLeft;
+    animation-duration: $animation-duration * 3;
+    animation-timing-function: cubic-bezier(.22, 0.68, 0, 1.12);
+    animation-fill-mode: both;
+    opacity: 0;
+}
+
+.slide-in-from-bottom {
+    animation-name: fadeUp;
+    animation-duration: $animation-duration;
+    animation-timing-function: cubic-bezier(.22, 0.68, 0, 1.12);
+    animation-fill-mode: both;
+    opacity: 0;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: $animation-duration * 2;
+    animation-timing-function: cubic-bezier(.22, 0.68, 0, 1.12);
+    animation-fill-mode: both;
+    opacity: 0;
+}
+
+.slide-in-from-right {
+    animation-name: fadeRight;
+    animation-duration: $animation-duration * 3;
+    animation-timing-function: cubic-bezier(.22, 0.68, 0, 1.12);
+    animation-fill-mode: both;
+    opacity: 0;
+}   
+
+// animateOnVisible: keep hidden and skip keyframes until intersection removes .aov-pending
+.slide-in-from-left.aov-pending,
+.slide-in-from-bottom.aov-pending,
+.slide-in-from-right.aov-pending,
+.fade-in.aov-pending {
+    animation-name: none;
+    animation-delay: 0s;
+    opacity: 0;
+}
+

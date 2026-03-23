@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { CompaniesListItem } from '../../models/companies-list-item.model';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { COMPANIES_LIST } from '../../constants/companies-list.constants';
 
 @Component({
@@ -14,7 +14,9 @@ import { COMPANIES_LIST } from '../../constants/companies-list.constants';
 })
 export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   @ViewChild('track') trackRef!: ElementRef<HTMLElement>;
-  
+
+  private readonly platformId = inject(PLATFORM_ID);
+
   readonly companiesList: CompaniesListItem[] = COMPANIES_LIST;
 
   private animationId: number | null = null;
@@ -23,6 +25,9 @@ export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   private speed = 0.6; // px per frame — adjust for faster/slower
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     // Wait one frame for the DOM to fully render and measure
     requestAnimationFrame(() => this.init());
   }
@@ -47,7 +52,7 @@ export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animationId !== null) {
+    if (this.animationId !== null && isPlatformBrowser(this.platformId)) {
       cancelAnimationFrame(this.animationId);
     }
   }

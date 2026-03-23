@@ -2,11 +2,13 @@ import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ROUTES } from '../../constants/routes.constants';
+import { AnimateOnVisibleDirective } from '../../directives/animate-on-visible.directive';
 
 @Component({
   selector: 'app-full-width-banner',
   imports: [
     CommonModule,
+    AnimateOnVisibleDirective
   ],
   templateUrl: './full-width-banner.component.html',
   styleUrl: './full-width-banner.component.scss'

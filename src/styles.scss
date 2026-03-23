@@ -1,6 +1,10 @@
 @use 'styles/colors.styles.scss' as colors;
-@use 'styles/fonts.styles.scss';
+@use 'styles/fonts.styles.scss' as fonts;
 @use 'styles/content-width.styles.scss' as contentWidth;
+
+// Make animations global
+@use 'styles/animations.styles.scss';
+
 /* Importing Bootstrap SCSS file. */
 @use 'bootstrap/scss/bootstrap';
 
@@ -170,7 +174,7 @@ body {
   font-weight: 400;
 }
 
-
+// Scrollbar Styles
 ::-webkit-scrollbar {
   width: 7px;
   background-color: colors.$ds-purple-2;

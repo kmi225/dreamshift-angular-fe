@@ -2,26 +2,28 @@
 
     <div class="banner-container">
         <div class="banner-text-container">
-            <h1>
+            <h1 class="slide-in-from-left animated-element-first">
                 Land Job Interviews <br/>in Just <span class="days">60 Days</span>
             </h1>
-            <h3>
+            <h3 class="slide-in-from-left animated-element-second">
                 We write CVs that Land Job Interviews with a 60-Day Guarantee
             </h3>
-            <button class="btn ds-secondary-btn" (click)="goToPackagesSection()">
+            <button class="btn ds-secondary-btn slide-in-from-left animated-element-third" (click)="goToPackagesSection()">
                 I'm ready to start
             </button>
         </div>
-        <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" alt="Land job interviews in 60 days" />
+        <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" 
+            alt="Land job interviews in 60 days"
+            class="slide-in-from-bottom animated-element-fourth" />
     </div>
-    <a href="#dream-jobs" class="down-arrow-container">
+    <a href="#dream-jobs" class="down-arrow-container fade-in animated-element-sixth">
         <i class="fa-solid fa-chevron-down down-arrow"></i>
     </a>
 
-    <div class="process-text" id="this-is-why">
+    <div class="process-text animated-element-first slide-in-from-bottom" id="this-is-why" animateOnVisible>
         This Is Why You Keep Getting Rejection Emails All The Time!
     </div>
-    <div class="process-video-container">
+    <div class="process-video-container animated-element-first slide-in-from-bottom" animateOnVisible>
         <iframe src="https://player.vimeo.com/video/1120396633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
             referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
@@ -29,46 +31,51 @@
         </iframe>
     </div>
 
-    <div class="centered-btn-container">
+    <div class="centered-btn-container animated-element-first slide-in-from-bottom" animateOnVisible>
         <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
             Okay, Let's Start!
         </button>    
     </div>
 
-    <app-interview-guarantee-banner></app-interview-guarantee-banner>
+    <div class="animated-element-first slide-in-from-bottom" animateOnVisible>
+        <app-interview-guarantee-banner></app-interview-guarantee-banner>
+    </div>
 
-    <div class="process-text" id="client-testimonial-videos">
+    <div id="client-testimonial-videos" class="process-text animated-element-first slide-in-from-bottom" animateOnVisible>
         This Is What Our Clients Said After Landing Jobs Within 60 Days
     </div>
-    <app-video-testimonial></app-video-testimonial>
+    
+    <div class="animated-element-first slide-in-from-left" animateOnVisible>
+        <app-video-testimonial></app-video-testimonial>
+    </div>
 
     <div>
-        <app-client-testimonial-container [testimonials]="clientTestimonialsRow1" [animationLeft]="true" [speed]="0.4"></app-client-testimonial-container>
-        <app-client-testimonial-container [testimonials]="clientTestimonialsRow2" [animationLeft]="false" [speed]="0.4"></app-client-testimonial-container>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow1" [animationLeft]="true" [speed]="0.4" class="animated-element-first slide-in-from-right" animateOnVisible></app-client-testimonial-container>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow2" [animationLeft]="false" [speed]="0.4" class="animated-element-first slide-in-from-left" animateOnVisible></app-client-testimonial-container>
     
     </div>
 
-    <div class="process-text" id="dream-jobs">
+    <div id="dream-jobs" class="process-text animated-element-first slide-in-from-bottom" animateOnVisible>
         Our Clients have Landed their Dream Jobs at
     </div>
-    <app-rotating-images-array></app-rotating-images-array>
+    <app-rotating-images-array class="animated-element-first slide-in-from-right" animateOnVisible></app-rotating-images-array>
 
     <app-main-services></app-main-services>
 
-    <div class="process-text" id="process">
+    <div id="process" class="process-text animated-element-first slide-in-from-bottom" animateOnVisible>
         Our Unique Process
     </div>
-    <div class="process-video-container">
+    <div class="process-video-container animated-element-first slide-in-from-bottom" animateOnVisible>
         <iframe src="https://player.vimeo.com/video/1128317553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
             frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+            referrerpolicy="strict-origin-when-cross-origin" class="process-video"
             title="Our Process">
         </iframe>
     </div>
     <app-packages id="packages"></app-packages>
 
-    <app-price-testimonial></app-price-testimonial>
-    <app-interview-guarantee-banner-large id="interview-guarantee-banner-large"></app-interview-guarantee-banner-large>
+    <app-price-testimonial class="animated-element-first slide-in-from-bottom" animateOnVisible></app-price-testimonial>
+    <app-interview-guarantee-banner-large id="interview-guarantee-banner-large" class="animated-element-first slide-in-from-bottom" animateOnVisible></app-interview-guarantee-banner-large>
 
     <app-full-width-banner></app-full-width-banner>
 </div>

@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { ROUTES } from '../../constants/routes.constants';
 import { Router } from '@angular/router';
+import { AnimateOnVisibleDirective } from '../../directives/animate-on-visible.directive';
+
 @Component({
   selector: 'app-packages',
-  imports: [CommonModule],
+  imports: [CommonModule, AnimateOnVisibleDirective],
   templateUrl: './packages.component.html',
   styleUrl: './packages.component.scss'
 })
