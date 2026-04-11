@@ -1,5 +1,7 @@
+<h1 class="slide-in-from-bottom" animateOnVisible>{{ title }}</h1>
+
 <div ngbAccordion #accordion="ngbAccordion" [closeOthers]="true">
-  <div *ngFor="let item of accordionItems" [ngbAccordionItem]="item.id">
+  <div *ngFor="let item of accordionItems" class="slide-in-from-bottom" [ngbAccordionItem]="item.id" animateOnVisible>
     <h2 ngbAccordionHeader>
       <button ngbAccordionButton>
         <i class="fa-solid fa-chevron-down"></i>

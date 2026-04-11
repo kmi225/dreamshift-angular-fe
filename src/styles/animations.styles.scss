@@ -32,7 +32,7 @@ $animation-delay: 0.25s;
 [animateOnVisible].slide-in-from-bottom,
 [animateOnVisible].slide-in-from-right,
 [animateOnVisible].fade-in {
-    animation-delay: calc(var(--aov-order, 1) * var(--aov-delay-step, #{$animation-delay}));
+    animation-delay: var(--aov-delay, calc(var(--aov-order, 1) * var(--aov-delay-step, #{$animation-delay})));
 }
 
 .slide-in-from-left {
@@ -76,4 +76,3 @@ $animation-delay: 0.25s;
     animation-delay: 0s;
     opacity: 0;
 }
-

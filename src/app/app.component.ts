@@ -1,7 +1,8 @@
-import { Component, inject, HostListener, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { filter } from 'rxjs';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -31,17 +32,40 @@ const SCROLL_THRESHOLD = 100;
     ]),
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'dreamshift-angular-fe';
   public isBlogPostPage: boolean = false;
   public showMoveToTopButton = false;
-  private readonly route = inject(ActivatedRoute);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
+  private routerEventsSub: { unsubscribe: () => void } | undefined;
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.showMoveToTopButton = window.scrollY > SCROLL_THRESHOLD;
     }
+
+    // Pin scroll to top *before* the next route renders to avoid
+    // "start-from-bottom then catch up" animations.
+    this.routerEventsSub = this.router.events
+      .pipe(filter((e): e is NavigationStart => e instanceof NavigationStart))
+      .subscribe(() => {
+        if (!isPlatformBrowser(this.platformId)) {
+          return;
+        }
+        // If we're navigating to a fragment, let the browser/anchor logic handle it.
+        if (window.location.hash) {
+          return;
+        }
+        document.documentElement.scrollTop = 0;
+        if (document.body) {
+          document.body.scrollTop = 0;
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.routerEventsSub?.unsubscribe();
   }
 
   @HostListener('window:scroll')

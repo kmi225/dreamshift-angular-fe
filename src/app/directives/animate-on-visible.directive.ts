@@ -20,7 +20,11 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AnimateOnVisibleDirective implements OnInit, OnDestroy {
   @Input() animationClass = 'visible';
-  @Input() threshold = 0.15;
+  // Trigger as soon as any part of the element enters the viewport.
+  // This usually corresponds to "element top is visible" rather than waiting
+  // for a meaningful percentage of the element area (which can feel like
+  // "wait until the bottom is visible" for tall elements).
+  @Input() threshold = 0;
   @Input() delayStepSeconds = 0.25;
 
   private readonly el = inject(ElementRef<HTMLElement>);
@@ -67,18 +71,35 @@ export class AnimateOnVisibleDirective implements OnInit, OnDestroy {
         if (this.destroyed || !this.observer) {
           return;
         }
-        this.applyDelayFromDomOrder();
-        this.observer.observe(this.el.nativeElement);
-        this.flushInitialIntersection();
+        // Defer by one rAF so the browser's scroll restoration has fully settled
+        // before we measure intersections. Without this, elements visible at the
+        // *old* scroll position fire as intersecting before the page scrolls to
+        // the top, causing animations to run in reverse order on the new page.
+        requestAnimationFrame(() => {
+          if (this.destroyed || !this.observer) {
+            return;
+          }
+          this.applyDelayFromDomOrder();
+          this.observer.observe(this.el.nativeElement);
+          this.flushInitialIntersection();
+        });
       },
       { injector: this.injector }
     );
   }
 
   private applyDelayFromDomOrder(): void {
+    // Scope the query to the closest ancestor that acts as a page/view root,
+    // rather than the whole document. This prevents elements from the *leaving*
+    // page (which may still be in the DOM during route transitions) from
+    // inflating the order index of elements on the incoming page.
+    const scope: HTMLElement =
+      (this.el.nativeElement.closest('router-outlet + *, [data-aov-scope]') as HTMLElement | null) ??
+      document.body;
+
     const orderedElements = Array.from(
-      document.querySelectorAll<HTMLElement>('[animateOnVisible]')
-    );
+      scope.querySelectorAll('[animateOnVisible]')
+    ) as HTMLElement[];
     const elementOrder = orderedElements.indexOf(this.el.nativeElement);
     if (elementOrder === -1) {
       return;
@@ -108,6 +129,10 @@ export class AnimateOnVisibleDirective implements OnInit, OnDestroy {
       if (!this._aovPending) {
         return;
       }
+      // Use a fixed delay after the element becomes visible.
+      // This avoids "cumulative" delays for elements later in the DOM, which
+      // can make it look like the animation waits for the element bottom.
+      this.el.nativeElement.style.setProperty('--aov-delay', `${this.delayStepSeconds}s`);
       this._aovPending = false;
       this.el.nativeElement.classList.add(this.animationClass);
     });

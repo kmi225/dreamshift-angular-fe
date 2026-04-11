@@ -18,14 +18,14 @@ export const routes: Routes = [{
     path: ROUTES.HOME,
     component: HomeComponent,
     title: 'DreamShift | We write CVs with a 60-Day Interview Guarantee - Australia'
+},{
+    path: ROUTES.OUR_PROCESS,
+    component: OurProcessComponent,
+    title: 'How DreamShift Crafts Job Winning Resumes? - DreamShift'
 }, {
     path: ROUTES.OUR_SERVICES,
     component: OurServicesComponent,
     title: 'Services and Packages (Resume Writing Services) - DreamShift'
-}, {
-    path: ROUTES.OUR_PROCESS,
-    component: OurProcessComponent,
-    title: 'How DreamShift Crafts Job Winning Resumes? - DreamShift'
 }, {
     path: ROUTES.AUSSIE_TOOLKIT,
     title: 'Australian Job Search Toolkit - DreamShift',
@@ -109,7 +109,7 @@ export const routes: Routes = [{
 },{
     path: 'au-visa-portal', 
     redirectTo: ROUTES.AUSTRALIAN_VISA_PATHWAYS,
-},{
+}, {
     path: '**', 
     redirectTo: ROUTES.HOME,
 }];

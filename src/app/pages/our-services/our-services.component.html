@@ -1,10 +1,7 @@
-<div class="page-container">
+<div class="page-container animated-element-first slide-in-from-bottom">
     <app-main-services mode="services"></app-main-services>
     <app-packages mode="services"></app-packages>
-    <app-additional-service class="slide-in-from-bottom" animateOnVisible></app-additional-service>
-    <div>
-        <h1 class="slide-in-from-bottom" animateOnVisible>FAQ</h1>
-        <app-accordion [accordionItems]="frequentlyAskedQuestions"></app-accordion>
-    </div>
+    <app-additional-service></app-additional-service>
+    <app-accordion [accordionItems]="frequentlyAskedQuestions" [title]="'FAQ'"></app-accordion>
     <app-full-width-banner mode="services"></app-full-width-banner>
 </div>
