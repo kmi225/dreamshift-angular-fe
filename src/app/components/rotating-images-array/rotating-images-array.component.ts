@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, PLATFORM_ID, ViewChild, inject } from '@angular/core';
 import { CDN_URL } from '../../constants/cdn.constants';
 import { CompaniesListItem } from '../../models/companies-list-item.model';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { COMPANIES_LIST } from '../../constants/companies-list.constants';
 
 @Component({
@@ -14,6 +14,7 @@ import { COMPANIES_LIST } from '../../constants/companies-list.constants';
 })
 export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   @ViewChild('track') trackRef!: ElementRef<HTMLElement>;
+  private readonly platformId = inject(PLATFORM_ID);
   
   readonly companiesList: CompaniesListItem[] = COMPANIES_LIST;
 
@@ -23,6 +24,9 @@ export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   private speed = 0.6; // px per frame — adjust for faster/slower
 
   ngAfterViewInit(): void {
+    if (!this.canAnimate()) {
+      return;
+    }
     // Wait one frame for the DOM to fully render and measure
     requestAnimationFrame(() => this.init());
   }
@@ -35,6 +39,10 @@ export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   }
 
   private animate(): void {
+    if (!this.canAnimate()) {
+      return;
+    }
+
     this.offset += this.speed;
 
     // Once we've scrolled one full pass, reset silently to 0 — seamless loop
@@ -47,8 +55,16 @@ export class RotatingImagesArrayComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animationId !== null) {
+    if (this.animationId !== null && this.canAnimate()) {
       cancelAnimationFrame(this.animationId);
     }
+  }
+
+  private canAnimate(): boolean {
+    return (
+      isPlatformBrowser(this.platformId) &&
+      typeof requestAnimationFrame !== 'undefined' &&
+      typeof cancelAnimationFrame !== 'undefined'
+    );
   }
 }

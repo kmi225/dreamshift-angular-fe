@@ -1,5 +1,5 @@
-import { Component, inject, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, Input, OnInit, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { ROUTES } from '../../constants/routes.constants';
 
@@ -11,14 +11,29 @@ import { ROUTES } from '../../constants/routes.constants';
   templateUrl: './full-width-banner.component.html',
   styleUrl: './full-width-banner.component.scss'
 })
-export class FullWidthBannerComponent {
+export class FullWidthBannerComponent implements OnInit {
   @Input() mode: 'home' | 'services' | 'process' | 'aussie-toolkit' | 'blog-post' = 'home';
   private readonly router = inject(Router);
+  private readonly platformId = inject(PLATFORM_ID);
   readonly MOBILE_BREAKPOINT = 842;
+  isMobileDevice = false;
 
-  public isMobileDevice(): boolean {
-    if (typeof window === 'undefined') return false;
-    return window.innerWidth < 768;
+  ngOnInit(): void {
+    this.updateViewportMode();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.updateViewportMode();
+  }
+
+  private updateViewportMode(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      this.isMobileDevice = false;
+      return;
+    }
+
+    this.isMobileDevice = window.innerWidth < this.MOBILE_BREAKPOINT;
   }
 
   getMobileText(): string {
@@ -69,7 +84,7 @@ export class FullWidthBannerComponent {
   getButtonText(): string {
     switch (this.mode) {
       case 'home':
-        return 'I\'m ready to start';
+        return 'Book a Free Consultation';
       case 'services':
         return 'Learn more';
       case 'process':
@@ -84,12 +99,11 @@ export class FullWidthBannerComponent {
   onClickNavigationButton(): void {
     switch (this.mode) {
       case 'home':
-        this.router.navigate([ROUTES.CONTACT]);
+        window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
         break;
-      case 'services':
-        this.router.navigate([ROUTES.OUR_SERVICES]);
+      default:
+        this.router.navigate([ROUTES.HOME]);
         break;
     }
-    this.router.navigate([ROUTES.CONTACT]);
   }
 }

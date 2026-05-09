@@ -2,13 +2,13 @@
     <div class="full-width-yellow-banner">
         <div class="get-started-banner">
             <div class="get-started-banner-text-container">
-                <h1 *ngIf="isMobileDevice()">
+                <h1 *ngIf="isMobileDevice">
                     {{ getMobileText() }}
                 </h1>
-                <h2 *ngIf="!isMobileDevice()">
+                <h2 *ngIf="!isMobileDevice">
                     {{ getDesktopHeading() }}
                 </h2>
-                <h5 *ngIf="!isMobileDevice()">{{ getDesktopText() }}</h5>    
+                <h5 *ngIf="!isMobileDevice">{{ getDesktopText() }}</h5>    
             </div>
             <button class="btn black-btn" (click)="onClickNavigationButton()">
                 {{ getButtonText() }}

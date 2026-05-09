@@ -51,6 +51,16 @@ export class AppComponent implements OnInit {
     }
   }
 
+  onActivate() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   public moveToTop() {
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({

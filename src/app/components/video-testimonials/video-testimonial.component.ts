@@ -27,13 +27,13 @@ export class VideoTestimonialComponent implements OnInit, OnDestroy {
     },
     {
       id: 2,
-      title: 'Vishnu&#039;s Success Story',
-      videoURL: 'https://player.vimeo.com/video/1120342284?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
+      title: 'Shavindri&#039;s Success Story',
+      videoURL: 'https://player.vimeo.com/video/1177949641?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
     },
     {
       id: 3,
-      title: 'Indika&#039;s Success Story',
-      videoURL: 'https://player.vimeo.com/video/1120343095?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
+      title: 'Vishnu&#039;s Success Story',
+      videoURL: 'https://player.vimeo.com/video/1120342284?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
     }
   ];
 

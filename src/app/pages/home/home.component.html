@@ -9,7 +9,7 @@
                 We write CVs that Land Job Interviews with a 60-Day Guarantee
             </h3>
             <button class="btn ds-secondary-btn" (click)="goToPackagesSection()">
-                I'm ready to start
+                Explore our packages
             </button>
         </div>
         <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" alt="Land job interviews in 60 days" />
@@ -18,21 +18,22 @@
         <i class="fa-solid fa-chevron-down down-arrow"></i>
     </a>
 
-    <div class="process-text" id="this-is-why">
-        This Is Why You Keep Getting Rejection Emails All The Time!
-    </div>
-    <div class="process-video-container">
-        <iframe src="https://player.vimeo.com/video/1120396633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
-            title="Our Process">
-        </iframe>
-    </div>
-
-    <div class="centered-btn-container">
-        <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
-            Okay, Let's Start!
-        </button>    
+    <div class="inner-container">
+        <div class="process-text" id="this-is-why">
+            This Is Why You Keep Getting Rejection Emails All The Time!
+        </div>
+        <div class="process-video-container">
+            <iframe src="https://player.vimeo.com/video/1120396633?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+                title="Our Process">
+            </iframe>
+        </div>
+        <div class="centered-btn-container">
+            <button class="btn ds-primary-btn rounded-btn" (click)="goToPackagesSection()">
+                Explore our packages
+            </button>    
+        </div>
     </div>
 
     <app-interview-guarantee-banner></app-interview-guarantee-banner>
@@ -55,16 +56,19 @@
 
     <app-main-services></app-main-services>
 
-    <div class="process-text" id="process">
-        Our Unique Process
+    <div class="inner-container">
+        <div class="process-text" id="process">
+            Our Unique Process
+        </div>
+        <div class="process-video-container">
+            <iframe src="https://player.vimeo.com/video/1128317553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
+                title="Our Process">
+            </iframe>
+        </div>
     </div>
-    <div class="process-video-container">
-        <iframe src="https://player.vimeo.com/video/1128317553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" class="process-video" 
-            title="Our Process">
-        </iframe>
-    </div>
+
     <app-packages id="packages"></app-packages>
 
     <app-price-testimonial></app-price-testimonial>

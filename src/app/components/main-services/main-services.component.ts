@@ -16,7 +16,7 @@ export class MainServicesComponent {
   public readonly services: MainService[] = [ {
     id: 1,
     icon: 'fa-solid fa-pen fa-2xl',
-    title: 'Resume Writing',
+    title: 'Resume/CV Writing',
     subtitle: 'We don\'t just use templates',
     bullets: [
       'We Understand your Requirement',
@@ -24,7 +24,7 @@ export class MainServicesComponent {
       'We do an ATS Keyword Research',
       'Finally We Brand You with Words'
     ],
-    price: '200 AUD Onwards'
+    price: '400 AUD Onwards'
   }, {
     id: 2,
     icon: 'fa-regular fa-file-lines fa-2xl',
@@ -36,7 +36,7 @@ export class MainServicesComponent {
       'We Give You a Templated Cover Letter',
       'We Also Give You a Fixed Cover Letter'
     ],
-    price: '75 AUD Onwards'
+    price: '150 AUD Onwards'
   }, {
     id: 3,
     icon: 'fa-brands fa-linkedin-in fa-2xl',
@@ -48,6 +48,6 @@ export class MainServicesComponent {
       'We write Content that\'s Easy to Read',
       'We Design your Banner & Highlights'
     ],
-    price: '200 AUD Onwards'
+    price: '350 AUD Onwards'
   }]
 }

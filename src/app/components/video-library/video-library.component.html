@@ -1,0 +1,36 @@
+<div class="video-library-container">
+    <div class="current-video">
+        <iframe 
+            [src]="getSanitizedVideoURL(currentVideo)"
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            [title]="currentVideo.title"
+        ></iframe>
+    </div>
+    <div class="suggestion-panel">
+        <ds-dropdown
+            class="template-selection-dropdown"
+            [options]="allCategories"
+            label="Select a Category"
+            [selected]="getSelectedCategorySet()"
+            (selectedChange)="changeVideoCategory($event)"
+        />
+        @for (video of categorizedVideoList; track video.id) {
+            <div class="video-suggestion-outer-container">
+                <div class="video-suggestion-inner-container">
+                    <iframe 
+                        [src]="getSanitizedVideoURL(video)"
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        [title]="video.title"
+                    ></iframe>
+                    <span [innerHTML]="video.title"></span>
+                </div>
+                <button class="btn ds-transparent-video-btn" (click)="setVideoAsCurrent(video)">
+                </button>
+            </div>
+        }
+    </div>
+</div>

@@ -58,6 +58,12 @@ if (isMainModule(import.meta.url)) {
   app.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
+}  else {
+  // Passenger launches the file as a module, not as main
+  // so we need to listen here too
+  app.listen(() => {
+    console.log('Server started under Passenger');
+  });
 }
 
 /**

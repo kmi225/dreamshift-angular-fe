@@ -4,4 +4,5 @@ export interface ClientTestimonial {
   position: string;
   testimonial: string;
   imageURL: string;
+  linkedinURL?: string;
 }

@@ -15,4 +15,5 @@ export const ROUTES = {
     TERMS_AND_POLICIES: 'terms-and-policies',
     AUSTRALIAN_VISA_PATHWAYS: 'australian-visa-pathways',
     ABOUT_US: 'about-us',
+    VIDEO_LIBRARY: 'video-library'
 }

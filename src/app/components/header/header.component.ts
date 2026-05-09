@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public navigateToContact() {
-    this.router.navigate([ROUTES.CONTACT]);
+    window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
   }
 
   public openMenu(content: TemplateRef<unknown>) {

@@ -13,6 +13,7 @@ import { RecruitersComponent } from './pages/recruiters/recruiters.component';
 import { TermsAndPoliciesComponent } from './pages/terms-and-policies/terms-and-policies.component';
 import { AuVisaPathwaysComponent } from './pages/au-visa-pathways/au-visa-pathways.component';
 import { InProgressComponent } from './pages/in-progress/in-progress.component';
+import { VideoLibraryPageComponent } from './pages/video-library-page/video-library-page.component';
 
 export const routes: Routes = [{
     path: ROUTES.HOME,
@@ -92,6 +93,11 @@ export const routes: Routes = [{
     path: ROUTES.ABOUT_US,
     component: InProgressComponent,
     title: 'About Us - DreamShift'
+},
+{
+    path: ROUTES.VIDEO_LIBRARY,
+    component: VideoLibraryPageComponent,
+    title: 'Video Library - DreamShift'
 },
 // OLD SITE ROUTES BEING REDIRECTED TO NEW SITE ROUTES
 {
