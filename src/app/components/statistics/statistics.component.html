@@ -1,0 +1,19 @@
+<section class="statistics" aria-label="Dreamshift by the numbers">
+  <div class="statistics__inner">
+    <p class="statistics__eyebrow">WHAT WE'VE ACHIEVED</p>
+    <div class="statistics__grid" role="list">
+      @for (stat of stats; track stat.title) {
+        <article class="statistics__item" role="listitem">
+          <div class="statistics__icon" aria-hidden="true">
+            <i [class]="stat.iconClass"></i>
+          </div>
+          <div class="statistics__value-row">
+            <span class="statistics__value" #statTarget>0</span>
+          </div>
+          <h4 class="statistics__title">{{ stat.title }}</h4>
+          <p class="statistics__description">{{ stat.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

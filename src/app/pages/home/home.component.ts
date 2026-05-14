@@ -12,6 +12,9 @@ import { FullWidthBannerComponent } from '../../components/full-width-banner/ful
 import { ROUTES } from '../../constants/routes.constants';
 import { Router } from '@angular/router';
 import { CLIENT_TESTIMONIALS_ROW_1, CLIENT_TESTIMONIALS_ROW_2 } from '../../constants/client-testimonials.constants';
+import { LeadMagnetBannerComponent } from '../../components/lead-magnet-banner/lead-magnet-banner.component';
+import { StatisticsComponent } from '../../components/statistics/statistics.component';
+import { ScrollDismissibleSnackbarComponent } from '../../components/scroll-dismissible-snackbar/scroll-dismissible-snackbar.component';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +27,10 @@ import { CLIENT_TESTIMONIALS_ROW_1, CLIENT_TESTIMONIALS_ROW_2 } from '../../cons
     InterviewGuaranteeBannerComponent,
     InterviewGuaranteeBannerLargeComponent,
     PriceTestimonialComponent,
-    FullWidthBannerComponent
+    FullWidthBannerComponent,
+    LeadMagnetBannerComponent,
+    StatisticsComponent,
+    ScrollDismissibleSnackbarComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
