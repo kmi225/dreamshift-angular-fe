@@ -1,8 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { WhatsappTestimonialsGalleryComponent } from '../whatsapp-testimonials-gallery/whatsapp-testimonials-gallery.component';
-import {
-  WHATSAPP_REVIEW_IMAGE_COUNT,
-} from '../whatsapp-reviews/whatsapp-reviews.constants';
+import { WHATSAPP_REVIEW_IMAGE_COUNT } from '../../constants/whatsapp-testimonials.constants';
 import { WHATSAPP_TESTIMONIALS_COLUMN_CONFIGS } from './whatsapp-testimonials.constants';
 import { WhatsappTestimonialsScrollColumnComponent } from './whatsapp-testimonials-scroll-column/whatsapp-testimonials-scroll-column.component';
 import { WhatsappTestimonialsColumnConfig } from './whatsapp-testimonials.types';

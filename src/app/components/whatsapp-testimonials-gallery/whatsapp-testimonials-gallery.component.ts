@@ -8,10 +8,7 @@ import {
   input,
   output,
 } from '@angular/core';
-import {
-  WHATSAPP_REVIEW_IMAGE_COUNT,
-  whatsappReviewImageSrc,
-} from '../whatsapp-reviews/whatsapp-reviews.constants';
+import { WHATSAPP_REVIEW_IMAGE_COUNT, whatsappReviewImageSrc } from '../../constants/whatsapp-testimonials.constants';
 
 /**
  * Full-screen lightbox for browsing all WhatsApp testimonial screenshots.

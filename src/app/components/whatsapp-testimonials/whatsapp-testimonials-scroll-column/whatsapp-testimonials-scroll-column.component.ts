@@ -10,7 +10,7 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
-import { whatsappReviewImageSrc } from '../../whatsapp-reviews/whatsapp-reviews.constants';
+import { whatsappReviewImageSrc } from '../../../constants/whatsapp-testimonials.constants';
 import { WhatsappTestimonialsScrollDirection } from '../whatsapp-testimonials.types';
 
 @Component({
