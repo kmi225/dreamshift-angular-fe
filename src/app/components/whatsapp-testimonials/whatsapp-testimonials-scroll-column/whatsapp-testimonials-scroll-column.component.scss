@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  height: 100%;
+  min-width: 0;
+}
+
+.wt-scroll-col {
+  height: 100%;
+  overflow: hidden;
+}
+
+.wt-scroll-col__track {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(0.5rem, 1.1vw, 0.75rem);
+  will-change: transform;
+}
+
+.wt-scroll-col__tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 1px solid white;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #f6b900;
+    outline-offset: 3px;
+  }
+}
+
+.wt-scroll-col__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wt-scroll-col__tile {
+    transition: none;
+  }
+}

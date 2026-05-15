@@ -15,6 +15,7 @@ import { CLIENT_TESTIMONIALS_ROW_1, CLIENT_TESTIMONIALS_ROW_2 } from '../../cons
 import { LeadMagnetBannerComponent } from '../../components/lead-magnet-banner/lead-magnet-banner.component';
 import { StatisticsComponent } from '../../components/statistics/statistics.component';
 import { ScrollDismissibleSnackbarComponent } from '../../components/scroll-dismissible-snackbar/scroll-dismissible-snackbar.component';
+import { WhatsappTestimonialsComponent } from '../../components/whatsapp-testimonials/whatsapp-testimonials.component';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +31,8 @@ import { ScrollDismissibleSnackbarComponent } from '../../components/scroll-dism
     FullWidthBannerComponent,
     LeadMagnetBannerComponent,
     StatisticsComponent,
-    ScrollDismissibleSnackbarComponent
+    ScrollDismissibleSnackbarComponent,
+    WhatsappTestimonialsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

@@ -1,0 +1,70 @@
+@if (currentImage(); as current) {
+  <div
+    class="whatsapp-testimonials-gallery__backdrop"
+    role="presentation"
+    (click)="onBackdropClick($event)"
+  >
+    <div
+      class="whatsapp-testimonials-gallery__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="whatsapp-testimonials-gallery-title"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="whatsapp-testimonials-gallery__toolbar">
+        <p id="whatsapp-testimonials-gallery-title" class="whatsapp-testimonials-gallery__title">
+            WhatsApp review {{ current }} of {{ allImageNumbers.length }}
+        </p>
+        <button
+          type="button"
+          class="whatsapp-testimonials-gallery__icon-btn"
+          (click)="close()"
+          aria-label="Close gallery"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="whatsapp-testimonials-gallery__stage">
+        <button
+          type="button"
+          class="whatsapp-testimonials-gallery__nav whatsapp-testimonials-gallery__nav--prev"
+          (click)="step(-1)"
+          aria-label="Previous screenshot"
+        >
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <figure class="whatsapp-testimonials-gallery__figure">
+          <img
+            class="whatsapp-testimonials-gallery__full"
+            [src]="imageSrc(current)"
+            alt="WhatsApp conversation screenshot {{ current }}"
+          />
+        </figure>
+        <button
+          type="button"
+          class="whatsapp-testimonials-gallery__nav whatsapp-testimonials-gallery__nav--next"
+          (click)="step(1)"
+          aria-label="Next screenshot"
+        >
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="whatsapp-testimonials-gallery__thumbs" role="list" aria-label="All screenshots">
+        @for (n of allImageNumbers; track n) {
+          <button
+            type="button"
+            class="whatsapp-testimonials-gallery__thumb-strip"
+            [class.whatsapp-testimonials-gallery__thumb-strip--active]="n === current"
+            (click)="goTo(n)"
+            [attr.aria-label]="'Show screenshot ' + n"
+            role="listitem"
+          >
+            <img [src]="imageSrc(n)" alt="" loading="lazy" decoding="async" />
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+}

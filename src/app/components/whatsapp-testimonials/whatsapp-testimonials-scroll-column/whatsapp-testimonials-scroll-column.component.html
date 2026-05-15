@@ -1,0 +1,22 @@
+<div class="wt-scroll-col">
+  <div class="wt-scroll-col__track" #track>
+    @for (item of loopedItems(); track item.key) {
+      <button
+        type="button"
+        class="wt-scroll-col__tile"
+        (click)="onImageClick(item.n, $event)"
+        [attr.aria-label]="'Open WhatsApp review screenshot ' + item.n"
+      >
+        <img
+          class="wt-scroll-col__img"
+          [src]="imageSrc(item.n)"
+          width="320"
+          height="640"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </button>
+    }
+  </div>
+</div>
