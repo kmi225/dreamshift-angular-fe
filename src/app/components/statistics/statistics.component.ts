@@ -27,7 +27,7 @@ export class StatisticsComponent implements OnDestroy {
       title: 'Clients supported',
       description:
         'to land their dream job in Australia',
-      iconClass: 'fa-solid fa-face-grin-beam normal-icon',
+      iconClass: 'fa-solid fa-users normal-icon',
       endVal: 200,
       countUpOptions: { suffix: '+' },
     },
@@ -35,7 +35,7 @@ export class StatisticsComponent implements OnDestroy {
       title: 'Landed interviews',
       description:
         'after obtaining DreamShift services',
-      iconClass: 'fa-solid fa-users normal-icon',
+      iconClass: 'fa-solid fa-thumbs-up normal-icon',
       endVal: 91,
       countUpOptions: { suffix: '%' },
     },

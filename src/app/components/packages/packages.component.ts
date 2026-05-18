@@ -20,7 +20,7 @@ export class PackagesComponent {
     {
     id: 1,
     title: 'Essential Package',
-    ideal: 'If you have 1 targeted job opening to apply',
+    ideal: 'If you have one specific job opening to apply for',
     price: '750',
     currency: 'AUD',
     bestSeller: false,
@@ -43,7 +43,7 @@ export class PackagesComponent {
       },
       {
         id: 5,
-        description: `Premium Consultation <b>(1 hour)</b>`
+        description: `Consultation <b>(2 Calls)</b>`
       },
       {
         id: 6,
@@ -53,25 +53,29 @@ export class PackagesComponent {
     packageExclusions: [
       {
         id: 1,
-        description: 'Job Search Strategy (To apply 50+ jobs in 10 hours)'
+        description: 'LinkedIn Banner + Free Designs'
       },
       {
         id: 2,
-        description: 'LinkedIn Banner Image + Free Designs'
+        description: 'Job Search Strategy (50+ jobs in 10hrs)'
       },
       {
         id: 3,
-        description: 'Job Application Support (2 Months - We apply for jobs on behalf)'
+        description: 'Interview Preparation Guide'
       },
       {
         id: 4,
-        description: 'Any Other Documents You Need (Service Letters / Executive Profiles)'
+        description: 'Job Application Support (2 Months)'
+      },
+      {
+        id: 5,
+        description: 'Dedicated Senior Writer'
       }
     ]
   }, {
     id: 2,
     title: 'Advanced Package',
-    ideal: 'If you want experts to create every single document & guide you',
+    ideal: 'If you want experts to handle every document & guide you',
     price: '800',
     currency: 'AUD',
     bestSeller: true,
@@ -82,7 +86,7 @@ export class PackagesComponent {
       },
       {
         id: 2,
-        description: 'Cover Letter Writing (Multiple Versions)'
+        description: 'Cover Letter Writing (3-4 Versions)'
       },
       {
         id: 3,
@@ -90,7 +94,7 @@ export class PackagesComponent {
       },
       {
         id: 4,
-        description: 'LinkedIn Banner Image + Free Designs'
+        description: 'LinkedIn Banner + Free Designs'
       },
       {
         id: 5,
@@ -98,31 +102,35 @@ export class PackagesComponent {
       },
       {
         id: 6,
-        description: `Premium Consultation <b>(2h +)</b>`
+        description: `Consultation <b>(Unlimited Calls)</b>`
       },
       {
         id: 7,
-        description: `Job Search Strategy (To apply 50+ jobs in 10 hours)`
+        description: `Job Search Strategy (50+ jobs in 10 hrs)`
+      },
+      {
+        id: 9,
+        description: 'Interview Preparation Guide (each interview)'
       },
       {
         id: 8,
-        description: 'Ongoing Support <b>(2 Months)</b>'
+        description: 'Ongoing Support <b>(until you land a job)</b>'
       }
     ],
     packageExclusions: [
       {
         id: 1,
-        description: 'Job Application Support (2 Months - We apply for jobs on behalf)'
+        description: 'Job Application Support (2 Months)'
       },
       {
         id: 2,
-        description: 'Any Other Documents You Need (Service Letters / Executive Profiles)'
+        description: 'Dedicated Senior Writer'
       }
     ]
   }, {
     id: 3,
     title: 'Ultimate Career Package',
-    ideal: 'If you want experts to create every job application document',
+    ideal: 'If you want us to apply for jobs & handle everything for you',
     price: '1500',
     currency: 'AUD',
     bestSeller: false,
@@ -133,7 +141,7 @@ export class PackagesComponent {
       },
       {
         id: 2,
-        description: 'Cover Letter Writing (Multiple Versions)'
+        description: 'Cover Letter Writing (3-4 Versions)'
       },
       {
         id: 3,
@@ -141,7 +149,7 @@ export class PackagesComponent {
       },
       {
         id: 4,
-        description: 'LinkedIn Banner Image + Free Designs'
+        description: 'LinkedIn Banner + Free Designs'
       },
       {
         id: 5,
@@ -149,23 +157,27 @@ export class PackagesComponent {
       },
       {
         id: 6,
-        description: `Premium Consultation <b>(2h +)</b>`
+        description: `Consultation <b>(Unlimited Calls)</b>`
       },
       {
         id: 7,
-        description: `Job Search Strategy (To apply 50+ jobs in 10 hours)`
+        description: `Job Search Strategy (50+ jobs in 10 hrs)`
       },
       {
         id: 8,
-        description: 'Ongoing Support <b>(2 Months)</b>'
+        description: 'Interview Preparation Guide (each interview)'
       },
       {
         id: 9,
-        description: 'Job Application Support (2 Months - We apply for jobs on behalf)'
+        description: 'Job Application Support (2 Months)'
       },
       {
         id: 10,
-        description: 'Any Other Documents You Need (Service Letters / Executive Profiles)'
+        description: 'Dedicated Senior Writer'
+      },
+      {
+        id: 11,
+        description: 'Ongoing Support <b>(until you land a job)</b>'
       }
     ],
     packageExclusions: []

@@ -16,19 +16,18 @@
   width: min(530px, calc(100vw - 2 * #{contentWidth.$content-edge-padding}));
   padding: 0;
 
-  @media (max-width: contentWidth.$media-boundary) {
+  @media (max-width: contentWidth.$content-narrow-width) {
     left: 50%;
     transform: translateX(-50%);
     bottom: 85px;
     width: 100%;
     max-width: none;
-    padding: 0 1rem;
+    padding: 0 contentWidth.$padding-width;
   }
 }
 
 .snackbar {
   pointer-events: auto;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -50,6 +49,145 @@
     .snackbar__close {
       position: absolute;
     }
+  }
+}
+
+.mobile-version {
+  display: none;
+  padding: 4px 0px;
+  justify-content: center;
+  border-radius: 14px;
+  touch-action: none;
+  cursor: grab;
+
+  &.snackbar--swiping {
+    touch-action: none;
+    cursor: grabbing;
+    animation: none;
+    transition: none;
+    user-select: none;
+  }
+
+  &:not(.snackbar--swiping) {
+    transition:
+      transform 0.25s ease-out,
+      opacity 0.25s ease-out;
+  }
+
+  .snackbar__lead {
+    justify-content:space-between;
+    width: 100%;
+    padding: 0px 5px;
+  }
+
+  .snackbar-mobile-content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 5px;
+  }
+
+  .flashing-yellow-clock {
+    border-radius: 50%;
+    color: colors.$ds-yellow-1;
+    // animation: flash 1.5s infinite;
+  }
+
+  .snackbar__title {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  // @keyframes flash {
+  //   0% { opacity: 1; }
+  //   50% { opacity: 0.5; }
+  //   100% { opacity: 1; }
+  // }
+}
+
+.snackbar-shell {
+  display: contents;
+}
+
+.snackbar-shell--exiting .snackbar {
+  transition: none;
+}
+
+.snackbar-shell--exiting-down .snackbar {
+  animation: toastExitDown 0.35s ease-in forwards;
+}
+
+.snackbar-shell--exiting-up .snackbar {
+  animation: toastExitUp 0.35s ease-in forwards;
+}
+
+.snackbar-shell--exiting-left .snackbar {
+  animation: toastExitLeft 0.35s ease-in forwards;
+}
+
+.snackbar-shell--exiting-right .snackbar {
+  animation: toastExitRight 0.35s ease-in forwards;
+}
+
+@keyframes toastExitDown {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@keyframes toastExitUp {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+}
+
+@keyframes toastExitLeft {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-48px);
+    opacity: 0;
+  }
+}
+
+@keyframes toastExitRight {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(48px);
+    opacity: 0;
+  }
+}
+
+.desktop-version {
+  display: flex;
+}
+
+@media (max-width: contentWidth.$content-narrow-width) {
+  .mobile-version {
+    display: flex;
+  }
+
+  .desktop-version {
+    display: none;
   }
 }
 

@@ -5,6 +5,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ScrollDismissibleSnackbarComponent } from './components/scroll-dismissible-snackbar/scroll-dismissible-snackbar.component';
 
 /** Same threshold as header: show move-to-top after user has scrolled past this (px). */
 const SCROLL_THRESHOLD = 100;
@@ -15,6 +16,7 @@ const SCROLL_THRESHOLD = 100;
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
+    ScrollDismissibleSnackbarComponent,
     CommonModule
   ],
   templateUrl: './app.component.html',

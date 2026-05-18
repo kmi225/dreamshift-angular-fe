@@ -1,8 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CDN_URL } from '../../constants/cdn.constants';
-import { RotatingImagesArrayComponent } from '../../components/rotating-images-array/rotating-images-array.component';
 import { ClientTestimonialContainerComponent } from '../../components/client-testimonial-container/client-testimonial-container.component';
-import { MainServicesComponent } from '../../components/main-services/main-services.component';
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { VideoTestimonialComponent } from '../../components/video-testimonials/video-testimonial.component';
 import { InterviewGuaranteeBannerComponent } from '../../components/interview-guarantee-banner/interview-guarantee-banner.component';
@@ -14,15 +12,12 @@ import { Router } from '@angular/router';
 import { CLIENT_TESTIMONIALS_ROW_1, CLIENT_TESTIMONIALS_ROW_2 } from '../../constants/client-testimonials.constants';
 import { LeadMagnetBannerComponent } from '../../components/lead-magnet-banner/lead-magnet-banner.component';
 import { StatisticsComponent } from '../../components/statistics/statistics.component';
-import { ScrollDismissibleSnackbarComponent } from '../../components/scroll-dismissible-snackbar/scroll-dismissible-snackbar.component';
 import { WhatsappTestimonialsComponent } from '../../components/whatsapp-testimonials/whatsapp-testimonials.component';
 
 @Component({
   selector: 'app-home',
   imports: [
-    RotatingImagesArrayComponent,
     ClientTestimonialContainerComponent,
-    MainServicesComponent,
     PackagesComponent,
     VideoTestimonialComponent,
     InterviewGuaranteeBannerComponent,
@@ -31,7 +26,6 @@ import { WhatsappTestimonialsComponent } from '../../components/whatsapp-testimo
     FullWidthBannerComponent,
     LeadMagnetBannerComponent,
     StatisticsComponent,
-    ScrollDismissibleSnackbarComponent,
     WhatsappTestimonialsComponent
   ],
   templateUrl: './home.component.html',

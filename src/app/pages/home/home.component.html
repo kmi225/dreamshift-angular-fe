@@ -14,9 +14,11 @@
         </div>
         <img [src]="cdnUrl + '2025/09/Add-a-heading-12.png'" alt="Land job interviews in 60 days" />
     </div>
-    <a href="#dream-jobs" class="down-arrow-container">
+    <a href="#statistics" class="down-arrow-container">
         <i class="fa-solid fa-chevron-down down-arrow"></i>
     </a>
+
+    <app-statistics id="statistics"></app-statistics>
 
     <div class="inner-container">
         <div class="process-text" id="this-is-why">
@@ -34,27 +36,16 @@
                 Explore our packages
             </button>    
         </div>
-    </div>
+    </div>  
 
     <app-interview-guarantee-banner></app-interview-guarantee-banner>
+
+    <app-whatsapp-testimonials></app-whatsapp-testimonials>
 
     <div class="process-text" id="client-testimonial-videos">
         This Is What Our Clients Said After Landing Jobs Within 60 Days
     </div>
     <app-video-testimonial></app-video-testimonial>
-
-    <div>
-        <app-client-testimonial-container [testimonials]="clientTestimonialsRow1" [animationLeft]="true" [speed]="0.4"></app-client-testimonial-container>
-        <app-client-testimonial-container [testimonials]="clientTestimonialsRow2" [animationLeft]="false" [speed]="0.4"></app-client-testimonial-container>
-    
-    </div>
-
-    <div class="process-text" id="dream-jobs">
-        Our Clients have Landed their Dream Jobs at
-    </div>
-    <app-rotating-images-array></app-rotating-images-array>
-
-    <app-main-services></app-main-services>
 
     <div class="inner-container">
         <div class="process-text" id="process">
@@ -69,10 +60,20 @@
         </div>
     </div>
 
-    <app-statistics></app-statistics>
-    <!-- <app-whatsapp-reviews></app-whatsapp-reviews> -->
-    <app-whatsapp-testimonials></app-whatsapp-testimonials>
+    <div>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow1" [animationLeft]="true" [speed]="0.4"></app-client-testimonial-container>
+        <app-client-testimonial-container [testimonials]="clientTestimonialsRow2" [animationLeft]="false" [speed]="0.4"></app-client-testimonial-container>
+    
+    </div>
 
+    <!-- <div class="process-text" id="dream-jobs">
+        Our Clients have Landed their Dream Jobs at
+    </div>
+    <app-rotating-images-array></app-rotating-images-array>
+
+    <app-main-services></app-main-services> -->
+
+    
     <app-packages id="packages"></app-packages>
 
     <app-price-testimonial></app-price-testimonial>
@@ -80,6 +81,4 @@
     <app-interview-guarantee-banner-large id="interview-guarantee-banner-large"></app-interview-guarantee-banner-large>
 
     <app-full-width-banner></app-full-width-banner>
-
-    <app-scroll-dismissible-snackbar></app-scroll-dismissible-snackbar>
 </div>

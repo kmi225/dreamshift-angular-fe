@@ -1,33 +1,80 @@
 @if (isVisible) {
-  <div class="snackbar" role="status" [attr.aria-label]="getAriaLabel()">
-    <div class="snackbar__lead">
-      <div class="snackbar__icon" aria-hidden="true">
-        <i class="fa-solid fa-clock"></i>
+  <div
+    class="snackbar-shell"
+    [class.snackbar-shell--exiting]="isExiting"
+    [class.snackbar-shell--exiting-down]="isExiting && exitDirection === 'down'"
+    [class.snackbar-shell--exiting-up]="isExiting && exitDirection === 'up'"
+    [class.snackbar-shell--exiting-left]="isExiting && exitDirection === 'left'"
+    [class.snackbar-shell--exiting-right]="isExiting && exitDirection === 'right'"
+  >
+    <div
+      class="snackbar desktop-version"
+      role="status"
+      [attr.aria-label]="getAriaLabel()"
+      (animationend)="onExitAnimationEnd($event)"
+    >
+      <div class="snackbar__lead">
+        <div class="snackbar__icon" aria-hidden="true">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="snackbar__copy">
+          <p class="snackbar__title">
+            Only
+            <span class="snackbar__title-accent">
+              {{ remainingCount }} spot{{ remainingCount === 1 ? '' : 's' }}
+            </span>
+            left for {{ currentMonth }}
+          </p>
+          <p class="snackbar__subtitle">Spots are filling up — secure yours today</p>
+        </div>
       </div>
-      <div class="snackbar__copy">
-        <p class="snackbar__title">
-          Only
-          <span class="snackbar__title-accent">
-            {{ remainingCount }} spot{{ remainingCount === 1 ? '' : 's' }}
-          </span>
-          left for {{ currentMonth }}
-        </p>
-        <p class="snackbar__subtitle">Spots are filling up — secure yours today</p>
+      <div class="snackbar__actions">
+        <button type="button" class="btn ds-primary-btn" (click)="bookNow()">
+          Book now
+        </button>
       </div>
-    </div>
-    <div class="snackbar__actions">
-      <button type="button" class="btn ds-primary-btn" (click)="bookNow()">
-        Book now
+
+      <button
+        type="button"
+        class="snackbar__close"
+        (click)="dismiss()"
+        aria-label="Close notification"
+      >
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
     </div>
 
-    <button
-      type="button"
-      class="snackbar__close"
-      (click)="dismiss()"
-      aria-label="Close notification"
+    <div
+      #mobileSnackbar
+      class="snackbar mobile-version"
+      role="status"
+      [attr.aria-label]="getAriaLabel()"
+      [class.snackbar--swiping]="isMobileSwiping"
+      [style.transform]="mobileSwipeTransform"
+      [style.opacity]="mobileSwipeOpacity"
+      (pointerdown)="onMobileSwipeStart($event)"
+      (pointermove)="onMobileSwipeMove($event)"
+      (pointerup)="onMobileSwipeEnd($event)"
+      (pointercancel)="onMobileSwipeEnd($event)"
+      (animationend)="onExitAnimationEnd($event)"
     >
-    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-  </button>
+      <div class="snackbar__lead">
+        <div class="snackbar-mobile-content">
+          <div class="flashing-yellow-clock">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <p class="snackbar__title">
+            Only
+            <span class="snackbar__title-accent">
+              {{ remainingCount }} spot{{ remainingCount === 1 ? '' : 's' }}
+            </span>
+            left for {{ currentMonth }}
+          </p>
+        </div>
+        <button type="button" class="btn ds-primary-btn" (click)="bookNow()">
+          Book now
+        </button>
+      </div>
+    </div>
   </div>
 }

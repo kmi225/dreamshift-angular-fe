@@ -4,9 +4,9 @@
 
 $wt-bg: #090a0c;
 $wt-muted: rgba(255, 255, 255, 0.62);
-$wt-card-bg: rgba(18, 19, 22, 0.94);
-$wt-card-border: rgba(255, 255, 255, 0.1);
-$wt-stage-height: clamp(520px, 72vh, 760px);
+$wt-card-bg: colors.$ds-purple-1;
+$wt-card-border: colors.$ds-yellow-1;
+$wt-stage-height: clamp(520px, 90vh, 760px);
 
 %wt-focus {
   outline: 2px solid colors.$ds-yellow-1;
@@ -59,7 +59,7 @@ $wt-stage-height: clamp(520px, 72vh, 760px);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(100px);
 }
 
 .wt__badge {

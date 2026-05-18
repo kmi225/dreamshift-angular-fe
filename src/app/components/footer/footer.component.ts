@@ -62,4 +62,8 @@ export class FooterComponent implements OnInit, OnDestroy {
         break;
     }
   }
+
+  navigateToTallyForm() {
+    window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
+  }
 }
