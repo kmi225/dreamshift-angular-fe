@@ -35,7 +35,7 @@ export class StatisticsComponent implements OnDestroy {
       title: 'Landed interviews',
       description:
         'after obtaining DreamShift services',
-      iconClass: 'fa-solid fa-thumbs-up normal-icon',
+      iconClass: 'fa-solid fa-crosshairs normal-icon',
       endVal: 91,
       countUpOptions: { suffix: '%' },
     },

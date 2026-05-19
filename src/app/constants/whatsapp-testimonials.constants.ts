@@ -11,7 +11,7 @@ export const WHATSAPP_TESTIMONIALS_COLUMN_CONFIGS: WhatsappTestimonialsColumnCon
 ];
 
 /** Numbered PNGs in `public/images/whatsapp-reviews` (1.png … 31.png). */
-export const WHATSAPP_REVIEW_IMAGE_COUNT = 31;
+export const WHATSAPP_REVIEW_IMAGE_COUNT = 32;
 
 export const WHATSAPP_REVIEW_IMAGES_BASE = `${BASE_HREF}images/whatsapp-reviews/`;
 
