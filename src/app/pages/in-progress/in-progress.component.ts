@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CDN_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-in-progress',
@@ -8,5 +7,4 @@ import { CDN_URL } from '../../constants/cdn.constants';
   styleUrl: './in-progress.component.scss'
 })
 export class InProgressComponent {
-  readonly cdnUrl = CDN_URL;
 }

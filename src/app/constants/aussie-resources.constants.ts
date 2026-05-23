@@ -1,26 +1,27 @@
 import { AussieResource } from '../models/aussie-resources.model';
 import { ROUTES } from './routes.constants';
 import { CDN_URL } from './cdn.constants';
+import { BASE_HREF } from './deployment.constants';
 
 export const PRIMARY_AUSSIE_RESOURCES: AussieResource[] = [
     {
       id: 1,  
       title: 'Online Job Search',
       description: 'Action plan + messaging templates for online job search.',
-      image: CDN_URL + '2025/09/JobSearch.svg',
+      image: BASE_HREF + 'images/aussie-toolkit/JobSearch.svg',
       link: ROUTES.JOB_SEARCH
     }, {
       id: 2,  
       title: 'Top Australian Recruiters',
       description: 'Find the top recruiters in Australia by industry and region.',
-      image: CDN_URL + '2025/09/Recruiters.svg',
+      image: BASE_HREF + 'images/aussie-toolkit/Recruiters.svg',
       link: ROUTES.RECRUITERS,
     },
     {
       id: 3,  
       title: 'The Connection Bank',
       description: 'Find and download the connection bank template to track your connections.',
-      image: CDN_URL + '2025/09/ConnectionBank.svg',
+      image: BASE_HREF + 'images/aussie-toolkit/ConnectionBank.svg',
       link: ROUTES.CONNECTION_BANK
     }
 ]
@@ -30,14 +31,14 @@ export const LAND_JOBS_FASTER_RESOURCES: AussieResource[] = [
       id: 1,  
       title: 'Upskilling Resources',
       description: 'Explore online learning and Australian upskilling opportunities.',
-      image: CDN_URL + '2025/09/upskill.svg',
+      image: BASE_HREF + 'images/aussie-toolkit/upskillingResources.svg',
       link: ROUTES.UPSKILLING_RESOURCES
     },
     {
       id: 2,  
       title: 'Networking Platforms',
       description: 'Find the best networking platforms to build your career connections.',
-      image: CDN_URL + '2025/09/Networking.svg',
+      image: BASE_HREF + 'images/aussie-toolkit/Networking.svg',
       link: ROUTES.EVENTS_AND_NETWORKING
     }
 ]

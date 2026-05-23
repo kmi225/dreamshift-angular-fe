@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, PLATFORM_ID, ViewChild, inject } from '@angular/core';
-import { CDN_URL } from '../../constants/cdn.constants';
 import { CompaniesListItem } from '../../models/companies-list-item.model';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { COMPANIES_LIST } from '../../constants/companies-list.constants';

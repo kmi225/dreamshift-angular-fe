@@ -1,4 +1,3 @@
-import { CDN_URL } from "./cdn.constants";
 import { BASE_HREF } from "./deployment.constants";
 import { ClientTestimonial } from "../models/client-testimonial.model";
 
@@ -8,7 +7,7 @@ export const CLIENT_TESTIMONIALS_ROW_1: ClientTestimonial[] = [
     name: 'Yasiru Wijayasiri',
     position: 'Business Analyst<br>Peoplecare Health Insurance',
     testimonial: `My 1st Job in Australia 🇦🇺 as a Business Analyst, was possible thanks to DreamShift`,
-    imageURL: CDN_URL + '2025/09/1738493168583.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/yasiru-wijayasiri.jpg',
     linkedinURL: 'https://www.linkedin.com/in/yasiru-wijayasiri-b13019165/'
   },
   {
@@ -16,7 +15,7 @@ export const CLIENT_TESTIMONIALS_ROW_1: ClientTestimonial[] = [
     name: 'Vishnukanth Sriskantharaj',
     position: 'Team Lead - Vehicle Sales Smartsgroup Corp',
     testimonial: `I got Interviews in Australia 🇦🇺 within 2 Weeks, thanks to the Superb Job Strategy by DreamShift`,
-    imageURL: CDN_URL + '2025/09/1738899364004.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/vishnukanth-sriskantharaj.jpg',
     linkedinURL: 'https://www.linkedin.com/in/vishnukanth-sriskantharaj/'
   },
   {
@@ -24,7 +23,7 @@ export const CLIENT_TESTIMONIALS_ROW_1: ClientTestimonial[] = [
     name: 'Shihan Wahid',
     position: 'Sales & Operations Leader',
     testimonial: `Getting a Job in Australia 🇦🇺 through Skill Migration Visa was easier thanks to DreamShift's Resume Writing & LinkedIn Service`,
-    imageURL: CDN_URL + '2025/09/ha5OuKoL_400x400.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/shihan-wahid.jpg',
     linkedinURL: 'https://www.linkedin.com/in/shihan-wahid'
   },
   {
@@ -32,7 +31,7 @@ export const CLIENT_TESTIMONIALS_ROW_1: ClientTestimonial[] = [
     name: 'Prabhath Karunarathne',
     position: 'Sales Marketing Manager',
     testimonial: `What have you done to my LinkedIn Profile? I'm getting 1 or 2 calls each week from recruiters now!`,
-    imageURL: CDN_URL + '2025/01/DreamShift-Client-2-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/prabhath-karunarathne.jpg',
     linkedinURL: 'https://www.linkedin.com/in/prabhath-karunarathne-01a170137/'
   },
   {
@@ -40,7 +39,7 @@ export const CLIENT_TESTIMONIALS_ROW_1: ClientTestimonial[] = [
     name: 'Dinesh Dayalan',
     position: 'Senior Relationship Manager',
     testimonial: `You guys played a massive role in helping me land a job at New Zealand's 🇳🇿 Largest homegrown bank`,
-    imageURL: CDN_URL + '2025/01/DreamShift-Client-6-Reviews-Testimonials-Best-Resume-CV-Writing-Service-with-60-Day-Interview-Guarantee-in-Sri-Lanka.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/dinesh-dayalan.jpg',
     linkedinURL: 'https://www.linkedin.com/in/dinesh-dayalan/'
   },
   {
@@ -67,7 +66,7 @@ export const CLIENT_TESTIMONIALS_ROW_2: ClientTestimonial[] = [
     name: 'Ashen G',
     position: 'Rehabilitation Counselor | Sydney, Australia',
     testimonial: `I applied with your CV and a Senior Manager has checked my LinkedIn optimized by you - I got the job from the 1st interview itself`,
-    imageURL: CDN_URL + '2025/10/1758799744347.jpeg',
+    imageURL: BASE_HREF + 'images/client-testimonials/ashen-g.jpeg',
     linkedinURL: 'https://www.linkedin.com/in/ashen-gunasekara-355718216/'
   },
   {
@@ -75,7 +74,7 @@ export const CLIENT_TESTIMONIALS_ROW_2: ClientTestimonial[] = [
     name: 'Kasun D',
     position: 'E-commerce Specialist | Specsavers, Melbourne',
     testimonial: `I started seeing 'Your application has been viewed' messages on a daily basis, after using your CV`,
-    imageURL: CDN_URL + '2025/10/1724725041117-1.jpeg',
+    imageURL: BASE_HREF + 'images/client-testimonials/kasun-d.jpeg',
     linkedinURL: 'https://www.linkedin.com/in/kasun-dehigaspitiyage/'
   },
   {
@@ -83,7 +82,7 @@ export const CLIENT_TESTIMONIALS_ROW_2: ClientTestimonial[] = [
     name: 'Happy Customer',
     position: 'Purchasing Officer | Larnec',
     testimonial: `I got multiple interviews within a month after using DreamShift's CV and landed my job in Victoria`,
-    imageURL: CDN_URL + '2025/09/Untitled-design-26.png',
+    imageURL: BASE_HREF + 'images/client-testimonials/happy-customer.png',
     linkedinURL: ''
   },
   {
@@ -91,7 +90,7 @@ export const CLIENT_TESTIMONIALS_ROW_2: ClientTestimonial[] = [
     name: 'Madhushika Shankaralingam',
     position: 'Masters Student | Digital Marketing Specialist',
     testimonial: `I got 8 Interviews within 4 weeks just after migrating. All in Marketing Field & applied using Indeed`,
-    imageURL: CDN_URL + '2025/10/c13dbcbe-42aa-418c-a3f7-d2c18f729757.jpg',
+    imageURL: BASE_HREF + 'images/client-testimonials/madhushika-shankaralingam.jpg',
     linkedinURL: 'https://www.linkedin.com/in/madhushika-shankaralingam'
   },
   {

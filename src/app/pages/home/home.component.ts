@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CDN_URL } from '../../constants/cdn.constants';
 import { ClientTestimonialContainerComponent } from '../../components/client-testimonial-container/client-testimonial-container.component';
 import { PackagesComponent } from '../../components/packages/packages.component';
 import { VideoTestimonialComponent } from '../../components/video-testimonials/video-testimonial.component';
@@ -32,7 +31,6 @@ import { WhatsappTestimonialsComponent } from '../../components/whatsapp-testimo
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  readonly cdnUrl = CDN_URL;
   private readonly router = inject(Router);
   public readonly clientTestimonialsRow1 = CLIENT_TESTIMONIALS_ROW_1;
   public readonly clientTestimonialsRow2 = CLIENT_TESTIMONIALS_ROW_2;

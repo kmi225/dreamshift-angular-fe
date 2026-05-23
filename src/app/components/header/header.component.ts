@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
-import { CDN_URL, TALLY_FORM_URL } from '../../constants/cdn.constants';
+import { TALLY_FORM_URL } from '../../constants/cdn.constants';
 import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
@@ -17,7 +17,6 @@ import { ROUTES } from '../../constants/routes.constants';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  readonly cdnUrl = CDN_URL;
   private readonly router = inject(Router);
   private offcanvasService = inject(NgbOffcanvas);
   private lastScrollY = 0;
