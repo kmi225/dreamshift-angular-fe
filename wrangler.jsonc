@@ -1,5 +1,5 @@
 {
-  "name": "dreamshift-angular-fe-qa",
+  "name": "dreamshift-angular-fe-prod",
   "compatibility_date": "2025-05-23",
   "assets": {
     "directory": "./dist/dreamshift-angular-fe/browser",
