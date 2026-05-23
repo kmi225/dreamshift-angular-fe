@@ -1,23 +1,23 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
-  // Blog post pages have dynamic :slug — render on-demand (slugs come from API)
+  // Dynamic slugs and runtime API data — client-rendered; SPA fallback via _redirects
   {
     path: 'blog-post/:slug',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Client,
   },
-  // Connection bank uses Handsontable (browser-only APIs); skip prerender
+  // Handsontable requires browser-only APIs
   {
     path: 'aussie-toolkit/connection-bank',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Client,
   },
-  // Blog list fetches from external API at runtime; server-render on request
+  // Blog list fetches from external API at runtime
   {
     path: 'blog',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Client,
   },
   {
     path: '**',
-    renderMode: RenderMode.Prerender
-  }
+    renderMode: RenderMode.Prerender,
+  },
 ];
