@@ -1,5 +1,4 @@
 {
-  // Assets-only Worker (no "main" script). Use `wrangler deploy`, not `versions upload`.
   "name": "dreamshift-angular-fe",
   "compatibility_date": "2025-05-23",
   "assets": {
