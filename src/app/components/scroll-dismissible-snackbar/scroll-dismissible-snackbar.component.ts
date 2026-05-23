@@ -10,6 +10,7 @@ import {
   inject,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { TALLY_FORM_URL } from '../../constants/cdn.constants';
 
 type SnackbarExitDirection = 'down' | 'up' | 'left' | 'right';
 
@@ -221,7 +222,7 @@ export class ScrollDismissibleSnackbarComponent implements OnInit, OnDestroy {
     }
     this.dismiss();
 
-    window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
+    window.open(TALLY_FORM_URL, '_blank', 'noopener,noreferrer');
     
   }
 

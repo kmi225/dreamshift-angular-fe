@@ -2,6 +2,7 @@ import { Component, HostListener, Input, OnInit, PLATFORM_ID, inject } from '@an
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { ROUTES } from '../../constants/routes.constants';
+import { TALLY_FORM_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-full-width-banner',
@@ -99,7 +100,7 @@ export class FullWidthBannerComponent implements OnInit {
   onClickNavigationButton(): void {
     switch (this.mode) {
       case 'home':
-        window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
+        window.open(TALLY_FORM_URL, '_blank', 'noopener,noreferrer');
         break;
       default:
         this.router.navigate([ROUTES.HOME]);

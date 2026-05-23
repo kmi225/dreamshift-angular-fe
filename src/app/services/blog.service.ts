@@ -12,7 +12,7 @@ export class BlogService {
 
     private readonly http = inject(HttpClient);
     private readonly DREAMSHIFT_API_URL = 'https://dreamshift.net/wp-json/wp/v2';
-    private readonly DREAMSHIFT_API_URL_FAST_API = 'https://dreamshift.net/fast-api';
+    private readonly DREAMSHIFT_API_URL_FAST_API = 'https://wp.dreamshift.net/fast-api';
 
     getPosts(page: number = 1, limit: number = 9, category?: string, search?: string) {
         let params = new HttpParams()

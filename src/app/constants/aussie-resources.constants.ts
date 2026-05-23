@@ -1,25 +1,26 @@
 import { AussieResource } from '../models/aussie-resources.model';
 import { ROUTES } from './routes.constants';
+import { CDN_URL } from './cdn.constants';
 
 export const PRIMARY_AUSSIE_RESOURCES: AussieResource[] = [
     {
       id: 1,  
       title: 'Online Job Search',
       description: 'Action plan + messaging templates for online job search.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/JobSearch.svg',
+      image: CDN_URL + '2025/09/JobSearch.svg',
       link: ROUTES.JOB_SEARCH
     }, {
       id: 2,  
       title: 'Top Australian Recruiters',
       description: 'Find the top recruiters in Australia by industry and region.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/Recruiters.svg',
+      image: CDN_URL + '2025/09/Recruiters.svg',
       link: ROUTES.RECRUITERS,
     },
     {
       id: 3,  
       title: 'The Connection Bank',
       description: 'Find and download the connection bank template to track your connections.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/ConnectionBank.svg',
+      image: CDN_URL + '2025/09/ConnectionBank.svg',
       link: ROUTES.CONNECTION_BANK
     }
 ]
@@ -29,14 +30,14 @@ export const LAND_JOBS_FASTER_RESOURCES: AussieResource[] = [
       id: 1,  
       title: 'Upskilling Resources',
       description: 'Explore online learning and Australian upskilling opportunities.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/upskill.svg',
+      image: CDN_URL + '2025/09/upskill.svg',
       link: ROUTES.UPSKILLING_RESOURCES
     },
     {
       id: 2,  
       title: 'Networking Platforms',
       description: 'Find the best networking platforms to build your career connections.',
-      image: 'https://dreamshift.net/wp-content/uploads/2025/09/Networking.svg',
+      image: CDN_URL + '2025/09/Networking.svg',
       link: ROUTES.EVENTS_AND_NETWORKING
     }
 ]
@@ -47,7 +48,7 @@ export const ADDITIONAL_EXTERNAL_RESOURCES: AussieResource[] = [
       title: 'Volunteer',
       description: 'Gain local experience and connect with Aussie communities.',
       icon: 'fa-heart',
-      link: 'https://dreamshift.net/volunteer/'
+      link: 'https://www.volunteer.com.au/'
     },
     {
       id: 2,  

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { NgbOffcanvas, NgbOffcanvasModule } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
-import { CDN_URL } from '../../constants/cdn.constants';
+import { CDN_URL, TALLY_FORM_URL } from '../../constants/cdn.constants';
 import { ROUTES } from '../../constants/routes.constants';
 
 @Component({
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public navigateToContact() {
-    window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
+    window.open(TALLY_FORM_URL, '_blank', 'noopener,noreferrer');
   }
 
   public openMenu(content: TemplateRef<unknown>) {

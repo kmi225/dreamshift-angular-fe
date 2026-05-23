@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ROUTES } from '../../constants/routes.constants';
+import { TALLY_FORM_URL } from '../../constants/cdn.constants';
 
 @Component({
   selector: 'app-footer',
@@ -64,6 +65,6 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   navigateToTallyForm() {
-    window.open('https://start.dreamshift.net', '_blank', 'noopener,noreferrer');
+    window.open(TALLY_FORM_URL, '_blank', 'noopener,noreferrer');
   }
 }
