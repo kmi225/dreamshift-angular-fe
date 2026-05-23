@@ -1,0 +1,8 @@
+{
+  "name": "dreamshift-angular-fe",
+  "compatibility_date": "2025-05-23",
+  "assets": {
+    "directory": "./dist/dreamshift-angular-fe/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
